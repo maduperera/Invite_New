@@ -21,7 +21,8 @@
     // Fill in with your Parse and Twitter credentials. Don't forget to add your
     // Facebook id in Info.plist:
     // ****************************************************************************
-    [Parse setApplicationId:@"piygEBwB6dJzmZbCsdBm8KDfcYa2ZdOYrz8zUykk" clientKey:@"aBPJ9tzbL1FZJhXLWjvlQnu918cGXPxVyzqbVOXU"];
+    [Parse setApplicationId:@"piygEBwB6dJzmZbCsdBm8KDfcYa2ZdOYrz8zUykk"
+                  clientKey:@"aBPJ9tzbL1FZJhXLWjvlQnu918cGXPxVyzqbVOXU"];
     [PFFacebookUtils initializeFacebook];
     [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];
     
