@@ -2,8 +2,8 @@
 //  InviteTests.m
 //  InviteTests
 //
-//  Created by Madusha Perera on 3/18/14.
-//  Copyright (c) 2014 Madusha Perera. All rights reserved.
+//  Created by Dhammini Fernando on 3/20/14.
+//  Copyright (c) 2014 Dhammini Fernando. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

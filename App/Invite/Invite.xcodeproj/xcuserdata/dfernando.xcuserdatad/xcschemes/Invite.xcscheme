@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "870799E218D84059002599C4"
+               BlueprintIdentifier = "BED0934918DADA49002F2954"
                BuildableName = "Invite.app"
                BlueprintName = "Invite"
                ReferencedContainer = "container:Invite.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "87079A0618D8405A002599C4"
+               BlueprintIdentifier = "BED0936918DADA4A002F2954"
                BuildableName = "InviteTests.xctest"
                BlueprintName = "InviteTests"
                ReferencedContainer = "container:Invite.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "870799E218D84059002599C4"
+            BlueprintIdentifier = "BED0934918DADA49002F2954"
             BuildableName = "Invite.app"
             BlueprintName = "Invite"
             ReferencedContainer = "container:Invite.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "870799E218D84059002599C4"
+            BlueprintIdentifier = "BED0934918DADA49002F2954"
             BuildableName = "Invite.app"
             BlueprintName = "Invite"
             ReferencedContainer = "container:Invite.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "870799E218D84059002599C4"
+            BlueprintIdentifier = "BED0934918DADA49002F2954"
             BuildableName = "Invite.app"
             BlueprintName = "Invite"
             ReferencedContainer = "container:Invite.xcodeproj">
