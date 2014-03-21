@@ -16,7 +16,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    [Parse setApplicationId:@"IdFsA0nKPebysSeM04wZWNjz9egivEnDwO9yKJsQ"
+                  clientKey:@"oTzmobG2MqJRLGegC472PGjpxBcSzF35f5N3sqVe"];
+    
+    
+
+    
+    //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    // Override point for customization after application launch.
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];

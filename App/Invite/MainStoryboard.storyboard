@@ -33,11 +33,11 @@
             </objects>
             <point key="canvasLocation" x="1062" y="-1034"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Invite Tab Bar-->
         <scene sceneID="Nyf-pl-QE8">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="YzB-eb-Qrw" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                <tabBarController definesPresentationContext="YES" id="YzB-eb-Qrw" customClass="InviteTabBar" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="i0W-5i-lID">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="536" y="-1034"/>
         </scene>
-        <!--View Controller - Compose-->
+        <!--Invite Composer - Compose-->
         <scene sceneID="MKd-oI-AYX">
             <objects>
-                <viewController id="eZr-em-nEg" sceneMemberID="viewController">
+                <viewController id="eZr-em-nEg" customClass="InviteComposer" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ncg-5f-8VG"/>
                         <viewControllerLayoutGuide type="bottom" id="mbw-Rh-Cwn"/>
@@ -86,7 +86,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Compose" id="4Sx-KU-wdn"/>
+                    <navigationItem key="navigationItem" title="Compose" id="4Sx-KU-wdn">
+                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="gBo-AH-kLm">
+                            <connections>
+                                <action selector="signOut:" destination="eZr-em-nEg" id="KtO-Cd-qnA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8V-Tj-rvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

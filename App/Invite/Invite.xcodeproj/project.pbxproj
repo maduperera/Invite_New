@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16418DC156B008FE5CA /* Parse.framework */; };
+		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
+		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
+		875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16A18DC15AE008FE5CA /* CFNetwork.framework */; };
+		875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16C18DC15C0008FE5CA /* CoreLocation.framework */; };
+		875CB16F18DC15D6008FE5CA /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16E18DC15D6008FE5CA /* libz.1.2.5.dylib */; };
+		875CB17118DC15DD008FE5CA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17018DC15DD008FE5CA /* MobileCoreServices.framework */; };
+		875CB17318DC15E5008FE5CA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17218DC15E4008FE5CA /* Security.framework */; };
+		875CB17518DC15EF008FE5CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17418DC15EF008FE5CA /* StoreKit.framework */; };
+		875CB17718DC15FB008FE5CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17618DC15FB008FE5CA /* SystemConfiguration.framework */; };
+		875CB17918DC1619008FE5CA /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17818DC1619008FE5CA /* Accounts.framework */; };
+		875CB17B18DC1624008FE5CA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17A18DC1624008FE5CA /* AdSupport.framework */; };
+		875CB17D18DC164B008FE5CA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17C18DC164B008FE5CA /* libsqlite3.dylib */; };
+		875CB17F18DC1655008FE5CA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB17E18DC1655008FE5CA /* Social.framework */; };
+		875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 875CB18318DC1876008FE5CA /* InviteTabBar.m */; };
+		877C764C18DC2E86004124CB /* InviteComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C764B18DC2E86004124CB /* InviteComposer.m */; };
+		877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C764E18DC343E004124CB /* InviteLoginViewController.m */; };
+		877C765318DC36E5004124CB /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 877C765218DC36E5004124CB /* invite.png */; };
+		877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C765518DC375C004124CB /* InviteSignupViewController.m */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -40,6 +59,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		875CB16418DC156B008FE5CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../Parse.framework; sourceTree = "<group>"; };
+		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		875CB16A18DC15AE008FE5CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		875CB16C18DC15C0008FE5CA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		875CB16E18DC15D6008FE5CA /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		875CB17018DC15DD008FE5CA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		875CB17218DC15E4008FE5CA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		875CB17418DC15EF008FE5CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		875CB17618DC15FB008FE5CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		875CB17818DC1619008FE5CA /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		875CB17A18DC1624008FE5CA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		875CB17C18DC164B008FE5CA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		875CB17E18DC1655008FE5CA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		875CB18218DC1876008FE5CA /* InviteTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteTabBar.h; sourceTree = SOURCE_ROOT; };
+		875CB18318DC1876008FE5CA /* InviteTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteTabBar.m; sourceTree = SOURCE_ROOT; };
+		877C764A18DC2E86004124CB /* InviteComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteComposer.h; sourceTree = "<group>"; };
+		877C764B18DC2E86004124CB /* InviteComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteComposer.m; sourceTree = "<group>"; };
+		877C764D18DC343E004124CB /* InviteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteLoginViewController.h; sourceTree = "<group>"; };
+		877C764E18DC343E004124CB /* InviteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteLoginViewController.m; sourceTree = "<group>"; };
+		877C765218DC36E5004124CB /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invite.png; path = ../../../../invite.png; sourceTree = "<group>"; };
+		877C765418DC375C004124CB /* InviteSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteSignupViewController.h; sourceTree = "<group>"; };
+		877C765518DC375C004124CB /* InviteSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteSignupViewController.m; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,10 +115,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
-				BED0935418DADA49002F2954 /* CoreData.framework in Frameworks */,
+				875CB17F18DC1655008FE5CA /* Social.framework in Frameworks */,
+				875CB17D18DC164B008FE5CA /* libsqlite3.dylib in Frameworks */,
+				875CB17B18DC1624008FE5CA /* AdSupport.framework in Frameworks */,
+				875CB17918DC1619008FE5CA /* Accounts.framework in Frameworks */,
 				BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */,
+				875CB17718DC15FB008FE5CA /* SystemConfiguration.framework in Frameworks */,
+				875CB17518DC15EF008FE5CA /* StoreKit.framework in Frameworks */,
+				875CB17318DC15E5008FE5CA /* Security.framework in Frameworks */,
+				875CB17118DC15DD008FE5CA /* MobileCoreServices.framework in Frameworks */,
+				875CB16F18DC15D6008FE5CA /* libz.1.2.5.dylib in Frameworks */,
+				875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */,
+				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
+				875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */,
+				875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */,
+				875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */,
+				BED0935418DADA49002F2954 /* CoreData.framework in Frameworks */,
 				BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */,
+				875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +172,19 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				875CB17E18DC1655008FE5CA /* Social.framework */,
+				875CB17C18DC164B008FE5CA /* libsqlite3.dylib */,
+				875CB17A18DC1624008FE5CA /* AdSupport.framework */,
+				875CB17818DC1619008FE5CA /* Accounts.framework */,
+				875CB17618DC15FB008FE5CA /* SystemConfiguration.framework */,
+				875CB17418DC15EF008FE5CA /* StoreKit.framework */,
+				875CB17218DC15E4008FE5CA /* Security.framework */,
+				875CB17018DC15DD008FE5CA /* MobileCoreServices.framework */,
+				875CB16E18DC15D6008FE5CA /* libz.1.2.5.dylib */,
+				875CB16C18DC15C0008FE5CA /* CoreLocation.framework */,
+				875CB16A18DC15AE008FE5CA /* CFNetwork.framework */,
+				875CB16818DC15A6008FE5CA /* AudioToolbox.framework */,
+				875CB16618DC159E008FE5CA /* QuartzCore.framework */,
 				BED0934D18DADA49002F2954 /* Foundation.framework */,
 				BED0934F18DADA49002F2954 /* CoreGraphics.framework */,
 				BED0935118DADA49002F2954 /* UIKit.framework */,
@@ -128,6 +197,14 @@
 		BED0935518DADA49002F2954 /* Invite */ = {
 			isa = PBXGroup;
 			children = (
+				877C764A18DC2E86004124CB /* InviteComposer.h */,
+				877C764B18DC2E86004124CB /* InviteComposer.m */,
+				875CB18318DC1876008FE5CA /* InviteTabBar.m */,
+				875CB18218DC1876008FE5CA /* InviteTabBar.h */,
+				877C765418DC375C004124CB /* InviteSignupViewController.h */,
+				877C765518DC375C004124CB /* InviteSignupViewController.m */,
+				877C764D18DC343E004124CB /* InviteLoginViewController.h */,
+				877C764E18DC343E004124CB /* InviteLoginViewController.m */,
 				BED0938618DADAC6002F2954 /* InviteCommon */,
 				BED0938518DADA9B002F2954 /* Invitebox */,
 				BED0935E18DADA49002F2954 /* AppDelegate.h */,
@@ -135,6 +212,7 @@
 				BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */,
 				BED0936418DADA49002F2954 /* Images.xcassets */,
 				BED0936118DADA49002F2954 /* Invite.xcdatamodeld */,
+				875CB16418DC156B008FE5CA /* Parse.framework */,
 				BED0935618DADA49002F2954 /* Supporting Files */,
 			);
 			path = Invite;
@@ -143,6 +221,7 @@
 		BED0935618DADA49002F2954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				877C765218DC36E5004124CB /* invite.png */,
 				BED0935718DADA49002F2954 /* Invite-Info.plist */,
 				BED0935818DADA49002F2954 /* InfoPlist.strings */,
 				BED0935B18DADA49002F2954 /* main.m */,
@@ -269,6 +348,7 @@
 				BED0938818DADB31002F2954 /* TableCell.xib in Resources */,
 				BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */,
 				BED0936518DADA49002F2954 /* Images.xcassets in Resources */,
+				877C765318DC36E5004124CB /* invite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +369,14 @@
 			files = (
 				BED0936018DADA49002F2954 /* AppDelegate.m in Sources */,
 				BED0935C18DADA49002F2954 /* main.m in Sources */,
+				877C764C18DC2E86004124CB /* InviteComposer.m in Sources */,
 				BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */,
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
+				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
+				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
+				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +495,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/maduperera/Desktop,
+					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
 				INFOPLIST_FILE = "Invite/Invite-Info.plist";
@@ -424,6 +513,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/maduperera/Desktop,
+					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
 				INFOPLIST_FILE = "Invite/Invite-Info.plist";
@@ -493,6 +587,7 @@
 				BED0937E18DADA4A002F2954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BED0937F18DADA4A002F2954 /* Build configuration list for PBXNativeTarget "InviteTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +596,7 @@
 				BED0938118DADA4A002F2954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
