@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16418DC156B008FE5CA /* Parse.framework */; };
 		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
 		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
@@ -26,6 +27,13 @@
 		877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C764E18DC343E004124CB /* InviteLoginViewController.m */; };
 		877C765318DC36E5004124CB /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 877C765218DC36E5004124CB /* invite.png */; };
 		877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C765518DC375C004124CB /* InviteSignupViewController.m */; };
+=======
+		BE56DFB618DC15A200D23A3F /* shoppingButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */; };
+		BE56DFB818DC169700D23A3F /* navigationButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */; };
+		BE56DFBA18DC16AD00D23A3F /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */; };
+		BE56DFBE18DC1C9400D23A3F /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */; };
+		BE56DFC018DC2E6700D23A3F /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */; };
+>>>>>>> FETCH_HEAD
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -59,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		875CB16418DC156B008FE5CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../Parse.framework; sourceTree = "<group>"; };
 		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -82,6 +91,13 @@
 		877C765218DC36E5004124CB /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invite.png; path = ../../../../invite.png; sourceTree = "<group>"; };
 		877C765418DC375C004124CB /* InviteSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteSignupViewController.h; sourceTree = "<group>"; };
 		877C765518DC375C004124CB /* InviteSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteSignupViewController.m; sourceTree = "<group>"; };
+=======
+		BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppingButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = navigationButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scanButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callButtonImage.png; sourceTree = "<group>"; };
+		BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = messageButtonImage.jpeg; sourceTree = "<group>"; };
+>>>>>>> FETCH_HEAD
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +166,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE56DFAC18DC10C400D23A3F /* InviteImages */ = {
+			isa = PBXGroup;
+			children = (
+				BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */,
+				BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */,
+				BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */,
+				BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */,
+				BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */,
+			);
+			name = InviteImages;
+			sourceTree = "<group>";
+		};
 		BED0934118DADA49002F2954 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +225,7 @@
 		BED0935518DADA49002F2954 /* Invite */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				877C764A18DC2E86004124CB /* InviteComposer.h */,
 				877C764B18DC2E86004124CB /* InviteComposer.m */,
 				875CB18318DC1876008FE5CA /* InviteTabBar.m */,
@@ -205,6 +234,9 @@
 				877C765518DC375C004124CB /* InviteSignupViewController.m */,
 				877C764D18DC343E004124CB /* InviteLoginViewController.h */,
 				877C764E18DC343E004124CB /* InviteLoginViewController.m */,
+=======
+				BE56DFAC18DC10C400D23A3F /* InviteImages */,
+>>>>>>> FETCH_HEAD
 				BED0938618DADAC6002F2954 /* InviteCommon */,
 				BED0938518DADA9B002F2954 /* Invitebox */,
 				BED0935E18DADA49002F2954 /* AppDelegate.h */,
@@ -344,9 +376,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE56DFC018DC2E6700D23A3F /* messageButtonImage.jpeg in Resources */,
 				BED0935A18DADA49002F2954 /* InfoPlist.strings in Resources */,
+				BE56DFBA18DC16AD00D23A3F /* scanButtonImage.jpeg in Resources */,
 				BED0938818DADB31002F2954 /* TableCell.xib in Resources */,
+				BE56DFB618DC15A200D23A3F /* shoppingButtonImage.jpeg in Resources */,
+				BE56DFB818DC169700D23A3F /* navigationButtonImage.jpeg in Resources */,
 				BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */,
+				BE56DFBE18DC1C9400D23A3F /* callButtonImage.png in Resources */,
 				BED0936518DADA49002F2954 /* Images.xcassets in Resources */,
 				877C765318DC36E5004124CB /* invite.png in Resources */,
 			);

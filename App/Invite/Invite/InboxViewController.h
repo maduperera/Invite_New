@@ -10,4 +10,6 @@
 
 @interface InboxViewController : UITableViewController
 
+@property(nonatomic, strong) NSArray *tableData;
+
 @end
