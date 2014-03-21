@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TableCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *name;
 
+-(IBAction)buttonClick:(id)sender;
 
 
 @end

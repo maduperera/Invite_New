@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE56DFB618DC15A200D23A3F /* shoppingButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */; };
+		BE56DFB818DC169700D23A3F /* navigationButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */; };
+		BE56DFBA18DC16AD00D23A3F /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */; };
+		BE56DFBE18DC1C9400D23A3F /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */; };
+		BE56DFC018DC2E6700D23A3F /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -40,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppingButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = navigationButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scanButtonImage.jpeg; sourceTree = "<group>"; };
+		BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callButtonImage.png; sourceTree = "<group>"; };
+		BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = messageButtonImage.jpeg; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE56DFAC18DC10C400D23A3F /* InviteImages */ = {
+			isa = PBXGroup;
+			children = (
+				BE56DFBF18DC2E6700D23A3F /* messageButtonImage.jpeg */,
+				BE56DFB918DC16AD00D23A3F /* scanButtonImage.jpeg */,
+				BE56DFBD18DC1C9400D23A3F /* callButtonImage.png */,
+				BE56DFB718DC169700D23A3F /* navigationButtonImage.jpeg */,
+				BE56DFB518DC15A200D23A3F /* shoppingButtonImage.jpeg */,
+			);
+			name = InviteImages;
+			sourceTree = "<group>";
+		};
 		BED0934118DADA49002F2954 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +150,7 @@
 		BED0935518DADA49002F2954 /* Invite */ = {
 			isa = PBXGroup;
 			children = (
+				BE56DFAC18DC10C400D23A3F /* InviteImages */,
 				BED0938618DADAC6002F2954 /* InviteCommon */,
 				BED0938518DADA9B002F2954 /* Invitebox */,
 				BED0935E18DADA49002F2954 /* AppDelegate.h */,
@@ -265,9 +288,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE56DFC018DC2E6700D23A3F /* messageButtonImage.jpeg in Resources */,
 				BED0935A18DADA49002F2954 /* InfoPlist.strings in Resources */,
+				BE56DFBA18DC16AD00D23A3F /* scanButtonImage.jpeg in Resources */,
 				BED0938818DADB31002F2954 /* TableCell.xib in Resources */,
+				BE56DFB618DC15A200D23A3F /* shoppingButtonImage.jpeg in Resources */,
+				BE56DFB818DC169700D23A3F /* navigationButtonImage.jpeg in Resources */,
 				BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */,
+				BE56DFBE18DC1C9400D23A3F /* callButtonImage.png in Resources */,
 				BED0936518DADA49002F2954 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +521,7 @@
 				BED0937E18DADA4A002F2954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BED0937F18DADA4A002F2954 /* Build configuration list for PBXNativeTarget "InviteTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +530,7 @@
 				BED0938118DADA4A002F2954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
