@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InviteTabBar : UITabBarController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface InviteTabBar : UITabBarController// <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end

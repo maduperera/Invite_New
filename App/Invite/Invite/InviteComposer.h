@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InviteLoginViewController.h"
+#import "InviteSignupViewController.h"
 
-@interface InviteComposer : UIViewController
+@interface InviteComposer : UIViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
 - (IBAction)signOut:(id)sender;
 
 @end
