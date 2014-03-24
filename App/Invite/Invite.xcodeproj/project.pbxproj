@@ -286,8 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				BED0938218DADA8B002F2954 /* TableCell.h */,
-				BED0938318DADA8B002F2954 /* TableCell.m */,
 				BED0938718DADB31002F2954 /* TableCell.xib */,
+				BED0938318DADA8B002F2954 /* TableCell.m */,
 			);
 			name = InviteCommon;
 			sourceTree = "<group>";

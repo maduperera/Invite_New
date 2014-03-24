@@ -27,7 +27,13 @@
                             <outlet property="delegate" destination="W06-e8-hpa" id="2CX-c1-Fcr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Inbox" id="Dfi-uE-JZl"/>
+                    <navigationItem key="navigationItem" title="Inbox" id="Dfi-uE-JZl">
+                        <barButtonItem key="rightBarButtonItem" title="Signout" id="ze5-iR-d60">
+                            <connections>
+                                <action selector="signout:" destination="W06-e8-hpa" id="woX-dO-j4z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnb-8o-xbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,7 +58,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huh-h0-p8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="-31"/>
+            <point key="canvasLocation" x="-270" y="-163"/>
         </scene>
         <!--Navigation Controller - In-->
         <scene sceneID="76g-91-aWs">
@@ -71,7 +77,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Aj-j5-JhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="-1034"/>
+            <point key="canvasLocation" x="541" y="-1044"/>
         </scene>
         <!--Invite Composer - Compose-->
         <scene sceneID="MKd-oI-AYX">

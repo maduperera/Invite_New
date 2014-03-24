@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InviteLoginViewController.h"
+#import "InviteSignupViewController.h"
 
-@interface InboxViewController : UITableViewController
+@interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property(nonatomic, strong) NSArray *tableData;
+- (IBAction)signout:(id)sender;
 
 
 @end
