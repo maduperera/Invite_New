@@ -221,10 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				87C5F44718DC3DF500B4821D /* InviteImages */,
-				877C764A18DC2E86004124CB /* InviteComposer.h */,
-				877C764B18DC2E86004124CB /* InviteComposer.m */,
-				875CB18318DC1876008FE5CA /* InviteTabBar.m */,
-				875CB18218DC1876008FE5CA /* InviteTabBar.h */,
 				877C765418DC375C004124CB /* InviteSignupViewController.h */,
 				877C765518DC375C004124CB /* InviteSignupViewController.m */,
 				877C764D18DC343E004124CB /* InviteLoginViewController.h */,
@@ -274,6 +270,10 @@
 		BED0938518DADA9B002F2954 /* Invitebox */ = {
 			isa = PBXGroup;
 			children = (
+				875CB18218DC1876008FE5CA /* InviteTabBar.h */,
+				875CB18318DC1876008FE5CA /* InviteTabBar.m */,
+				877C764B18DC2E86004124CB /* InviteComposer.m */,
+				877C764A18DC2E86004124CB /* InviteComposer.h */,
 				BED0938918DADBE7002F2954 /* InboxViewController.h */,
 				BED0938A18DADBE7002F2954 /* InboxViewController.m */,
 				BED0938E18DAE738002F2954 /* OutboxViewController.h */,

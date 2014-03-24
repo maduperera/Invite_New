@@ -30,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    tableData = [NSArray arrayWithObjects:@"John Appleseed", @"Kate Bell", @"David Taylor", @"Anna Haro", nil];
+    
+    tableData = [NSArray arrayWithObjects:@"Mom's Bdy Party!", @"Toms Graduation", @"Dans Bachelor party", nil];
 
 
     // Uncomment the following line to preserve selection between presentations.
@@ -139,6 +140,13 @@
         // Create the log in view controller
         InviteLoginViewController *logInViewController = [[InviteLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        //set fields
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten;
+        
         
         // Create the sign up view controller
         InviteSignupViewController *signUpViewController = [[InviteSignupViewController alloc] init];
