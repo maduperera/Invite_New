@@ -17,7 +17,7 @@
         InviteLoginViewController *logInViewController = [[InviteLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
-        //set fields
+        //set fields to login view controller
         logInViewController.fields = PFLogInFieldsUsernameAndPassword
         | PFLogInFieldsLogInButton
         | PFLogInFieldsSignUpButton
@@ -27,6 +27,15 @@
         // Create the sign up view controller
         InviteSignupViewController *signUpViewController = [[InviteSignupViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+       
+        //set fields to signup view controller
+        signUpViewController.fields = PFSignUpFieldsUsernameAndPassword
+        | PFSignUpFieldsSignUpButton
+        | PFSignUpFieldsEmail
+        | PFSignUpFieldsAdditional
+        | PFSignUpFieldsDismissButton;
+        
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
