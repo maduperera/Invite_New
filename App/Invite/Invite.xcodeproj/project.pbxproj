@@ -33,6 +33,7 @@
 		87C5F44418DC3DF000B4821D /* navigationButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */; };
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
 		87C5F44618DC3DF000B4821D /* shoppingButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */; };
+		BE366BE018E17A5500C8A156 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE366BDF18E17A5400C8A156 /* Parse.framework */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -98,6 +99,7 @@
 		87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navigationButtonImage.jpeg; path = ../navigationButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoppingButtonImage.jpeg; path = ../shoppingButtonImage.jpeg; sourceTree = "<group>"; };
+		BE366BDF18E17A5400C8A156 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +146,7 @@
 				875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */,
 				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
 				875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */,
+				BE366BE018E17A5500C8A156 /* Parse.framework in Frameworks */,
 				875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */,
 				875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */,
 				BED0935418DADA49002F2954 /* CoreData.framework in Frameworks */,
@@ -201,6 +204,7 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE366BDF18E17A5400C8A156 /* Parse.framework */,
 				875CB16418DC156B008FE5CA /* Parse.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,
 				875CB17C18DC164B008FE5CA /* libsqlite3.dylib */,
@@ -539,6 +543,7 @@
 					"$(inherited)",
 					/Users/maduperera/Desktop,
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
+					/Users/dfernando/Invite/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
@@ -557,6 +562,7 @@
 					"$(inherited)",
 					/Users/maduperera/Desktop,
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
+					/Users/dfernando/Invite/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
