@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF418E153F7008363BE /* UIViewController+Utilities.m */; };
+		87249EF818E15964008363BE /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF718E15964008363BE /* ScannerViewController.m */; };
 		875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16418DC156B008FE5CA /* Parse.framework */; };
 		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
 		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
@@ -64,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87249EF318E153F7008363BE /* UIViewController+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Utilities.h"; path = "../UIViewController+Utilities.h"; sourceTree = "<group>"; };
+		87249EF418E153F7008363BE /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Utilities.m"; path = "../UIViewController+Utilities.m"; sourceTree = "<group>"; };
+		87249EF618E15964008363BE /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScannerViewController.h; path = ../ScannerViewController.h; sourceTree = "<group>"; };
+		87249EF718E15964008363BE /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScannerViewController.m; path = ../ScannerViewController.m; sourceTree = "<group>"; };
 		875CB16418DC156B008FE5CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Parse.framework; sourceTree = "<group>"; };
 		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -163,6 +169,7 @@
 		87C5F44718DC3DF500B4821D /* InviteImages */ = {
 			isa = PBXGroup;
 			children = (
+				878A997D18E010B300DACA62 /* invite.png */,
 				87C5F43D18DC3DF000B4821D /* callButtonImage.png */,
 				87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */,
 				87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */,
@@ -240,7 +247,6 @@
 		BED0935618DADA49002F2954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				878A997D18E010B300DACA62 /* invite.png */,
 				BED0935718DADA49002F2954 /* Invite-Info.plist */,
 				BED0935818DADA49002F2954 /* InfoPlist.strings */,
 				BED0935B18DADA49002F2954 /* main.m */,
@@ -270,6 +276,10 @@
 		BED0938518DADA9B002F2954 /* Invitebox */ = {
 			isa = PBXGroup;
 			children = (
+				87249EF618E15964008363BE /* ScannerViewController.h */,
+				87249EF718E15964008363BE /* ScannerViewController.m */,
+				87249EF318E153F7008363BE /* UIViewController+Utilities.h */,
+				87249EF418E153F7008363BE /* UIViewController+Utilities.m */,
 				875CB18218DC1876008FE5CA /* InviteTabBar.h */,
 				875CB18318DC1876008FE5CA /* InviteTabBar.m */,
 				877C764B18DC2E86004124CB /* InviteComposer.m */,
@@ -402,6 +412,8 @@
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
 				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
+				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
+				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,

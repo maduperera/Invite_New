@@ -8,7 +8,7 @@
 
 #import "InboxViewController.h"
 #import "TableCell.h"
-
+#import "UIViewController+Utilities.h"
 
 @interface InboxViewController ()
 
@@ -43,11 +43,38 @@
     //[self.tableView registerNib:[UINib nibWithNibName:@"TableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableCell"
                                                bundle:[NSBundle mainBundle]]
-         forCellReuseIdentifier:@"Cell"];
+    forCellReuseIdentifier:@"Cell"];
     [self showLoginView];
 
-
 }
+
+
+//-(void)showLoginView{
+//    if (![PFUser currentUser]) { // No user logged in
+//        // Create the log in view controller
+//        InviteLoginViewController *logInViewController = [[InviteLoginViewController alloc] init];
+//        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+//        
+//        //set fields
+//        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+//        | PFLogInFieldsLogInButton
+//        | PFLogInFieldsSignUpButton
+//        | PFLogInFieldsPasswordForgotten;
+//        
+//        
+//        // Create the sign up view controller
+//        InviteSignupViewController *signUpViewController = [[InviteSignupViewController alloc] init];
+//        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+//        
+//        // Assign our sign up controller to be displayed from the login controller
+//        [logInViewController setSignUpController:signUpViewController];
+//        
+//        // Present the log in view controller
+//        [self presentViewController:logInViewController animated:YES completion:NULL];
+//    }
+//    
+//}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -84,90 +111,10 @@
     
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
-
--(void)showLoginView{
-    if (![PFUser currentUser]) { // No user logged in
-        // Create the log in view controller
-        InviteLoginViewController *logInViewController = [[InviteLoginViewController alloc] init];
-        [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        //set fields
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword
-        | PFLogInFieldsLogInButton
-        | PFLogInFieldsSignUpButton
-        | PFLogInFieldsPasswordForgotten;
-        
-        
-        // Create the sign up view controller
-        InviteSignupViewController *signUpViewController = [[InviteSignupViewController alloc] init];
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
-        
-        // Present the log in view controller
-        [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
-    
-}
-
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)signout:(id)sender {
-    [PFUser logOut];
-    [self showLoginView];
-}
+
 @end

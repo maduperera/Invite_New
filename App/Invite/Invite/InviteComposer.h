@@ -12,6 +12,4 @@
 
 @interface InviteComposer : UIViewController//<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-- (IBAction)signOut:(id)sender;
-
 @end

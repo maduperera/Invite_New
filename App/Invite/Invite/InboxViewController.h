@@ -13,7 +13,5 @@
 @interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property(nonatomic, strong) NSArray *tableData;
-- (IBAction)signout:(id)sender;
-
 
 @end

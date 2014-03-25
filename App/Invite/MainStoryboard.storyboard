@@ -30,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Inbox" id="Dfi-uE-JZl">
                         <barButtonItem key="rightBarButtonItem" title="Signout" id="ze5-iR-d60">
                             <connections>
-                                <action selector="signout:" destination="W06-e8-hpa" id="woX-dO-j4z"/>
+                                <action selector="signout:" destination="W06-e8-hpa" id="o11-i7-dyd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,14 +95,14 @@
                     <navigationItem key="navigationItem" title="Compose" id="4Sx-KU-wdn">
                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="gBo-AH-kLm">
                             <connections>
-                                <action selector="signOut:" destination="eZr-em-nEg" id="KtO-Cd-qnA"/>
+                                <action selector="signout:" destination="eZr-em-nEg" id="lWn-GR-6nu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8V-Tj-rvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="308"/>
+            <point key="canvasLocation" x="1073" y="308"/>
         </scene>
         <!--Navigation Controller - Out-->
         <scene sceneID="Wuh-ET-ENE">
@@ -146,16 +146,22 @@
                             <outlet property="delegate" destination="nmX-d9-LfV" id="Xr6-cL-MQB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Outbox" id="bA4-uT-bv2"/>
+                    <navigationItem key="navigationItem" title="Outbox" id="bA4-uT-bv2">
+                        <barButtonItem key="rightBarButtonItem" title="Sing out" id="lYI-Qa-JoR">
+                            <connections>
+                                <action selector="signout:" destination="nmX-d9-LfV" id="022-o4-n0R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibB-6E-MLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="-371"/>
         </scene>
-        <!--View Controller-->
+        <!--Scanner View Controller-->
         <scene sceneID="DLx-d7-a60">
             <objects>
-                <viewController id="0Oz-LG-427" sceneMemberID="viewController">
+                <viewController id="0Oz-LG-427" customClass="ScannerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Dt-l8-NZ1"/>
                         <viewControllerLayoutGuide type="bottom" id="qFQ-2m-Nsc"/>
@@ -165,11 +171,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VIt-Zv-Xfo"/>
+                    <navigationItem key="navigationItem" id="VIt-Zv-Xfo">
+                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="6cd-Ch-0VG">
+                            <connections>
+                                <action selector="signout:" destination="0Oz-LG-427" id="ao9-y8-AOJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLE-wh-bg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="987"/>
+            <point key="canvasLocation" x="1073" y="987"/>
         </scene>
         <!--Navigation Controller - Invite-->
         <scene sceneID="esk-of-Du9">
