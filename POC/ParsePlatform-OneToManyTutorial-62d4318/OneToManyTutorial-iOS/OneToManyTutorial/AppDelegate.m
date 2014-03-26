@@ -42,11 +42,53 @@
     }];
     
     
+    
+    // Create a new Post object and create relationship with PFUser
+    PFObject *event = [PFObject objectWithClassName:@"Event"];
+    [event setObject:@"Mom's Bdy!" forKey:@"eventName"];
+    [event setObject:@"1" forKey:@"templateID"]; // One-to-Many relationship created here
+    
+    // Set ACL permissions for added security
+    PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [postACL setPublicReadAccess:YES];
+    [event setACL:postACL];
+    
+    // Save new Post object in Parse
+    [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+//            [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the viewController upon success
+        }
+    }];
+    
+    
+    //Create query for all Post object by the current user
+    PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+    [eventQuery whereKey:@"eventName" equalTo:@"Mom's Bdy!"];
+    
+    // Run the query
+    [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //Save results and update the table
+            self.postArray = objects;
+           // [self.tableView reloadData];
+        }
+    }];
+
+
+    
+    
+    
+    
     // Override point for customization after application launch.
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[BlogTableViewController alloc] initWithStyle:UITableViewStylePlain]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    
+    
+    
     return YES;
 }
 

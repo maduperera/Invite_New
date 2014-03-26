@@ -20,13 +20,22 @@
     [Parse setApplicationId:@"IdFsA0nKPebysSeM04wZWNjz9egivEnDwO9yKJsQ"
                   clientKey:@"oTzmobG2MqJRLGegC472PGjpxBcSzF35f5N3sqVe"];
     
+    // Create a new Post object and create relationship with PFUser
+    PFObject *newPost = [PFObject objectWithClassName:@"Post"];
+    [newPost setObject:@"abcdefg" forKey:@"textContent"];
+    [newPost setObject:[PFUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
     
-
+    // Set ACL permissions for added security
+    PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [postACL setPublicReadAccess:YES];
+    [newPost setACL:postACL];
     
-    //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    // Save new Post object in Parse
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            //            [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the viewController upon success
+        }
+    }];
 
     
     return YES;
