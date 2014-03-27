@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF418E153F7008363BE /* UIViewController+Utilities.m */; };
 		87249EF818E15964008363BE /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF718E15964008363BE /* ScannerViewController.m */; };
-		875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16418DC156B008FE5CA /* Parse.framework */; };
 		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
 		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
 		875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16A18DC15AE008FE5CA /* CFNetwork.framework */; };
@@ -33,7 +32,6 @@
 		87C5F44418DC3DF000B4821D /* navigationButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */; };
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
 		87C5F44618DC3DF000B4821D /* shoppingButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */; };
-		BE366BE018E17A5500C8A156 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE366BDF18E17A5400C8A156 /* Parse.framework */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -54,6 +52,9 @@
 		BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938A18DADBE7002F2954 /* InboxViewController.m */; };
 		BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */; };
 		BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938F18DAE738002F2954 /* OutboxViewController.m */; };
+		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
+		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
+		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,6 @@
 		87249EF418E153F7008363BE /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Utilities.m"; path = "../UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		87249EF618E15964008363BE /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScannerViewController.h; path = ../ScannerViewController.h; sourceTree = "<group>"; };
 		87249EF718E15964008363BE /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScannerViewController.m; path = ../ScannerViewController.m; sourceTree = "<group>"; };
-		875CB16418DC156B008FE5CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Parse.framework; sourceTree = "<group>"; };
 		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		875CB16A18DC15AE008FE5CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -89,17 +89,16 @@
 		875CB18318DC1876008FE5CA /* InviteTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteTabBar.m; sourceTree = SOURCE_ROOT; };
 		877C764A18DC2E86004124CB /* InviteComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteComposer.h; sourceTree = "<group>"; };
 		877C764B18DC2E86004124CB /* InviteComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteComposer.m; sourceTree = "<group>"; };
-		877C764D18DC343E004124CB /* InviteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteLoginViewController.h; sourceTree = "<group>"; };
-		877C764E18DC343E004124CB /* InviteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteLoginViewController.m; sourceTree = "<group>"; };
-		877C765418DC375C004124CB /* InviteSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteSignupViewController.h; sourceTree = "<group>"; };
-		877C765518DC375C004124CB /* InviteSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteSignupViewController.m; sourceTree = "<group>"; };
+		877C764D18DC343E004124CB /* InviteLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteLoginViewController.h; path = Invite/InviteLoginViewController.h; sourceTree = "<group>"; };
+		877C764E18DC343E004124CB /* InviteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteLoginViewController.m; path = Invite/InviteLoginViewController.m; sourceTree = "<group>"; };
+		877C765418DC375C004124CB /* InviteSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteSignupViewController.h; path = Invite/InviteSignupViewController.h; sourceTree = "<group>"; };
+		877C765518DC375C004124CB /* InviteSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteSignupViewController.m; path = Invite/InviteSignupViewController.m; sourceTree = "<group>"; };
 		878A997D18E010B300DACA62 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
 		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navigationButtonImage.jpeg; path = ../navigationButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoppingButtonImage.jpeg; path = ../shoppingButtonImage.jpeg; sourceTree = "<group>"; };
-		BE366BDF18E17A5400C8A156 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +125,11 @@
 		BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BED0938E18DAE738002F2954 /* OutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutboxViewController.h; sourceTree = "<group>"; };
 		BED0938F18DAE738002F2954 /* OutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutboxViewController.m; sourceTree = "<group>"; };
+		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
+		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
+		E3EED59318E49E860003D133 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
+		E3EED59418E49E860003D133 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,15 +147,14 @@
 				875CB17318DC15E5008FE5CA /* Security.framework in Frameworks */,
 				875CB17118DC15DD008FE5CA /* MobileCoreServices.framework in Frameworks */,
 				875CB16F18DC15D6008FE5CA /* libz.1.2.5.dylib in Frameworks */,
+				E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */,
 				875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */,
 				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
 				875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */,
-				BE366BE018E17A5500C8A156 /* Parse.framework in Frameworks */,
 				875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */,
 				875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */,
 				BED0935418DADA49002F2954 /* CoreData.framework in Frameworks */,
 				BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */,
-				875CB16518DC156B008FE5CA /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +207,7 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE366BDF18E17A5400C8A156 /* Parse.framework */,
-				875CB16418DC156B008FE5CA /* Parse.framework */,
+				E3EED58D18E499AB0003D133 /* Parse.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,
 				875CB17C18DC164B008FE5CA /* libsqlite3.dylib */,
 				875CB17A18DC1624008FE5CA /* AdSupport.framework */,
@@ -232,10 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				87C5F44718DC3DF500B4821D /* InviteImages */,
-				877C765418DC375C004124CB /* InviteSignupViewController.h */,
-				877C765518DC375C004124CB /* InviteSignupViewController.m */,
-				877C764D18DC343E004124CB /* InviteLoginViewController.h */,
-				877C764E18DC343E004124CB /* InviteLoginViewController.m */,
+				E3EED58F18E49C510003D133 /* LoginViews */,
 				BED0938618DADAC6002F2954 /* InviteCommon */,
 				BED0938518DADA9B002F2954 /* Invitebox */,
 				BED0935E18DADA49002F2954 /* AppDelegate.h */,
@@ -292,6 +291,10 @@
 				BED0938A18DADBE7002F2954 /* InboxViewController.m */,
 				BED0938E18DAE738002F2954 /* OutboxViewController.h */,
 				BED0938F18DAE738002F2954 /* OutboxViewController.m */,
+				E3EED59018E49D790003D133 /* TemplateCell.h */,
+				E3EED59118E49D790003D133 /* TemplateCell.m */,
+				E3EED59318E49E860003D133 /* TemplateViewController.h */,
+				E3EED59418E49E860003D133 /* TemplateViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -304,6 +307,18 @@
 				BED0938318DADA8B002F2954 /* TableCell.m */,
 			);
 			name = InviteCommon;
+			sourceTree = "<group>";
+		};
+		E3EED58F18E49C510003D133 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				877C765418DC375C004124CB /* InviteSignupViewController.h */,
+				877C765518DC375C004124CB /* InviteSignupViewController.m */,
+				877C764D18DC343E004124CB /* InviteLoginViewController.h */,
+				877C764E18DC343E004124CB /* InviteLoginViewController.m */,
+			);
+			name = LoginViews;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,11 +430,13 @@
 				BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */,
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
 				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
+				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
 				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
+				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +561,7 @@
 					/Users/maduperera/Desktop,
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
 					/Users/dfernando/Invite/App/Invite,
+					/Users/madushaperera/Desktop/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
@@ -563,6 +581,7 @@
 					/Users/maduperera/Desktop,
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
 					/Users/dfernando/Invite/App/Invite,
+					/Users/madushaperera/Desktop/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
