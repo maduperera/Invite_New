@@ -14,7 +14,7 @@
 
 
 @interface ComposeNewInviteViewController : UIViewController<UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MKMapViewDelegate>
-@property (weak, nonatomic) PFObject *templateObj;
+
 @property (weak, nonatomic) IBOutlet UITextField *event_title;
 @property (weak, nonatomic) IBOutlet UITextField *event_start_time;
 @property (weak, nonatomic) IBOutlet UITextField *event_end_time;
@@ -24,8 +24,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *event_to;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 
-@property(weak,nonatomic) NSArray *usersWithOnlyPhoneNum;
-@property(weak,nonatomic) NSArray *inviteAppUsers;
+@property(strong,nonatomic) PFGeoPoint *geoPoint;
+@property (weak, nonatomic) PFObject *templateObj;
+@property(weak,nonatomic) NSArray *usersWithSMSOnly;
+@property(weak,nonatomic) NSArray *usersWithEmail;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)send:(id)sender;
