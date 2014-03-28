@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InviteLoginViewController.h"
+#import "InviteSignupViewController.h"
 
-@interface OutboxViewController : UITableViewController
+@interface OutboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
+
 
 @end

@@ -52,9 +52,11 @@
 		BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938A18DADBE7002F2954 /* InboxViewController.m */; };
 		BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */; };
 		BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938F18DAE738002F2954 /* OutboxViewController.m */; };
+		E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E363E8D518E59E6E00B07D6C /* MapKit.framework */; };
 		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
 		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
 		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
+		E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,11 +127,14 @@
 		BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BED0938E18DAE738002F2954 /* OutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutboxViewController.h; sourceTree = "<group>"; };
 		BED0938F18DAE738002F2954 /* OutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutboxViewController.m; sourceTree = "<group>"; };
+		E363E8D518E59E6E00B07D6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
 		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
 		E3EED59318E49E860003D133 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
 		E3EED59418E49E860003D133 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
+		E3F778B218E5560F00CBB401 /* ComposeNewInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeNewInviteViewController.h; sourceTree = "<group>"; };
+		E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeNewInviteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */,
 				875CB17F18DC1655008FE5CA /* Social.framework in Frameworks */,
 				875CB17D18DC164B008FE5CA /* libsqlite3.dylib in Frameworks */,
 				875CB17B18DC1624008FE5CA /* AdSupport.framework in Frameworks */,
@@ -207,6 +213,7 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E363E8D518E59E6E00B07D6C /* MapKit.framework */,
 				E3EED58D18E499AB0003D133 /* Parse.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,
 				875CB17C18DC164B008FE5CA /* libsqlite3.dylib */,
@@ -295,6 +302,8 @@
 				E3EED59118E49D790003D133 /* TemplateCell.m */,
 				E3EED59318E49E860003D133 /* TemplateViewController.h */,
 				E3EED59418E49E860003D133 /* TemplateViewController.m */,
+				E3F778B218E5560F00CBB401 /* ComposeNewInviteViewController.h */,
+				E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -433,6 +442,7 @@
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
+				E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */,
 				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,

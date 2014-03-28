@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InviteLoginViewController.h"
+#import "InviteSignupViewController.h"
 
-@interface TemplateViewController : UICollectionViewController
-@property(nonatomic,weak)NSArray *templates;
+@interface TemplateViewController : UICollectionViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
+@property(nonatomic,strong)NSArray *templates;
 @end
