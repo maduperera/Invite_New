@@ -29,9 +29,7 @@
 		878A997E18E010B300DACA62 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 878A997D18E010B300DACA62 /* invite.png */; };
 		87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43D18DC3DF000B4821D /* callButtonImage.png */; };
 		87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */; };
-		87C5F44418DC3DF000B4821D /* navigationButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */; };
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
-		87C5F44618DC3DF000B4821D /* shoppingButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -53,6 +51,11 @@
 		BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */; };
 		BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938F18DAE738002F2954 /* OutboxViewController.m */; };
 		E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E363E8D518E59E6E00B07D6C /* MapKit.framework */; };
+		E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F9BD718E7381700400FD1 /* InvitationViewController.m */; };
+		E36F9BDC18E745B500400FD1 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDB18E745B400400FD1 /* mail.png */; };
+		E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */; };
+		E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */; };
+		E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BE318E754D500400FD1 /* bdybackground.png */; };
 		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
 		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
 		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
@@ -98,9 +101,7 @@
 		878A997D18E010B300DACA62 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
 		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
-		87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navigationButtonImage.jpeg; path = ../navigationButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
-		87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoppingButtonImage.jpeg; path = ../shoppingButtonImage.jpeg; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +129,12 @@
 		BED0938E18DAE738002F2954 /* OutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutboxViewController.h; sourceTree = "<group>"; };
 		BED0938F18DAE738002F2954 /* OutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutboxViewController.m; sourceTree = "<group>"; };
 		E363E8D518E59E6E00B07D6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E36F9BD618E7381700400FD1 /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
+		E36F9BD718E7381700400FD1 /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
+		E36F9BDB18E745B400400FD1 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
+		E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationButtonImage.png; sourceTree = "<group>"; };
+		E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingButtonImage.png; sourceTree = "<group>"; };
+		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
 		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
 		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
@@ -182,11 +189,13 @@
 			isa = PBXGroup;
 			children = (
 				878A997D18E010B300DACA62 /* invite.png */,
+				E36F9BDB18E745B400400FD1 /* mail.png */,
+				E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */,
 				87C5F43D18DC3DF000B4821D /* callButtonImage.png */,
+				E36F9BE318E754D500400FD1 /* bdybackground.png */,
+				E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */,
 				87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */,
-				87C5F43F18DC3DF000B4821D /* navigationButtonImage.jpeg */,
 				87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */,
-				87C5F44118DC3DF000B4821D /* shoppingButtonImage.jpeg */,
 			);
 			name = InviteImages;
 			sourceTree = "<group>";
@@ -304,6 +313,8 @@
 				E3EED59418E49E860003D133 /* TemplateViewController.m */,
 				E3F778B218E5560F00CBB401 /* ComposeNewInviteViewController.h */,
 				E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */,
+				E36F9BD618E7381700400FD1 /* InvitationViewController.h */,
+				E36F9BD718E7381700400FD1 /* InvitationViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -409,11 +420,13 @@
 				87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */,
 				87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */,
 				BED0935A18DADA49002F2954 /* InfoPlist.strings in Resources */,
+				E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */,
 				878A997E18E010B300DACA62 /* invite.png in Resources */,
-				87C5F44618DC3DF000B4821D /* shoppingButtonImage.jpeg in Resources */,
+				E36F9BDC18E745B500400FD1 /* mail.png in Resources */,
+				E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */,
 				BED0938818DADB31002F2954 /* TableCell.xib in Resources */,
-				87C5F44418DC3DF000B4821D /* navigationButtonImage.jpeg in Resources */,
 				BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */,
+				E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */,
 				BED0936518DADA49002F2954 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +455,7 @@
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
+				E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */,
 				E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */,
 				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,

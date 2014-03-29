@@ -8,6 +8,7 @@
 - (IBAction)signout:(id)sender {
     [PFUser logOut];
     [self showLoginView];
+    NSLog(@"logged out successfully");
 }
 
 

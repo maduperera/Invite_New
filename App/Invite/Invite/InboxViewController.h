@@ -12,6 +12,8 @@
 
 @interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-@property(nonatomic, strong) NSArray *tableData;
+@property(nonatomic, strong) NSMutableArray *tableData;
+@property(nonatomic, strong) NSMutableArray *events;
+@property(nonatomic, strong) NSMutableArray *eventIDs;
 
 @end

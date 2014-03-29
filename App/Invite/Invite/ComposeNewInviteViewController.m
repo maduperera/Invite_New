@@ -145,6 +145,7 @@ UIDatePicker *datePicker = nil;
             PFObject *outMsg = [PFObject objectWithClassName:currentUserOutBoxTableName];
             [outMsg setObject:[event objectId] forKey:@"eventID"];
             [outMsg setObject:dateString forKey:@"dateSent"];
+            [outMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
             
             
             //save to user_out_box table
@@ -190,6 +191,7 @@ UIDatePicker *datePicker = nil;
                         PFObject *inMsg = [PFObject objectWithClassName:recieverInBoxTableName];
                         [inMsg setObject:[event objectId] forKey:@"eventID"];
                         [inMsg setObject:dateString forKey:@"dateSent"];
+                        [inMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
                         
                         
                         //save to receiver_in_box table
