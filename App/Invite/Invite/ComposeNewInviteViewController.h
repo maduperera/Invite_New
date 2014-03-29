@@ -28,6 +28,9 @@
 @property (weak, nonatomic) PFObject *templateObj;
 @property(weak,nonatomic) NSArray *usersWithSMSOnly;
 @property(weak,nonatomic) NSArray *usersWithEmail;
+@property (weak, nonatomic) IBOutlet UIButton *SendButton;
+
+
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)send:(id)sender;

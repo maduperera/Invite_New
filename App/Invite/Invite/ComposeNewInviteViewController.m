@@ -16,7 +16,9 @@
 
 NSString *currentUserEmail;
 NSString *currentUserOutBoxTableName;
+NSString *currentUserFeedBackTableName;
 NSString *recieverInBoxTableName;
+NSString *receiverEmailWithOnlyAlhpaCharaters;
 UIDatePicker *datePicker = nil;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,6 +45,12 @@ UIDatePicker *datePicker = nil;
     //initiate geopint
     self.geoPoint = [[PFGeoPoint alloc] init];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"view did appear");
+    //enable the send button which may have been disabled by sending invitation
+    self.SendButton.enabled = YES;
 }
 
 - (IBAction)pickDate:(id)sender{
@@ -96,48 +104,17 @@ UIDatePicker *datePicker = nil;
 
 - (IBAction)send:(id)sender {
  
-    // Create a new Post object and create relationship with PFUser
-    //    PFObject *newPost = [PFObject objectWithClassName:@"Post"];
-    //    [newPost setObject:@"abcdefg" forKey:@"textContent"];
-    //    [newPost setObject:[PFUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
-    //
-    //    // Set ACL permissions for added security
-    //    PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    //    [postACL setPublicReadAccess:YES];
-    //    [newPost setACL:postACL];
-    //
-    //    // Save new Post object in Parse
-    //    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-    //        if (!error) {
-    //            //            [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the viewController upon success
-    //        }
-    //    }];
-    
-    
-    //get templates that are not marked as isExpired = true in the MBAAS
-//    [queryForEmail whereKey:@"email" equalTo:[NSNumber numberWithBool:FALSE]];
-//    // Run the query
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            //Save results and update the collection view
-//            self.templates = objects;
-//            [self.collectionView reloadData];
-//            
-//        }
-//    }];
-//    
-//    PFObject *newPost = [PFObject objectWithClassName:@"Post"];
-
-    
-    //populate usersWithEmail for testiing
-    self.usersWithEmail = [NSArray arrayWithObjects:@"madupiz@gmail.com",@"dhammini.dev@gmail.com",nil];
+    //disable the send button to stop duplicating sends
+    self.SendButton.enabled = NO;
     
     //get the current user email address
     PFUser *currentUser = [PFUser currentUser];
     currentUserEmail = [[PFUser currentUser] objectForKey:@"email"];
+    NSString *currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmail stringByReplacingOccurrencesOfString:@"@"withString:@""];
+    currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
     
-    //get the current user outbox table name
-    currentUserOutBoxTableName = [NSString stringWithFormat:@"%@_%@", [[PFUser currentUser] objectForKey:@"username"], @"out_box"];
+    //get the current user outbox table name -> useremailwithout'@'and'.'_out_box
+    currentUserOutBoxTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"out_box"];
     NSLog(@"outboxtable name: %@" , currentUserOutBoxTableName);
     
     //get current date - time
@@ -146,12 +123,7 @@ UIDatePicker *datePicker = nil;
     [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:currDate];
     
-    //write to the out box of sender
-    //PFObject *outMsg = [PFObject objectWithClassName:currentUserOutBoxTableName];
-    //PFObject *event = [self createEventObject];
-    //[outMsg setObject:[event objectId] forKey:@"eventID"];
-    //[outMsg setObject:dateString forKey:@"dateSent"];
-    
+    //write to the event object
     NSLog(@"TEMPLATEID : %@", [self.templateObj objectId]);
     PFObject *event = [PFObject objectWithClassName:@"Event"];
     [event setObject:[self.templateObj objectId] forKey:@"templateID"];
@@ -163,10 +135,8 @@ UIDatePicker *datePicker = nil;
     [event setObject:self.event_title.text forKey:@"title"];
     [event setObject:currentUserEmail forKey:@"senderEmail"];
     [event setObject:self.geoPoint forKey:@"geoPoint"];
-    // [event setObject:Nil forKey:@"feedBack"];
-    //    [event setObject:feedback forKey:@"feedBack"];
     
-    //save data
+    //save to event table
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"data written to the Event successfully");
@@ -177,10 +147,62 @@ UIDatePicker *datePicker = nil;
             [outMsg setObject:dateString forKey:@"dateSent"];
             
             
-            //save data
+            //save to user_out_box table
             [outMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     NSLog(@"data written to the outbox successfully");
+                    
+                    //get the current user user_feed_back table name -> useremailwithout'@'and'.'_feed_back
+                    currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
+                    NSLog(@"feed_back table name name: %@" , currentUserFeedBackTableName);
+                    
+                    //loop through array of recivers to popultae user_Feed_back table and the receiver_in_box tables
+                    //populate usersWithEmail for testing
+                    self.usersWithEmail = [NSArray arrayWithObjects:@"madupiz@gmail.com",@"dhammini.dev@gmail.com",nil];
+                    for(NSString *email in (self.usersWithEmail)) {
+                        
+                        NSLog(@"receiver : %@",email);
+                        
+                        // write to the feed_back object
+                        PFObject *feedback = [PFObject objectWithClassName:currentUserFeedBackTableName];
+                        [feedback setObject:[event objectId] forKey:@"eventID"];
+                        [feedback setObject:email forKey:@"receiverEmail"];
+                        [feedback setObject:@"pending" forKey:@"feedBack"];
+                        
+                        //save to user_feed_back table
+                        [feedback saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!error) {
+                                NSLog(@"data written to the feed_back successfully");
+                            }else{
+                                NSLog(@"error in writing to the db");
+                            }
+                        }];
+                        
+                        //create receiver_in_box table name
+                        receiverEmailWithOnlyAlhpaCharaters = [email stringByReplacingOccurrencesOfString:@"@"withString:@""];
+                        receiverEmailWithOnlyAlhpaCharaters = [receiverEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+                        
+                        //get the receiver inbox table name -> receiveremailwithout'@'and'.'_in_box
+                        recieverInBoxTableName = [NSString stringWithFormat:@"%@_%@", receiverEmailWithOnlyAlhpaCharaters, @"in_box"];
+                        NSLog(@"receiver inboxtable name: %@" , recieverInBoxTableName);
+                        
+                        //write to the receiverInBox object
+                        PFObject *inMsg = [PFObject objectWithClassName:recieverInBoxTableName];
+                        [inMsg setObject:[event objectId] forKey:@"eventID"];
+                        [inMsg setObject:dateString forKey:@"dateSent"];
+                        
+                        
+                        //save to receiver_in_box table
+                        [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!error) {
+                                NSLog(@"data written to the inbox successfully");
+                            }else{
+                                NSLog(@"error in writing to the db");
+                            }
+                        }];
+                        
+                    }
+                    
                 }else{
                     NSLog(@"error in writing to the db");
                 }
@@ -192,66 +214,7 @@ UIDatePicker *datePicker = nil;
         }
     }];
     
-    
-    
-    
-    
-    //write to the in box of reciver
-
-    
-    
 }
-
-//-(PFObject*)createEventObject{
-
-//    //create FeedbackTable object to include in the EventObject
-//    PFObject *feedback = [PFObject objectWithClassName:@"FeedBack"];
-//    //loop through array of recivers to popultae FeedBack table
-//    for(NSString * email in self.usersWithEmail) {
-//        NSLog(@"receiver : %@",email);
-//        [feedback setObject:email forKey:@"receiverEmail"];
-//        [feedback setObject:@"pending" forKey:@"feedBack"];
-//    }
-//
-//    //save feedback data
-//    [feedback saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            NSLog(@"data written to the FeedBack successfully");
-//        }else{
-//            NSLog(@"error in writing to the db");
-//        }
-//    }];
-    
-    
-//    NSLog(@"TEMPLATEID : %@", [self.templateObj objectId]);
-//    PFObject *event = [PFObject objectWithClassName:@"Event"];
-//    [event setObject:[self.templateObj objectId] forKey:@"templateID"];
-//    [event setObject:self.event_address.text forKey:@"address"];
-//    [event setObject:self.event_contatctNo.text forKey:@"contactNo"];
-//    [event setObject:self.event_date.text forKey:@"eventDate"];
-//    [event setObject:self.event_end_time.text forKey:@"endTime"];
-//    [event setObject:self.event_start_time.text forKey:@"startTime"];
-//    [event setObject:self.event_title.text forKey:@"title"];
-//    [event setObject:currentUserEmail forKey:@"senderEmail"];
-//    [event setObject:self.geoPoint forKey:@"geoPoint"];
-//   // [event setObject:Nil forKey:@"feedBack"];
-////    [event setObject:feedback forKey:@"feedBack"];
-//    
-//    //save data
-//    [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            NSLog(@"data written to the Event successfully");
-//            NSLog(@"EVENTID : %@", [event objectId]);
-//        }else{
-//            NSLog(@"error in writing to the db");
-//        }
-//    }];
-    
-    
-    
-    
-//    return event;
-//}
 
 
 - (void)peoplePickerNavigationControllerDidCancel:

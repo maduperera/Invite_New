@@ -395,6 +395,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Compose Invitation" id="Fc3-Lz-gjg"/>
                     <connections>
+                        <outlet property="SendButton" destination="WYE-mn-dfN" id="48w-qB-mj0"/>
                         <outlet property="event_address" destination="b4P-F5-r3S" id="0nR-EH-4ip"/>
                         <outlet property="event_contatctNo" destination="dUU-hj-wa7" id="BFJ-P5-QBx"/>
                         <outlet property="event_date" destination="fBF-Kv-DJr" id="Q6A-5K-fVD"/>
