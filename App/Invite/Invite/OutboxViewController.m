@@ -37,7 +37,7 @@ PFQuery *queryEvent;
     [super viewDidLoad];
     NSLog(@"view did load");
   
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -216,7 +216,7 @@ PFQuery *queryEvent;
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    NSString *event_ID = [self.eventIDs objectAtIndex:indexPath.row];
+    NSString *event_ID = [[self.events objectAtIndex:indexPath.row] objectId];
     
     // get the selected event object from Event table
     PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];

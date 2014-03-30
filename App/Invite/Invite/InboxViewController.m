@@ -39,7 +39,7 @@ PFQuery *queryEvent;
 
     //get inbox events from backend MBAAS
     [self getEvents];
-    [self.tableView reloadData];
+   // [self.tableView reloadData];
 
 //    //[self.tableView registerNib:[UINib nibWithNibName:@"TableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
 //    [self.tableView registerNib:[UINib nibWithNibName:@"TableCell"
@@ -83,8 +83,25 @@ PFQuery *queryEvent;
                 [obj objectForKey:@"eventID"];
                 NSLog(@"eventID: %@", [obj objectForKey:@"eventID"]);
                 [self.eventIDs addObject:[obj objectForKey:@"eventID"]];
+            
+                // ------------------------------------------
+                queryEvent = [PFQuery queryWithClassName:@"Event"];
+                [queryEvent whereKey:@"objectId" equalTo:[obj objectForKey:@"eventID"]];
+                
+                // Run the query
+                [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        NSLog(@"TITLE: %@", [[objects objectAtIndex:0] objectForKey:@"title"]);
+                        [self.events addObject:[objects objectAtIndex:0]];
+                        [tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
+                        [self.tableView reloadData];
+                    }
+                }];
+                //----------------------------------------------
+            
             }
-            [self extractEvents];
+            [self.tableView reloadData];
+           // [self extractEvents];
            
         }
     }];
@@ -138,8 +155,6 @@ PFQuery *queryEvent;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    
-    
     InboxCustomCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
@@ -194,7 +209,11 @@ PFQuery *queryEvent;
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    NSString *event_ID = [self.eventIDs objectAtIndex:indexPath.row];
+    NSString *event_ID = [[self.events objectAtIndex:indexPath.row] objectId];
+    NSLog(@"row = %d", indexPath.row);
+    
+    NSLog(@"indexes : %@",self.eventIDs);
+    NSLog(@"events : %@",self.events);
     
     // get the selected event object from Event table
     PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];
