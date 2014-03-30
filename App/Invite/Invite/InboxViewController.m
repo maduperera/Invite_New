@@ -207,8 +207,6 @@ PFQuery *queryEvent;
         }
 
     }];
-    
-    
 }
 
 - (IBAction)mailToInvitor:(id)sender {

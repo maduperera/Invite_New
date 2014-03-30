@@ -153,6 +153,18 @@ UIDatePicker *datePicker = nil;
                 if (!error) {
                     NSLog(@"data written to the outbox successfully");
                     
+                    //acknowladge the user the invitation sent successfully
+                    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Invitation sent successfully!"
+                                                                      message:nil
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"Cancel"
+                                                            otherButtonTitles:nil];
+                    [message show];
+                    // clear all text fields
+                    [self clearAllTextFields];
+                    //enable the send button
+                    self.SendButton.enabled = YES;
+                    
                     //get the current user user_feed_back table name -> useremailwithout'@'and'.'_feed_back
                     currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
                     NSLog(@"feed_back table name name: %@" , currentUserFeedBackTableName);
@@ -198,25 +210,15 @@ UIDatePicker *datePicker = nil;
                         [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (!error) {
                                 NSLog(@"data written to the inbox successfully");
-                                // clear all text fields
-                                [self clearAllTextFields];
-                                //enable the send button
-                                self.SendButton.enabled = YES;
-                                //acknowladge the user the invitation sent successfully
-                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Invitation sent successfully!"
-                                                                                  message:nil
-                                                                                 delegate:self
-                                                                        cancelButtonTitle:@"Cancel"
-                                                                        otherButtonTitles:nil];
-                                [message show];
+                                
                             }else{
-                                NSLog(@"error in writing to the db");
-                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
-                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
-                                                                                 delegate:self
-                                                                        cancelButtonTitle:@"Cancel"
-                                                                        otherButtonTitles:nil];
-                                [message show];
+//                                NSLog(@"error in writing to the db");
+//                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+//                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
+//                                                                                 delegate:self
+//                                                                        cancelButtonTitle:@"Cancel"
+//                                                                        otherButtonTitles:nil];
+//                                [message show];
                             }
                         }];
                         
@@ -232,6 +234,7 @@ UIDatePicker *datePicker = nil;
             NSLog(@"error in writing to the db");
         }
     }];
+    
     
 }
 

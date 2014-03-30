@@ -8,6 +8,8 @@
 
 #import "OutboxViewController.h"
 #import "OutBoxCustomCell.h"
+#import "InvitationViewController.h"
+
 
 @interface OutboxViewController ()
 
@@ -33,13 +35,15 @@ PFQuery *queryEvent;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self getEvents];
+    NSLog(@"view did load");
+  
     [self.tableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"view did appear");
     [self getEvents];
+    //[self getEvents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,6 +212,23 @@ PFQuery *queryEvent;
     
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepareForSegue: %@", segue.identifier);
+    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
+    NSString *event_ID = [self.eventIDs objectAtIndex:indexPath.row];
+    
+    // get the selected event object from Event table
+    PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];
+    [queryForEvent getObjectInBackgroundWithId:event_ID block:^(PFObject *event, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
+            InvitationViewController *invitation = segue.destinationViewController;
+            invitation.event = event;
+            [invitation viewDidLoad];
+        }
+        
+    }];
+}
 
 @end
