@@ -51,38 +51,6 @@ PFQuery *queryEvent;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//
-//#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    return 0;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-//
-//// Sent to the delegate when a PFUser is logged in.
-//- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//}
-
 
 -(void)getEvents{
     
@@ -93,10 +61,9 @@ PFQuery *queryEvent;
     currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmail stringByReplacingOccurrencesOfString:@"@"withString:@""];
     currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
     
-    //get the receiver outbox table name -> receiveremailwithout'@'and'.'_in_box
+    //get the receiver inbox table name -> receiveremailwithout'@'and'.'_in_box
     currentUserOutBoxTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"out_box"];
     NSLog(@"current user outbox table name: %@" , currentUserOutBoxTableName);
-    
     
     //get current user outbox mesages that are not deleted
     PFQuery *query = [PFQuery queryWithClassName:currentUserOutBoxTableName];
@@ -106,42 +73,32 @@ PFQuery *queryEvent;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //get event ids from each object of inbox table
-            self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+            //self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.events = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.tableData = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
                 NSLog(@"eventID: %@", [obj objectForKey:@"eventID"]);
-                [self.eventIDs addObject:[obj objectForKey:@"eventID"]];
+                
+                queryEvent = [PFQuery queryWithClassName:@"Event"];
+                [queryEvent whereKey:@"objectId" equalTo:[obj objectForKey:@"eventID"]];
+                
+                // Run the query
+                [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        NSLog(@"TITLE: %@", [[objects objectAtIndex:0] objectForKey:@"title"]);
+                        [self.events addObject:[objects objectAtIndex:0]];
+                        [self.tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
+                        [self.tableView reloadData];
+                    }
+                }];
+                
             }
-            [self extractEvents];
+            [self.tableView reloadData];
             
         }
     }];
-    
-    
-}
-
--(void)extractEvents{
-    
-    for(NSString *obj in self.eventIDs){
-        queryEvent = [PFQuery queryWithClassName:@"Event"];
-        [queryEvent whereKey:@"objectId" equalTo:obj];
-        
-        // Run the query
-        [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                NSLog(@"TITLE: %@", [[objects objectAtIndex:0] objectForKey:@"title"]);
-                [self.events addObject:[objects objectAtIndex:0]];
-                [_tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
-                [self.tableView reloadData];
-            }
-        }];
-        
-    }
-    //    [self.tableView reloadData];
-    
 }
 
 #pragma mark - Table view data source
@@ -181,26 +138,24 @@ PFQuery *queryEvent;
         [self.tableData removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:(UITableViewRowAnimationFade)];
         
-        //getObjectID of the outMsg object(row) in currentUseroutBoxTable to be deleted
+        //getObjectID of the inMsg object(row) in currentUserOutnBoxTable to be deleted
         PFQuery *queryForObjId = [PFQuery queryWithClassName:currentUserOutBoxTableName];
-        [queryForObjId whereKey:@"eventID" equalTo:[self.eventIDs objectAtIndex:indexPath.row]];
+        [queryForObjId whereKey:@"eventID" equalTo:[[self.events objectAtIndex:indexPath.row]objectId]];
         
         // Run the query
         [queryForObjId findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 NSLog(@"...");
                 [objects count];
-                NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
-                NSLog(@"objectid : %@",[[objects objectAtIndex:0] objectId]);
                 
-                //update the user_out_box tables' row for the above event -> isdeleted = yes
+                //update the user_in_box tables' row for the above event -> isdeleted = yes
                 PFQuery *query = [PFQuery queryWithClassName:currentUserOutBoxTableName];
                 
                 // Retrieve the object by id
                 [query getObjectInBackgroundWithId:[[objects objectAtIndex:0] objectId] block:^(PFObject *inMsg, NSError *error) {
                     inMsg[@"isDeleted"] = [NSNumber numberWithBool:TRUE];
                     [inMsg saveInBackground];
-                    NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
+                    //NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
                 }];
                 
             }
@@ -209,6 +164,7 @@ PFQuery *queryEvent;
     }
     
     [self.tableView reloadData];
+
     
 }
 
@@ -216,19 +172,12 @@ PFQuery *queryEvent;
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    NSString *event_ID = [[self.events objectAtIndex:indexPath.row] objectId];
+    if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
+        InvitationViewController *invitation = segue.destinationViewController;
+        invitation.event = [self.events objectAtIndex:indexPath.row];
+        [invitation viewDidLoad];
+    }
     
-    // get the selected event object from Event table
-    PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];
-    [queryForEvent getObjectInBackgroundWithId:event_ID block:^(PFObject *event, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable.
-        if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
-            InvitationViewController *invitation = segue.destinationViewController;
-            invitation.event = event;
-            [invitation viewDidLoad];
-        }
-        
-    }];
 }
 
 @end

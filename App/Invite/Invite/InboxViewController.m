@@ -23,6 +23,7 @@ NSString *currentUserEmail;
 NSString *currentUserInBoxTableName;
 NSString *currentUserEmailWithOnlyAlhpaCharaters;
 PFQuery *queryEvent;
+NSString *event_ID;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,11 +41,6 @@ PFQuery *queryEvent;
     //get inbox events from backend MBAAS
     [self getEvents];
    // [self.tableView reloadData];
-
-//    //[self.tableView registerNib:[UINib nibWithNibName:@"TableCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"TableCell"
-//                                               bundle:[NSBundle mainBundle]]
-//    forCellReuseIdentifier:@"Cell"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -75,16 +71,14 @@ PFQuery *queryEvent;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //get event ids from each object of inbox table
-            self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+            //self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.events = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.tableData = [[NSMutableArray alloc] initWithCapacity:[objects count]];
 
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
                 NSLog(@"eventID: %@", [obj objectForKey:@"eventID"]);
-                [self.eventIDs addObject:[obj objectForKey:@"eventID"]];
-            
-                // ------------------------------------------
+                
                 queryEvent = [PFQuery queryWithClassName:@"Event"];
                 [queryEvent whereKey:@"objectId" equalTo:[obj objectForKey:@"eventID"]];
                 
@@ -97,37 +91,10 @@ PFQuery *queryEvent;
                         [self.tableView reloadData];
                     }
                 }];
-                //----------------------------------------------
-            
             }
             [self.tableView reloadData];
-           // [self extractEvents];
-           
         }
     }];
-    
-    
-}
-
--(void)extractEvents{
-   
-    for(NSString *obj in self.eventIDs){
-       queryEvent = [PFQuery queryWithClassName:@"Event"];
-       [queryEvent whereKey:@"objectId" equalTo:obj];
-        
-                    // Run the query
-                    [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                        if (!error) {
-                            NSLog(@"TITLE: %@", [[objects objectAtIndex:0] objectForKey:@"title"]);
-                            [self.events addObject:[objects objectAtIndex:0]];
-                            [tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
-                            [self.tableView reloadData];
-                        }
-                    }];
-
-    }
-//    [self.tableView reloadData];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -176,16 +143,14 @@ PFQuery *queryEvent;
         
         //getObjectID of the inMsg object(row) in currentUserInBoxTable to be deleted
         PFQuery *queryForObjId = [PFQuery queryWithClassName:currentUserInBoxTableName];
-        [queryForObjId whereKey:@"eventID" equalTo:[self.eventIDs objectAtIndex:indexPath.row]];
+        [queryForObjId whereKey:@"eventID" equalTo:[[self.events objectAtIndex:indexPath.row]objectId]];
         
         // Run the query
         [queryForObjId findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 NSLog(@"...");
                 [objects count];
-                NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
-                NSLog(@"objectid : %@",[[objects objectAtIndex:0] objectId]);
-                
+              
                 //update the user_in_box tables' row for the above event -> isdeleted = yes
                 PFQuery *query = [PFQuery queryWithClassName:currentUserInBoxTableName];
                 
@@ -193,7 +158,7 @@ PFQuery *queryEvent;
                 [query getObjectInBackgroundWithId:[[objects objectAtIndex:0] objectId] block:^(PFObject *inMsg, NSError *error) {
                     inMsg[@"isDeleted"] = [NSNumber numberWithBool:TRUE];
                     [inMsg saveInBackground];
-                    NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
+                    //NSLog(@"isdeleted set to : %@", [self.eventIDs objectAtIndex:indexPath.row]);
                 }];
                 
             }
@@ -209,23 +174,12 @@ PFQuery *queryEvent;
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    NSString *event_ID = [[self.events objectAtIndex:indexPath.row] objectId];
-    NSLog(@"row = %d", indexPath.row);
+    if ([segue.identifier isEqualToString:@"invitation"]) {
+        InvitationViewController *invitation = segue.destinationViewController;
+        invitation.event = [self.events objectAtIndex:indexPath.row];
+        [invitation viewDidLoad];
+    }
     
-    NSLog(@"indexes : %@",self.eventIDs);
-    NSLog(@"events : %@",self.events);
-    
-    // get the selected event object from Event table
-    PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];
-    [queryForEvent getObjectInBackgroundWithId:event_ID block:^(PFObject *event, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable.
-        if ([segue.identifier isEqualToString:@"invitation"]) {
-                InvitationViewController *invitation = segue.destinationViewController;
-                invitation.event = event;
-                [invitation viewDidLoad];
-        }
-
-    }];
 }
 
 - (IBAction)mailToInvitor:(id)sender {
@@ -233,6 +187,10 @@ PFQuery *queryEvent;
 
 - (IBAction)callInvitor:(id)sender {
     NSLog(@"call");
+    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
+    event_ID = [[self.events objectAtIndex:indexPath.row] objectId];
+    
+
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://2135554321"]];
 }
 
