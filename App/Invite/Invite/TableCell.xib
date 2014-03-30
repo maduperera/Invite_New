@@ -65,10 +65,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="callButtonImage.png" width="300" height="300"/>
+        <image name="callButtonImage.png" width="45" height="45"/>
         <image name="messageButtonImage.jpeg" width="204" height="204"/>
         <image name="navigationButtonImage.jpeg" width="71" height="71"/>
-        <image name="scanButtonImage.jpeg" width="116" height="116"/>
+        <image name="scanButtonImage.jpeg" width="40" height="40"/>
         <image name="shoppingButtonImage.jpeg" width="182" height="200"/>
     </resources>
 </document>

@@ -12,4 +12,12 @@
 @interface InvitationViewController : UIViewController
 
 @property(nonatomic,weak) PFObject *event;
+@property (weak, nonatomic) IBOutlet UILabel *invitationTitle;
+@property (weak, nonatomic) IBOutlet UILabel *invitationAddress;
+@property (weak, nonatomic) IBOutlet UILabel *invitationDate;
+@property (weak, nonatomic) IBOutlet UILabel *invitationFrom;
+@property (weak, nonatomic) IBOutlet UILabel *invitationTo;
+@property (weak, nonatomic) IBOutlet UILabel *invitationContactNo;
+@property (weak, nonatomic) IBOutlet MKMapView *invitationMap;
+
 @end

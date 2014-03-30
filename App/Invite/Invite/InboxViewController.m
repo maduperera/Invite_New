@@ -10,6 +10,7 @@
 #import "TableCell.h"
 #import "UIViewController+Utilities.h"
 #import "InvitationViewController.h"
+#import "InboxCustomCell.h"
 
 @interface InboxViewController ()
 
@@ -136,21 +137,22 @@ PFQuery *queryEvent;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"Cell";
-//    TableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (!cell) {
-//        cell = [[TableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    [cell.name setText: [tableData objectAtIndex:indexPath.row]];
-    
-//    return cell;
+
     
     
-    UITableViewCell *cell = [tableView
+    InboxCustomCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
-	cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
+//    CGSize labelSize = CGSizeMake(130, cell.frame.size.height);
+//    CGRect newFrame = cell.textLabel.frame;
+//    newFrame.size = labelSize;
+//    cell.textLabel.frame = newFrame;
+//    
+//	cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+//    
+   // self.eventLabel.text = [tableData objectAtIndex:indexPath.row];
 	   
+    cell.eventLabel.text = [tableData objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -202,21 +204,34 @@ PFQuery *queryEvent;
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
     NSString *event_ID = [self.eventIDs objectAtIndex:indexPath.row];
     
-    //getObjectID of the inMsg object(row) in currentUserInBoxTable to be deleted
+    // get the selected event object from Event table
     PFQuery *queryForEvent = [PFQuery queryWithClassName:@"Event"];
-    [queryForEvent whereKey:@"objectId" equalTo:event_ID];
-    
-    // Run the query
-    [queryForEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if ([segue.identifier isEqualToString:@"invitation"]) {
+    [queryForEvent getObjectInBackgroundWithId:event_ID block:^(PFObject *event, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        if ([segue.identifier isEqualToString:@"invitation"]) {
                 InvitationViewController *invitation = segue.destinationViewController;
-                invitation.event = [objects objectAtIndex:0];
-            }
-        }else{}
+                invitation.event = event;
+                [invitation viewDidLoad];
+        }
+
     }];
     
     
 }
 
+- (IBAction)mailToInvitor:(id)sender {
+}
+
+- (IBAction)callInvitor:(id)sender {
+    NSLog(@"call");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://2135554321"]];
+}
+
+- (IBAction)shop:(id)sender {
+}
+
+- (IBAction)showQR:(id)sender {
+}
+- (IBAction)showMap:(id)sender {
+}
 @end

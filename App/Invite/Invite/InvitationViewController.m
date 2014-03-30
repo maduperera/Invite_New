@@ -27,7 +27,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"selected event title : %@", [self.event objectForKey:@"title"]);
+    self.invitationTitle.text = [self.event objectForKey:@"title"];
+    self.invitationAddress.text = [self.event objectForKey:@"address"];
+    self.invitationFrom.text = [self.event objectForKey:@"startTime"];
+    self.invitationTo.text = [self.event objectForKey:@"endTime"];
+    self.invitationContactNo.text = [self.event objectForKey:@"contactNo"];
+    self.invitationDate.text = [self.event objectForKey:@"eventDate"];
+        
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
 }
 
 - (void)didReceiveMemoryWarning

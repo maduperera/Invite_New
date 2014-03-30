@@ -14,6 +14,13 @@
 
 @property(nonatomic, strong) NSMutableArray *tableData;
 @property(nonatomic, strong) NSMutableArray *events;
+@property (weak, nonatomic) IBOutlet UILabel *eventLabel;
 @property(nonatomic, strong) NSMutableArray *eventIDs;
+
+- (IBAction)mailToInvitor:(id)sender;
+- (IBAction)callInvitor:(id)sender;
+- (IBAction)shop:(id)sender;
+- (IBAction)showQR:(id)sender;
+- (IBAction)showMap:(id)sender;
 
 @end

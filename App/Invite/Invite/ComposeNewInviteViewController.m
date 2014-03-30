@@ -198,8 +198,25 @@ UIDatePicker *datePicker = nil;
                         [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (!error) {
                                 NSLog(@"data written to the inbox successfully");
+                                // clear all text fields
+                                [self clearAllTextFields];
+                                //enable the send button
+                                self.SendButton.enabled = YES;
+                                //acknowladge the user the invitation sent successfully
+                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Invitation sent successfully!"
+                                                                                  message:nil
+                                                                                 delegate:self
+                                                                        cancelButtonTitle:@"Cancel"
+                                                                        otherButtonTitles:nil];
+                                [message show];
                             }else{
                                 NSLog(@"error in writing to the db");
+                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
+                                                                                 delegate:self
+                                                                        cancelButtonTitle:@"Cancel"
+                                                                        otherButtonTitles:nil];
+                                [message show];
                             }
                         }];
                         
@@ -244,8 +261,48 @@ UIDatePicker *datePicker = nil;
     return NO;
 }
 
-- (IBAction)cancel:(id)sender {
+
+- (IBAction)pickStartTime:(id)sender {
+    if(self.event_start_time.inputView == nil){
+        self.event_start_time.inputView = datePicker;
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    }
     
+	[datePicker addTarget:self
+                   action:@selector(changeTimeInStartTimeTextField:)
+         forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (IBAction)pickEndTime:(id)sender {
+    if(self.event_end_time.inputView == nil){
+        self.event_end_time.inputView = datePicker;
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    }
+    
+	[datePicker addTarget:self
+                   action:@selector(changeTimeInEndTimeTextField:)
+         forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (void)changeTimeInStartTimeTextField:(id)sender{
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"h:mm a"];
+     self.event_start_time.text = [df stringFromDate:datePicker.date];
+}
+
+- (void)changeTimeInEndTimeTextField:(id)sender{
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"h:mm a"];
+    self.event_end_time.text = [df stringFromDate:datePicker.date];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self clearAllTextFields];
+}
+
+-(void)clearAllTextFields{
     self.event_address.text = @"";
     self.event_contatctNo.text = @"";
     self.event_date.text = @"";
@@ -253,8 +310,6 @@ UIDatePicker *datePicker = nil;
     self.event_start_time.text = @"";
     self.event_title.text = @"";
     self.event_to.text = @"";
-    
 }
-
 
 @end

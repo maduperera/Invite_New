@@ -56,6 +56,7 @@
 		E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */; };
 		E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */; };
 		E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BE318E754D500400FD1 /* bdybackground.png */; };
+		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
 		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
 		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
 		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
@@ -135,6 +136,8 @@
 		E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationButtonImage.png; sourceTree = "<group>"; };
 		E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingButtonImage.png; sourceTree = "<group>"; };
 		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
+		E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
+		E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
 		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
 		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 		BED0938618DADAC6002F2954 /* InviteCommon */ = {
 			isa = PBXGroup;
 			children = (
+				E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */,
+				E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */,
 				BED0938218DADA8B002F2954 /* TableCell.h */,
 				BED0938718DADB31002F2954 /* TableCell.xib */,
 				BED0938318DADA8B002F2954 /* TableCell.m */,
@@ -453,6 +458,7 @@
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
 				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
+				E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
 				E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */,

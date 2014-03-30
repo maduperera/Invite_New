@@ -31,6 +31,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *SendButton;
 
 
+- (IBAction)pickStartTime:(id)sender;
+- (IBAction)pickStartTime:(id)sender;
+- (IBAction)pickEndTime:(id)sender;
+
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)send:(id)sender;

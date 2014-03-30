@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="buttonCell" id="kcQ-Lx-aFu">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="buttonCell" id="kcQ-Lx-aFu" customClass="InboxCustomCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcQ-Lx-aFu" id="8eA-r4-zzF">
@@ -26,6 +26,9 @@
                                             <state key="normal" image="mail.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="mailToInvitor:" destination="W06-e8-hpa" eventType="touchUpInside" id="EbY-1B-RCP"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ot-Qm-97q">
                                             <rect key="frame" x="223" y="7" width="26" height="25"/>
@@ -33,6 +36,9 @@
                                             <state key="normal" title="Button" image="navigationButtonImage.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="showMap:" destination="W06-e8-hpa" eventType="touchUpInside" id="vhR-DA-QST"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWg-pY-Dsd">
                                             <rect key="frame" x="253" y="2" width="27" height="32"/>
@@ -40,6 +46,9 @@
                                             <state key="normal" title="Button" image="shoppingButtonImage.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="shop:" destination="W06-e8-hpa" eventType="touchUpInside" id="Omn-tY-9qx"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-LD-EJj">
                                             <rect key="frame" x="154" y="0.0" width="40" height="40"/>
@@ -47,6 +56,9 @@
                                             <state key="normal" image="callButtonImage.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="callInvitor:" destination="W06-e8-hpa" eventType="touchUpInside" id="ojo-kX-DxX"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBZ-4T-DR6">
                                             <rect key="frame" x="286" y="5" width="25" height="29"/>
@@ -54,10 +66,20 @@
                                             <state key="normal" image="scanButtonImage.jpeg">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="showQR:" destination="W06-e8-hpa" eventType="touchUpInside" id="WRE-RX-Pao"/>
+                                            </connections>
                                         </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-eZ-Gh1">
+                                            <rect key="frame" x="20" y="7" width="126" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="eventLabel" destination="uWc-eZ-Gh1" id="Zu3-xb-J7N"/>
                                     <segue destination="99V-Io-FWd" kind="push" identifier="invitation" id="PMu-G0-Ggl"/>
                                 </connections>
                             </tableViewCell>
@@ -80,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnb-8o-xbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="-1034"/>
+            <point key="canvasLocation" x="1067" y="-1044"/>
         </scene>
         <!--Invitation View Controller-->
         <scene sceneID="hmd-1t-JyI">
@@ -117,25 +139,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="from" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbm-WH-ESL">
-                                <rect key="frame" x="109" y="204" width="50" height="21"/>
+                                <rect key="frame" x="51" y="202" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-RZ-51e">
-                                <rect key="frame" x="171" y="204" width="50" height="21"/>
+                                <rect key="frame" x="182" y="204" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81V-HJ-5Kv">
-                                <rect key="frame" x="83" y="233" width="79" height="26"/>
+                                <rect key="frame" x="55" y="233" width="78" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="contact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLE-Zn-rvA">
-                                <rect key="frame" x="163" y="235" width="141" height="21"/>
+                                <rect key="frame" x="136" y="235" width="141" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -145,7 +167,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syn-bS-McK">
-                                <rect key="frame" x="136" y="170" width="50" height="21"/>
+                                <rect key="frame" x="98" y="170" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ2-sY-lB4">
+                                <rect key="frame" x="157" y="204" width="7" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -154,6 +182,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eUx-ni-WWw"/>
+                    <connections>
+                        <outlet property="invitationAddress" destination="7hN-Pn-bnt" id="qCZ-E6-G1F"/>
+                        <outlet property="invitationContactNo" destination="hLE-Zn-rvA" id="Ic2-mN-Xj2"/>
+                        <outlet property="invitationDate" destination="syn-bS-McK" id="1jW-rU-2aY"/>
+                        <outlet property="invitationFrom" destination="jbm-WH-ESL" id="38O-rq-Wek"/>
+                        <outlet property="invitationMap" destination="cx9-eK-Rjl" id="WaL-kH-pD2"/>
+                        <outlet property="invitationTitle" destination="FzS-EY-G8p" id="yWG-B3-WfJ"/>
+                        <outlet property="invitationTo" destination="MIn-RZ-51e" id="J45-7V-9S3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzd-av-7Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,7 +337,7 @@
             </objects>
             <point key="canvasLocation" x="536" y="308"/>
         </scene>
-        <!--Template View Controller-->
+        <!--Template View Controller - Select Template-->
         <scene sceneID="Uzf-6f-ggv">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="oDe-XY-Nnw" customClass="TemplateViewController" sceneMemberID="viewController">
@@ -354,7 +391,7 @@
                             <outlet property="delegate" destination="oDe-XY-Nnw" id="ZVu-yE-8dd"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="LkQ-pu-3S9">
+                    <navigationItem key="navigationItem" title="Select Template" id="LkQ-pu-3S9">
                         <barButtonItem key="rightBarButtonItem" title="Signout" id="hBW-um-IeX">
                             <connections>
                                 <action selector="signout:" destination="oDe-XY-Nnw" id="KN5-8w-gOv"/>
@@ -395,7 +432,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ends:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaS-p9-AJI">
-                                <rect key="frame" x="175" y="140" width="44" height="21"/>
+                                <rect key="frame" x="176" y="140" width="44" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -458,20 +495,22 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gn4-EV-75r">
-                                <rect key="frame" x="91" y="131" width="76" height="30"/>
+                                <rect key="frame" x="86" y="131" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
+                                    <action selector="pickStartTime:" destination="9Qh-oS-zfh" eventType="touchDown" id="NP0-Ba-RyK"/>
                                     <outlet property="delegate" destination="9Qh-oS-zfh" id="zHV-2f-cmG"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdh-rq-vPT">
-                                <rect key="frame" x="227" y="131" width="73" height="30"/>
+                                <rect key="frame" x="222" y="131" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
+                                    <action selector="pickEndTime:" destination="9Qh-oS-zfh" eventType="touchDown" id="Goj-dv-Ih0"/>
                                     <outlet property="delegate" destination="9Qh-oS-zfh" id="PVv-0T-WXP"/>
                                 </connections>
                             </textField>
