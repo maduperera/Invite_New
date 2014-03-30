@@ -57,6 +57,8 @@
 		E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */; };
 		E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BE318E754D500400FD1 /* bdybackground.png */; };
 		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
+		E3E3E5A818E806E100A2BB76 /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E5A718E806E100A2BB76 /* log.png */; };
+		E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */; };
 		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
 		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
 		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
@@ -138,6 +140,9 @@
 		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
 		E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
 		E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
+		E3E3E5A718E806E100A2BB76 /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
+		E3E3E5A918E8087D00A2BB76 /* OutBoxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutBoxCustomCell.h; sourceTree = "<group>"; };
+		E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutBoxCustomCell.m; sourceTree = "<group>"; };
 		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
 		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 				E36F9BDB18E745B400400FD1 /* mail.png */,
 				E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */,
 				87C5F43D18DC3DF000B4821D /* callButtonImage.png */,
+				E3E3E5A718E806E100A2BB76 /* log.png */,
 				E36F9BE318E754D500400FD1 /* bdybackground.png */,
 				E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */,
 				87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */,
@@ -327,9 +333,11 @@
 			children = (
 				E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */,
 				E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */,
+				BED0938318DADA8B002F2954 /* TableCell.m */,
 				BED0938218DADA8B002F2954 /* TableCell.h */,
 				BED0938718DADB31002F2954 /* TableCell.xib */,
-				BED0938318DADA8B002F2954 /* TableCell.m */,
+				E3E3E5A918E8087D00A2BB76 /* OutBoxCustomCell.h */,
+				E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */,
 			);
 			name = InviteCommon;
 			sourceTree = "<group>";
@@ -421,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E3E5A818E806E100A2BB76 /* log.png in Resources */,
 				87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */,
 				87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */,
 				87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */,
@@ -468,6 +477,7 @@
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
+				E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,10 @@
 
 @interface OutboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+@property(nonatomic, strong) NSMutableArray *tableData;
+@property(nonatomic, strong) NSMutableArray *events;
+
+@property(nonatomic, strong) NSMutableArray *eventIDs;
 
 
 @end

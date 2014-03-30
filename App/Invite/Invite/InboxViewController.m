@@ -143,14 +143,6 @@ PFQuery *queryEvent;
     InboxCustomCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
-//    CGSize labelSize = CGSizeMake(130, cell.frame.size.height);
-//    CGRect newFrame = cell.textLabel.frame;
-//    newFrame.size = labelSize;
-//    cell.textLabel.frame = newFrame;
-//    
-//	cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-//    
-   // self.eventLabel.text = [tableData objectAtIndex:indexPath.row];
 	   
     cell.eventLabel.text = [tableData objectAtIndex:indexPath.row];
     return cell;
