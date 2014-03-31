@@ -13,8 +13,9 @@
 @end
 
 @implementation BMRViewController
-MKReverseGeocoder *reverseGeocoder;
+//MKReverseGeocoder *reverseGeocoder;
 NSMutableArray* arrNotification;
+MKPointAnnotation *point;
 
 - (void)viewDidLoad
 {
@@ -38,15 +39,15 @@ NSMutableArray* arrNotification;
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
     // Add an annotation
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point = [[MKPointAnnotation alloc] init];
 //    [point ]
     point.coordinate = mapView.centerCoordinate;;
     point.title = @"Darg to the place you want!";
     point.subtitle = @"I'm here at the moment";
     self.centerAnnotation = point;
     
-    
-    [self.mapView addAnnotation:point];
+    [self.mapView addAnnotation:self.centerAnnotation];
+   // [self.mapView addAnnotation:point];
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
@@ -57,6 +58,9 @@ NSMutableArray* arrNotification;
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    
+    //[self.mapView removeAnnotation:point];
+    
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     
