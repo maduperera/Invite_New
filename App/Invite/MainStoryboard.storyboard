@@ -433,6 +433,34 @@
             </objects>
             <point key="canvasLocation" x="1067" y="308"/>
         </scene>
+        <!--Editable Map View View Controller - Map to the Event-->
+        <scene sceneID="QDG-of-a8d">
+            <objects>
+                <viewController storyboardIdentifier="EditableMap" id="FF5-Nj-pYm" customClass="EditableMapViewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PFm-QD-8TG"/>
+                        <viewControllerLayoutGuide type="bottom" id="JGv-5Z-PYT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kDk-74-s4a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h58-F3-wv1">
+                                <rect key="frame" x="0.0" y="61" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map to the Event" id="sA5-aB-dr5"/>
+                    <connections>
+                        <outlet property="editableMapView" destination="h58-F3-wv1" id="hhM-Jk-nkt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8e-7v-cVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1975" y="308"/>
+        </scene>
         <!--Compose New Invite View Controller - Compose Invitation-->
         <scene sceneID="6QR-d3-Ehj">
             <objects>
@@ -593,6 +621,7 @@
                         <outlet property="event_title" destination="ZnX-as-Z5s" id="zuM-2v-RTK"/>
                         <outlet property="event_to" destination="Zo0-r5-hCZ" id="cys-2j-HMM"/>
                         <outlet property="map" destination="4xu-OC-P0j" id="xa5-ff-QLL"/>
+                        <segue destination="FF5-Nj-pYm" kind="push" identifier="toTheEditableMap" id="cBg-aH-VPQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Teo-JN-wbm" userLabel="First Responder" sceneMemberID="firstResponder"/>

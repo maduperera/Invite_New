@@ -1,28 +1,36 @@
 //
-//  BMRViewController.m
-//  MapPOC
+//  EditableMapViewViewController.m
+//  Invite
 //
-//  Created by Madusha Perera on 3/30/14.
-//  Copyright (c) 2014 Madusha Perera. All rights reserved.
+//  Created by Madusha Perera on 3/31/14.
+//  Copyright (c) 2014 Dhammini Fernando. All rights reserved.
 //
 
-#import "BMRViewController.h"
+#import "EditableMapViewViewController.h"
 
-@interface BMRViewController ()
+@interface EditableMapViewViewController ()
 
 @end
 
-@implementation BMRViewController
-//MKReverseGeocoder *reverseGeocoder;
+@implementation EditableMapViewViewController
+
 NSMutableArray* arrNotification;
 MKPointAnnotation *point;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.mapView.delegate = self;
-    
+	// Do any additional setup after loading the view.
+     self.editableMapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,38 +41,32 @@ MKPointAnnotation *point;
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    [self.editableMapView setRegion:[self.editableMapView regionThatFits:region] animated:YES];
     
     // Add an annotation
     point = [[MKPointAnnotation alloc] init];
-//    [point ]
     point.coordinate = mapView.centerCoordinate;;
     point.title = @"Darg to the place you want!";
     point.subtitle = @"I'm here at the moment";
     self.centerAnnotation = point;
     
-//    if([self.mapView annotations]count !=0){
-//    
-//    }
-    if([[self.mapView annotations]count] > 1){
-        NSInteger toRemoveCount = self.mapView.annotations.count;
-        NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
-        for (id annotation in self.mapView.annotations)
-            if (annotation != self.mapView.userLocation)
-                [toRemove addObject:annotation];
-        [self.mapView removeAnnotations:toRemove];
-    }
-    NSLog(@"count: %d", [[self.mapView annotations]count]);
     
-    [self.mapView addAnnotation:self.centerAnnotation];
-//    [self.mapView addAnnotation:self.centerAnnotation];
-   // [self.mapView addAnnotation:point];
+    //remove duplicating annotations
+    if([[mapView annotations]count] > 1){
+        NSInteger toRemoveCount = mapView.annotations.count;
+        NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
+        for (id annotation in mapView.annotations)
+            if (annotation != mapView.userLocation)
+                [toRemove addObject:annotation];
+        [mapView removeAnnotations:toRemove];
+    }
 
-    //[self.mapView removeAnnotation:point];
-   
+    // add an annotation in the middle of the map
+    [self.editableMapView addAnnotation:self.centerAnnotation];
+    
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
@@ -76,9 +78,7 @@ MKPointAnnotation *point;
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     
-  
-
-    
+    //[self.mapView removeAnnotation:point];
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
@@ -98,7 +98,6 @@ MKPointAnnotation *point;
     
     return pav;
 }
-
 
 
 @end

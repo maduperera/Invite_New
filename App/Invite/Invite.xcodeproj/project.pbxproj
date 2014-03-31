@@ -56,6 +56,7 @@
 		E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */; };
 		E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */; };
 		E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BE318E754D500400FD1 /* bdybackground.png */; };
+		E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */; };
 		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
 		E3E3E5A818E806E100A2BB76 /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E5A718E806E100A2BB76 /* log.png */; };
 		E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */; };
@@ -138,6 +139,8 @@
 		E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationButtonImage.png; sourceTree = "<group>"; };
 		E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingButtonImage.png; sourceTree = "<group>"; };
 		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
+		E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableMapViewViewController.h; sourceTree = "<group>"; };
+		E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableMapViewViewController.m; sourceTree = "<group>"; };
 		E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
 		E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
 		E3E3E5A718E806E100A2BB76 /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */,
 				E36F9BD618E7381700400FD1 /* InvitationViewController.h */,
 				E36F9BD718E7381700400FD1 /* InvitationViewController.m */,
+				E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */,
+				E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
+				E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */,
 				E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

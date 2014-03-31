@@ -7,6 +7,7 @@
 //
 
 #import "ComposeNewInviteViewController.h"
+#import "EditableMapViewViewController.h"
 
 @interface ComposeNewInviteViewController ()
 
@@ -45,6 +46,19 @@ UIDatePicker *datePicker = nil;
     //initiate geopint
     self.geoPoint = [[PFGeoPoint alloc] init];
     
+    //add gesture recognizer to the map view to be able to select and push a new view controller
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnMap:)];
+    [tap setNumberOfTapsRequired:1];
+    [self.map addGestureRecognizer: tap];
+    
+    
+}
+
+-(void) handleTapOnMap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        EditableMapViewViewController *map = [self.storyboard instantiateViewControllerWithIdentifier:@"EditableMap"];
+        [self.navigationController pushViewController:map animated:YES];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
