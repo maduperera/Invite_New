@@ -14,7 +14,6 @@
 
 @implementation EditableMapViewViewController
 
-NSMutableArray* arrNotification;
 MKPointAnnotation *point;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,29 +55,24 @@ MKPointAnnotation *point;
     
     //remove duplicating annotations
     if([[mapView annotations]count] > 1){
-        NSInteger toRemoveCount = mapView.annotations.count;
-        NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
-        for (id annotation in mapView.annotations)
-            if (annotation != mapView.userLocation)
-                [toRemove addObject:annotation];
-        [mapView removeAnnotations:toRemove];
+        [mapView removeAnnotations:mapView.annotations];
     }
 
     // add an annotation in the middle of the map
     [self.editableMapView addAnnotation:self.centerAnnotation];
-    
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     self.centerAnnotation.coordinate = mapView.centerCoordinate;
     self.centerAnnotation.subtitle = [NSString stringWithFormat:@"%f, %f", self.centerAnnotation.coordinate.latitude, self.centerAnnotation.coordinate.longitude];
+
+
+    
 }
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    
-    //[self.mapView removeAnnotation:point];
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
@@ -97,6 +91,11 @@ MKPointAnnotation *point;
     }
     
     return pav;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState{
+        [self.delegate setEventLocationOnStaticMapAt:self.centerAnnotation.coordinate];
 }
 
 

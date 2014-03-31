@@ -21,6 +21,7 @@ NSString *currentUserFeedBackTableName;
 NSString *recieverInBoxTableName;
 NSString *receiverEmailWithOnlyAlhpaCharaters;
 UIDatePicker *datePicker = nil;
+MKPointAnnotation *point;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,11 +55,38 @@ UIDatePicker *datePicker = nil;
     
 }
 
+// handle tap even on map view
 -(void) handleTapOnMap:(UITapGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        EditableMapViewViewController *map = [self.storyboard instantiateViewControllerWithIdentifier:@"EditableMap"];
-        [self.navigationController pushViewController:map animated:YES];
+        EditableMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditableMap"];
+        mapController.delegate = self;
+        [self.navigationController pushViewController:mapController animated:YES];
     }
+}
+
+//delegate method to be called by editable map view
+-(void)setEventLocationOnStaticMapAt:(CLLocationCoordinate2D) eventLocation;{
+    self.location = eventLocation;
+    self.geoPoint.longitude = eventLocation.longitude;
+    self.geoPoint.latitude = eventLocation.latitude;
+}
+
+//mapkit delegate to show the pinned event on map
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
+    
+    // Add an annotation
+    point = [[MKPointAnnotation alloc] init];
+    point.coordinate = mapView.centerCoordinate;;
+    point.title = @"Event takes place at here!";
+    point.subtitle = @"I'm here at the moment";
+    
+    // add an annotation in the middle of the map
+    [self.map addAnnotation:point];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -327,6 +355,16 @@ UIDatePicker *datePicker = nil;
     self.event_start_time.text = @"";
     self.event_title.text = @"";
     self.event_to.text = @"";
+    
+    //clear all annotations in the map
+    if([[self.map annotations]count] > 1){
+        [self.map removeAnnotations:self.map.annotations];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"transit to next view");
 }
 
 @end

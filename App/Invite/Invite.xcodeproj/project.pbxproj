@@ -141,6 +141,7 @@
 		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
 		E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableMapViewViewController.h; sourceTree = "<group>"; };
 		E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableMapViewViewController.m; sourceTree = "<group>"; };
+		E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposerDelegate.h; sourceTree = "<group>"; };
 		E3E3E5A418E7FA6100A2BB76 /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
 		E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
 		E3E3E5A718E806E100A2BB76 /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 				E36F9BD718E7381700400FD1 /* InvitationViewController.m */,
 				E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */,
 				E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */,
+				E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
