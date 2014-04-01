@@ -11,6 +11,7 @@
 #import "UIViewController+Utilities.h"
 #import "InvitationViewController.h"
 #import "InboxCustomCell.h"
+#import "StaticMapViewViewController.h"
 
 @interface InboxViewController ()
 
@@ -200,5 +201,9 @@ NSString *event_ID;
 - (IBAction)showQR:(id)sender {
 }
 - (IBAction)showMap:(id)sender {
+    StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
+    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
+    mapController.event = [self.events objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:mapController animated:YES];
 }
 @end

@@ -102,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnb-8o-xbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-1044"/>
+            <point key="canvasLocation" x="1165" y="-1044"/>
         </scene>
         <!--Invitation View Controller-->
         <scene sceneID="hmd-1t-JyI">
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzd-av-7Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-1044"/>
+            <point key="canvasLocation" x="1609" y="-746"/>
         </scene>
         <!--Static Map View View Controller-->
         <scene sceneID="sgS-j3-KFB">
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmH-wY-3nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2005" y="-1044"/>
+            <point key="canvasLocation" x="2149" y="-1044"/>
         </scene>
         <!--Invite Tab Bar-->
         <scene sceneID="Nyf-pl-QE8">
@@ -684,6 +684,7 @@
         <image name="mail.png" width="40" height="40"/>
         <image name="navigationButtonImage.png" width="40" height="40"/>
         <image name="scanButtonImage.jpeg" width="40" height="40"/>
+        <image name="scanButtonImage.jpeg" width="40" height="40"/>
         <image name="shoppingButtonImage.png" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -692,6 +693,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mhA-j7-rX9"/>
+        <segue reference="PMu-G0-Ggl"/>
     </inferredMetricsTieBreakers>
 </document>
