@@ -26,6 +26,7 @@
 		877C764C18DC2E86004124CB /* InviteComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C764B18DC2E86004124CB /* InviteComposer.m */; };
 		877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C764E18DC343E004124CB /* InviteLoginViewController.m */; };
 		877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C765518DC375C004124CB /* InviteSignupViewController.m */; };
+		8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */; };
 		878A997E18E010B300DACA62 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 878A997D18E010B300DACA62 /* invite.png */; };
 		87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43D18DC3DF000B4821D /* callButtonImage.png */; };
 		87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */; };
@@ -102,6 +103,8 @@
 		877C764E18DC343E004124CB /* InviteLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteLoginViewController.m; path = Invite/InviteLoginViewController.m; sourceTree = "<group>"; };
 		877C765418DC375C004124CB /* InviteSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteSignupViewController.h; path = Invite/InviteSignupViewController.h; sourceTree = "<group>"; };
 		877C765518DC375C004124CB /* InviteSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteSignupViewController.m; path = Invite/InviteSignupViewController.m; sourceTree = "<group>"; };
+		8785B06C18EAD47900013FA1 /* StaticMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticMapViewViewController.h; sourceTree = "<group>"; };
+		8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticMapViewViewController.m; sourceTree = "<group>"; };
 		878A997D18E010B300DACA62 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
 		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */,
 				E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */,
 				E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */,
+				8785B06C18EAD47900013FA1 /* StaticMapViewViewController.h */,
+				8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */,
 				BED0936018DADA49002F2954 /* AppDelegate.m in Sources */,
 				BED0935C18DADA49002F2954 /* main.m in Sources */,
 				877C764C18DC2E86004124CB /* InviteComposer.m in Sources */,

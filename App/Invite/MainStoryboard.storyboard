@@ -190,11 +190,40 @@
                         <outlet property="invitationMap" destination="cx9-eK-Rjl" id="WaL-kH-pD2"/>
                         <outlet property="invitationTitle" destination="FzS-EY-G8p" id="yWG-B3-WfJ"/>
                         <outlet property="invitationTo" destination="MIn-RZ-51e" id="J45-7V-9S3"/>
+                        <segue destination="ogx-P7-d8i" kind="push" identifier="toStaticMap" id="XBv-I0-Z5T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzd-av-7Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="-1044"/>
+        </scene>
+        <!--Static Map View View Controller-->
+        <scene sceneID="sgS-j3-KFB">
+            <objects>
+                <viewController storyboardIdentifier="StaticMap" id="ogx-P7-d8i" customClass="StaticMapViewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C9S-uc-GZ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Prh-81-nX5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LBD-sO-CG1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GBo-kA-Uax">
+                                <rect key="frame" x="-50" y="-27" width="370" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="v33-th-sPR"/>
+                    <connections>
+                        <outlet property="staticMapView" destination="GBo-kA-Uax" id="B4f-vU-MpS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmH-wY-3nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2005" y="-1044"/>
         </scene>
         <!--Invite Tab Bar-->
         <scene sceneID="Nyf-pl-QE8">

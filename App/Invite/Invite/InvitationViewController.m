@@ -7,6 +7,8 @@
 //
 
 #import "InvitationViewController.h"
+#import "StaticMapViewViewController.h"
+
 
 @interface InvitationViewController ()
 
@@ -36,15 +38,26 @@ MKPointAnnotation *point;
     self.invitationContactNo.text = [self.event objectForKey:@"contactNo"];
     self.invitationDate.text = [self.event objectForKey:@"eventDate"];
   
-    
-  
     self.latitude = [[self.event objectForKey:@"geoPoint"] latitude];
     self.longitude = [[self.event objectForKey:@"geoPoint"] longitude];
     self.location = CLLocationCoordinate2DMake(self.latitude, self.longitude);
-
-
+    
+    //add gesture recognizer to the map view to be able to select and push a new view controller
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnMap:)];
+    [tap setNumberOfTapsRequired:1];
+    [self.invitationMap addGestureRecognizer: tap];
 
 }
+
+// handle tap even on map view
+-(void) handleTapOnMap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
+        mapController.event = self.event;
+        [self.navigationController pushViewController:mapController animated:YES];
+    }
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
 
@@ -78,6 +91,15 @@ MKPointAnnotation *point;
     // Dispose of any resources that can be recreated.
 }
 
-
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    NSLog(@"prepareForSegue: %@", segue.identifier);
+//       if ([segue.identifier isEqualToString:@"toStaticMap"]) {
+//        StaticMapViewViewController *staticMap = segue.destinationViewController;
+//        staticMap.event = self.event;
+//        [staticMap viewDidLoad];
+//    }
+//    
+//}
 
 @end
