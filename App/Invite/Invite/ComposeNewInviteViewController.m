@@ -69,24 +69,47 @@ MKPointAnnotation *point;
     self.location = eventLocation;
     self.geoPoint.longitude = eventLocation.longitude;
     self.geoPoint.latitude = eventLocation.latitude;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location, 800, 800);
+    
+    //MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location.coordinate, 800, 800);
+    
+    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
+    
+    // Add an annotation
+    point = [[MKPointAnnotation alloc] init];
+    //    point.coordinate = mapView.centerCoordinate;
+    point.coordinate = self.location;
+    point.title = @"Event takes place at here!";
+    point.subtitle = @"I'm here at the moment";
+
+    //remove duplicating annotations
+    if([[self.map annotations]count] > 1){
+        [self.map removeAnnotations:self.map.annotations];
+    }
+    
+    // add an annotation in the middle of the map
+    [self.map addAnnotation:point];
+
 }
 
 //mapkit delegate to show the pinned event on map
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-    //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
-    
-    // Add an annotation
-    point = [[MKPointAnnotation alloc] init];
-    point.coordinate = mapView.centerCoordinate;;
-    point.title = @"Event takes place at here!";
-    point.subtitle = @"I'm here at the moment";
-    
-    // add an annotation in the middle of the map
-    [self.map addAnnotation:point];
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location, 800, 800);
+//
+//    //MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location.coordinate, 800, 800);
+//
+//    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
+//    
+//    // Add an annotation
+//    point = [[MKPointAnnotation alloc] init];
+////    point.coordinate = mapView.centerCoordinate;
+//    point.coordinate = self.location;
+//    point.title = @"Event takes place at here!";
+//    point.subtitle = @"I'm here at the moment";
+//    
+//    // add an annotation in the middle of the map
+//    [self.map addAnnotation:point];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
