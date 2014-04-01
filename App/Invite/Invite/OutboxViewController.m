@@ -36,7 +36,7 @@ PFQuery *queryEvent;
 {
     [super viewDidLoad];
     NSLog(@"view did load");
-  
+    //[self getEvents];
 //    [self.tableView reloadData];
 }
 

@@ -40,6 +40,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    self.selectedIndex = 1;
+    
     //NSLog(@"in");
     
 //    if (![PFUser currentUser]) { // No user logged in
