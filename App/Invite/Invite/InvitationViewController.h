@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface InvitationViewController : UIViewController
+@interface InvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
 
 @property(nonatomic,weak) PFObject *event;
 @property (weak, nonatomic) IBOutlet UILabel *invitationTitle;
@@ -19,5 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *invitationTo;
 @property (weak, nonatomic) IBOutlet UILabel *invitationContactNo;
 @property (weak, nonatomic) IBOutlet MKMapView *invitationMap;
+@property(assign,nonatomic) CLLocationCoordinate2D location;
+@property (readwrite) CLLocationDegrees latitude;
+@property (readwrite) CLLocationDegrees longitude;
+
 
 @end
