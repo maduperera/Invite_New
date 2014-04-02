@@ -551,7 +551,7 @@ MKPointAnnotation *point;
     if (ABMultiValueGetCount(emails) > 0) {
         NSString *email = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
         //
-        [contactDetails setValue:email forKey:name];
+        [contactDetails setValue:email forKey:@"email"];
         [contacts addObject:contactDetails];
         
     }else {
@@ -564,7 +564,7 @@ MKPointAnnotation *point;
                     if (CFEqual(label, kABPersonPhoneMobileLabel)) {
                         NSString *phoneNumber = (__bridge_transfer NSString *) ABMultiValueCopyValueAtIndex(phoneNumbers, i);
                         
-                        [contactDetails setValue:phoneNumber forKey:name];
+                        [contactDetails setValue:phoneNumber forKey:@"mobile"];
                         [contacts addObject:contactDetails];
                     }
                 }
