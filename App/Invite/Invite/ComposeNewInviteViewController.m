@@ -8,12 +8,18 @@
 
 #import "ComposeNewInviteViewController.h"
 #import "EditableMapViewViewController.h"
+#import "ContactListViewController.h"
+
 
 @interface ComposeNewInviteViewController ()
 
+@property (nonatomic, strong) NSMutableSet *contacts;
+@property (nonatomic, strong) NSMutableString *nameList;
+@property (nonatomic, assign) BOOL flag;
 @end
 
 @implementation ComposeNewInviteViewController
+@synthesize contacts, nameList, flag;
 
 NSString *currentUserEmail;
 NSString *currentUserOutBoxTableName;
@@ -51,6 +57,11 @@ MKPointAnnotation *point;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnMap:)];
     [tap setNumberOfTapsRequired:1];
     [self.map addGestureRecognizer: tap];
+    
+    
+    contacts = [NSMutableSet new];
+    nameList = [NSMutableString new];
+    flag = false;
     
     
 }
@@ -132,8 +143,18 @@ MKPointAnnotation *point;
 - (IBAction)addReciever:(id)sender {
     ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
-    
+
     [self presentModalViewController:picker animated:YES];
+    
+   
+    
+    
+  // ContactListViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"contactListViewController"];
+  //   [self.navigationController pushViewController:viewController animated:YES];
+    
+    
+    
+    
 }
 
 
@@ -169,6 +190,171 @@ MKPointAnnotation *point;
 
 - (IBAction)send:(id)sender {
  
+//    //disable the send button to stop duplicating sends
+//    self.SendButton.enabled = NO;
+//    
+//    //get the current user email address
+//    PFUser *currentUser = [PFUser currentUser];
+//    currentUserEmail = [[PFUser currentUser] objectForKey:@"email"];
+//    NSString *currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmail stringByReplacingOccurrencesOfString:@"@"withString:@""];
+//    currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+//    
+//    //get the current user outbox table name -> useremailwithout'@'and'.'_out_box
+//    currentUserOutBoxTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"out_box"];
+//    NSLog(@"outboxtable name: %@" , currentUserOutBoxTableName);
+//    
+//    //get current date - time
+//    NSDate *currDate = [NSDate date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+//    NSString *dateString = [dateFormatter stringFromDate:currDate];
+//    
+//    //write to the event object
+//    NSLog(@"TEMPLATEID : %@", [self.templateObj objectId]);
+//    PFObject *event = [PFObject objectWithClassName:@"Event"];
+//    [event setObject:[self.templateObj objectId] forKey:@"templateID"];
+//    [event setObject:self.event_address.text forKey:@"address"];
+//    [event setObject:self.event_contatctNo.text forKey:@"contactNo"];
+//    [event setObject:self.event_date.text forKey:@"eventDate"];
+//    [event setObject:self.event_end_time.text forKey:@"endTime"];
+//    [event setObject:self.event_start_time.text forKey:@"startTime"];
+//    [event setObject:self.event_title.text forKey:@"title"];
+//    [event setObject:currentUserEmail forKey:@"senderEmail"];
+//    [event setObject:self.geoPoint forKey:@"geoPoint"];
+//    
+//    //save to event table
+//    [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            NSLog(@"data written to the Event successfully");
+//            NSLog(@"EVENTID : %@", [event objectId]);
+//            
+//            PFObject *outMsg = [PFObject objectWithClassName:currentUserOutBoxTableName];
+//            [outMsg setObject:[event objectId] forKey:@"eventID"];
+//            [outMsg setObject:dateString forKey:@"dateSent"];
+//            [outMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
+//            
+//            
+//            //save to user_out_box table
+//            [outMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    NSLog(@"data written to the outbox successfully");
+//                    
+//                    //acknowladge the user the invitation sent successfully
+//                    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Invitation sent successfully!"
+//                                                                      message:nil
+//                                                                     delegate:self
+//                                                            cancelButtonTitle:@"Cancel"
+//                                                            otherButtonTitles:nil];
+//                    [message show];
+//                    // clear all text fields
+//                    [self clearAllTextFields];
+//                    //enable the send button
+//                    self.SendButton.enabled = YES;
+//                    
+//                    //get the current user user_feed_back table name -> useremailwithout'@'and'.'_feed_back
+//                    currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
+//                    NSLog(@"feed_back table name name: %@" , currentUserFeedBackTableName);
+//                    
+//                    //loop through array of recivers to popultae user_Feed_back table and the receiver_in_box tables
+//                    //populate usersWithEmail for testing
+//                    self.usersWithEmail = [NSArray arrayWithObjects:@"madupiz@gmail.com",@"dhammini.dev@gmail.com",nil];
+//                    for(NSString *email in (self.usersWithEmail)) {
+//                        
+//                        NSLog(@"receiver : %@",email);
+//                        
+//                        // write to the feed_back object
+//                        PFObject *feedback = [PFObject objectWithClassName:currentUserFeedBackTableName];
+//                        [feedback setObject:[event objectId] forKey:@"eventID"];
+//                        [feedback setObject:email forKey:@"receiverEmail"];
+//                        [feedback setObject:@"pending" forKey:@"feedBack"];
+//                        
+//                        //save to user_feed_back table
+//                        [feedback saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                            if (!error) {
+//                                NSLog(@"data written to the feed_back successfully");
+//                            }else{
+//                                NSLog(@"error in writing to the db");
+//                            }
+//                        }];
+//                        
+//                        //create receiver_in_box table name
+//                        receiverEmailWithOnlyAlhpaCharaters = [email stringByReplacingOccurrencesOfString:@"@"withString:@""];
+//                        receiverEmailWithOnlyAlhpaCharaters = [receiverEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+//                        
+//                        //get the receiver inbox table name -> receiveremailwithout'@'and'.'_in_box
+//                        recieverInBoxTableName = [NSString stringWithFormat:@"%@_%@", receiverEmailWithOnlyAlhpaCharaters, @"in_box"];
+//                        NSLog(@"receiver inboxtable name: %@" , recieverInBoxTableName);
+//                        
+//                        //write to the receiverInBox object
+//                        PFObject *inMsg = [PFObject objectWithClassName:recieverInBoxTableName];
+//                        [inMsg setObject:[event objectId] forKey:@"eventID"];
+//                        [inMsg setObject:dateString forKey:@"dateSent"];
+//                        [inMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
+//                        
+//                        
+//                        //save to receiver_in_box table
+//                        [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                            if (!error) {
+//                                NSLog(@"data written to the inbox successfully");
+//                                
+//                            }else{
+////                                NSLog(@"error in writing to the db");
+////                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+////                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
+////                                                                                 delegate:self
+////                                                                        cancelButtonTitle:@"Cancel"
+////                                                                        otherButtonTitles:nil];
+////                                [message show];
+//                            }
+//                        }];
+//                        
+//                    }
+//                    
+//                }else{
+//                    NSLog(@"error in writing to the db");
+//                }
+//            }];
+//            
+//            
+//        }else{
+//            NSLog(@"error in writing to the db");
+//        }
+//    }];
+    
+    
+}
+
+
+
+- (IBAction)pickStartTime:(id)sender {
+    if(self.event_start_time.inputView == nil){
+        self.event_start_time.inputView = datePicker;
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    }
+    
+	[datePicker addTarget:self
+                   action:@selector(changeTimeInStartTimeTextField:)
+         forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (IBAction)pickEndTime:(id)sender {
+    if(self.event_end_time.inputView == nil){
+        self.event_end_time.inputView = datePicker;
+        datePicker.datePickerMode = UIDatePickerModeTime;
+    }
+    
+	[datePicker addTarget:self
+                   action:@selector(changeTimeInEndTimeTextField:)
+         forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (IBAction)barBtnCancel:(id)sender {
+    [self clearAllTextFields];
+}
+
+- (IBAction)barBtnSend:(id)sender {
     //disable the send button to stop duplicating sends
     self.SendButton.enabled = NO;
     
@@ -277,13 +463,13 @@ MKPointAnnotation *point;
                                 NSLog(@"data written to the inbox successfully");
                                 
                             }else{
-//                                NSLog(@"error in writing to the db");
-//                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
-//                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
-//                                                                                 delegate:self
-//                                                                        cancelButtonTitle:@"Cancel"
-//                                                                        otherButtonTitles:nil];
-//                                [message show];
+                                //                                NSLog(@"error in writing to the db");
+                                //                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                //                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
+                                //                                                                                 delegate:self
+                                //                                                                        cancelButtonTitle:@"Cancel"
+                                //                                                                        otherButtonTitles:nil];
+                                //                                [message show];
                             }
                         }];
                         
@@ -299,58 +485,6 @@ MKPointAnnotation *point;
             NSLog(@"error in writing to the db");
         }
     }];
-    
-    
-}
-
-
-- (void)peoplePickerNavigationControllerDidCancel:
-(ABPeoplePickerNavigationController *)peoplePicker {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-    
-    NSString* name = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    self.event_to.text = name;
-    
-    [self dismissModalViewControllerAnimated:YES];
-    
-    return NO;
-}
-
-- (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
-                                property:(ABPropertyID)property
-                              identifier:(ABMultiValueIdentifier)identifier{
-    return NO;
-}
-
-
-- (IBAction)pickStartTime:(id)sender {
-    if(self.event_start_time.inputView == nil){
-        self.event_start_time.inputView = datePicker;
-        datePicker.datePickerMode = UIDatePickerModeTime;
-    }
-    
-	[datePicker addTarget:self
-                   action:@selector(changeTimeInStartTimeTextField:)
-         forControlEvents:UIControlEventValueChanged];
-
-}
-
-- (IBAction)pickEndTime:(id)sender {
-    if(self.event_end_time.inputView == nil){
-        self.event_end_time.inputView = datePicker;
-        datePicker.datePickerMode = UIDatePickerModeTime;
-    }
-    
-	[datePicker addTarget:self
-                   action:@selector(changeTimeInEndTimeTextField:)
-         forControlEvents:UIControlEventValueChanged];
 
 }
 
@@ -389,5 +523,75 @@ MKPointAnnotation *point;
 {
     NSLog(@"transit to next view");
 }
+
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+    
+    NSMutableDictionary *contactDetails = [[NSMutableDictionary alloc]init];
+    
+    NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
+    NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonLastNameProperty));
+    NSString *name = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    if (flag) {
+         [nameList appendString:[NSString stringWithFormat:@", %@", name]];
+    }else{
+         [nameList appendString:[NSString stringWithFormat:@" %@", name]];
+         flag=true;
+    }
+   
+    
+    ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
+    NSUInteger j = 0;
+    if (ABMultiValueGetCount(emails) > 0) {
+        NSString *email = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(emails, 0);
+        //
+        [contactDetails setValue:email forKey:name];
+        [contacts addObject:contactDetails];
+        
+    }else {
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        if (phoneNumbers) {
+            CFIndex numberOfPhoneNumbers = ABMultiValueGetCount(phoneNumbers);
+            for (CFIndex i = 0; i < numberOfPhoneNumbers; i++) {
+                CFStringRef label = ABMultiValueCopyLabelAtIndex(phoneNumbers, i);
+                if (label) {
+                    if (CFEqual(label, kABPersonPhoneMobileLabel)) {
+                        NSString *phoneNumber = (__bridge_transfer NSString *) ABMultiValueCopyValueAtIndex(phoneNumbers, i);
+                        
+                        [contactDetails setValue:phoneNumber forKey:name];
+                        [contacts addObject:contactDetails];
+                    }
+                }
+            }
+        }
+    }
+    
+    NSLog(@"contacts: %@", contacts);
+    [self dismissModalViewControllerAnimated:YES];
+    
+
+    self.event_to.text = nameList;
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier{
+    
+	return NO;
+    
+}
+
+
+
+
 
 @end

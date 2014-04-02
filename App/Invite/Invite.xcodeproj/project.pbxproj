@@ -31,6 +31,8 @@
 		87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43D18DC3DF000B4821D /* callButtonImage.png */; };
 		87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */; };
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
+		BEB219E018EBE1DA00E8B8E5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */; };
+		BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -109,6 +111,9 @@
 		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
 		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
+		BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BEB219E118EBE92F00E8B8E5 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListViewController.h; path = ../ContactListViewController.h; sourceTree = "<group>"; };
+		BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListViewController.m; path = ../ContactListViewController.m; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +183,7 @@
 				E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */,
 				875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */,
 				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
+				BEB219E018EBE1DA00E8B8E5 /* Parse.framework in Frameworks */,
 				875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */,
 				875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */,
 				875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */,
@@ -216,6 +222,17 @@
 			name = InviteImages;
 			sourceTree = "<group>";
 		};
+		BEB219E418EBE93A00E8B8E5 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				E3F778B218E5560F00CBB401 /* ComposeNewInviteViewController.h */,
+				E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */,
+				BEB219E118EBE92F00E8B8E5 /* ContactListViewController.h */,
+				BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
 		BED0934118DADA49002F2954 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +255,7 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */,
 				E363E8D518E59E6E00B07D6C /* MapKit.framework */,
 				E3EED58D18E499AB0003D133 /* Parse.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,
@@ -311,6 +329,7 @@
 		BED0938518DADA9B002F2954 /* Invitebox */ = {
 			isa = PBXGroup;
 			children = (
+				BEB219E418EBE93A00E8B8E5 /* Compose */,
 				87249EF618E15964008363BE /* ScannerViewController.h */,
 				87249EF718E15964008363BE /* ScannerViewController.m */,
 				87249EF318E153F7008363BE /* UIViewController+Utilities.h */,
@@ -327,8 +346,6 @@
 				E3EED59118E49D790003D133 /* TemplateCell.m */,
 				E3EED59318E49E860003D133 /* TemplateViewController.h */,
 				E3EED59418E49E860003D133 /* TemplateViewController.m */,
-				E3F778B218E5560F00CBB401 /* ComposeNewInviteViewController.h */,
-				E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */,
 				E36F9BD618E7381700400FD1 /* InvitationViewController.h */,
 				E36F9BD718E7381700400FD1 /* InvitationViewController.m */,
 				E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */,
@@ -473,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */,
+				BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */,
 				BED0936018DADA49002F2954 /* AppDelegate.m in Sources */,
 				BED0935C18DADA49002F2954 /* main.m in Sources */,
 				877C764C18DC2E86004124CB /* InviteComposer.m in Sources */,
@@ -616,6 +634,7 @@
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
 					/Users/dfernando/Invite/App/Invite,
 					/Users/madushaperera/Desktop/Invite_New/App/Invite,
+					/Users/dfernando/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
@@ -636,6 +655,7 @@
 					"/Users/maduperera/Desktop/untitled\\ folder\\ 2",
 					/Users/dfernando/Invite/App/Invite,
 					/Users/madushaperera/Desktop/Invite_New/App/Invite,
+					/Users/dfernando/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";

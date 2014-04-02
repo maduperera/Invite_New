@@ -35,6 +35,8 @@
 - (IBAction)pickStartTime:(id)sender;
 - (IBAction)pickStartTime:(id)sender;
 - (IBAction)pickEndTime:(id)sender;
+- (IBAction)barBtnCancel:(id)sender;
+- (IBAction)barBtnSend:(id)sender;
 
 
 - (IBAction)cancel:(id)sender;

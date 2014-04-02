@@ -40,7 +40,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.selectedIndex = 1;
+  //  self.selectedIndex = 1;
+//    NSLog(@"appeaed");
     
     //NSLog(@"in");
     
