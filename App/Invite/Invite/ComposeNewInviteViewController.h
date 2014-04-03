@@ -28,9 +28,10 @@
 @property(strong,nonatomic) PFGeoPoint *geoPoint;
 @property(weak, nonatomic) PFObject *templateObj;
 @property(weak,nonatomic) NSArray *usersWithSMSOnly;
-@property(weak,nonatomic) NSArray *usersWithEmail;
 @property(weak, nonatomic) IBOutlet UIButton *SendButton;
 @property(assign,nonatomic) CLLocationCoordinate2D location;
+@property(strong,nonatomic) NSMutableArray *usersWithEmail;
+
 
 - (IBAction)pickStartTime:(id)sender;
 - (IBAction)pickStartTime:(id)sender;

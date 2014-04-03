@@ -9,6 +9,8 @@
 #import "ComposeNewInviteViewController.h"
 #import "EditableMapViewViewController.h"
 #import "ContactListViewController.h"
+#import "Names.h"
+#import "TITokenField.h"
 
 
 @interface ComposeNewInviteViewController ()
@@ -19,6 +21,11 @@
 @end
 
 @implementation ComposeNewInviteViewController
+{
+    TITokenFieldView * _tokenFieldView;
+	CGFloat _keyboardHeight;
+
+}
 @synthesize contacts, nameList, flag;
 
 NSString *currentUserEmail;
@@ -26,7 +33,9 @@ NSString *currentUserOutBoxTableName;
 NSString *currentUserFeedBackTableName;
 NSString *recieverInBoxTableName;
 NSString *receiverEmailWithOnlyAlhpaCharaters;
-UIDatePicker *datePicker = nil;
+UIDatePicker *datePicker= nil;
+UIDatePicker *datePickerStart = nil;
+UIDatePicker *datePickerEnd = nil;
 MKPointAnnotation *point;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,6 +54,8 @@ MKPointAnnotation *point;
     
     //initiate datepicker
     datePicker = [[UIDatePicker alloc] init];
+    datePickerStart = [[UIDatePicker alloc] init];
+    datePickerEnd = [[UIDatePicker alloc] init];
     NSLog(@"template obj desc : %@", [self.templateObj objectForKey:@"description"]);
     
     //set delegate to the mapview
@@ -62,6 +73,40 @@ MKPointAnnotation *point;
     contacts = [NSMutableSet new];
     nameList = [NSMutableString new];
     flag = false;
+    
+    
+    //TokenFeild Instantiation
+    
+    
+//    CGRect screenRect = [[UIScreen mainScreen] bounds];
+//    CGFloat screenWidth = screenRect.size.width;
+//    CGRect frame =CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, screenWidth, 50);
+//
+//    _tokenFieldView = [[TITokenFieldView alloc] initWithFrame:frame];
+//	[_tokenFieldView setSourceArray:[Names listOfNames]];
+//	[self.view addSubview:_tokenFieldView];
+//	
+//	[_tokenFieldView.tokenField setDelegate:self];
+//	[_tokenFieldView setShouldSearchInBackground:NO];
+//	[_tokenFieldView setShouldSortResults:NO];
+//	[_tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldFrameDidChange:) forControlEvents:TITokenFieldControlEventFrameDidChange];
+//	[_tokenFieldView.tokenField setTokenizingCharacters:[NSCharacterSet characterSetWithCharactersInString:@",;."]]; // Default is a comma
+//    [_tokenFieldView.tokenField setPromptText:@"To:"];
+//	[_tokenFieldView.tokenField setPlaceholder:@"Type a name"];
+//	
+//	UIButton * addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//	[addButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
+//	[_tokenFieldView.tokenField setRightView:addButton];
+//	[_tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];
+//	[_tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidEnd];
+//	
+//    
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+//	
+//	//[_tokenFieldView becomeFirstResponder];
+//    [_tokenFieldView.tokenField setDelegate:self];
+//    
     
     
 }
@@ -328,11 +373,11 @@ MKPointAnnotation *point;
 
 - (IBAction)pickStartTime:(id)sender {
     if(self.event_start_time.inputView == nil){
-        self.event_start_time.inputView = datePicker;
-        datePicker.datePickerMode = UIDatePickerModeTime;
+        self.event_start_time.inputView = datePickerStart;
+        datePickerStart.datePickerMode = UIDatePickerModeTime;
     }
     
-	[datePicker addTarget:self
+	[datePickerStart addTarget:self
                    action:@selector(changeTimeInStartTimeTextField:)
          forControlEvents:UIControlEventValueChanged];
 
@@ -340,11 +385,11 @@ MKPointAnnotation *point;
 
 - (IBAction)pickEndTime:(id)sender {
     if(self.event_end_time.inputView == nil){
-        self.event_end_time.inputView = datePicker;
-        datePicker.datePickerMode = UIDatePickerModeTime;
+        self.event_end_time.inputView = datePickerEnd;
+        datePickerEnd.datePickerMode = UIDatePickerModeTime;
     }
     
-	[datePicker addTarget:self
+	[datePickerEnd addTarget:self
                    action:@selector(changeTimeInEndTimeTextField:)
          forControlEvents:UIControlEventValueChanged];
 
@@ -360,7 +405,16 @@ MKPointAnnotation *point;
     
     //get the current user email address
     PFUser *currentUser = [PFUser currentUser];
-    currentUserEmail = [[PFUser currentUser] objectForKey:@"email"];
+//    currentUserEmail = [[PFUser currentUser] objectForKey:@"email"];
+   
+    //get emails from to list
+    self.usersWithEmail = [[NSMutableArray alloc] initWithCapacity:[contacts count]];
+    for(NSDictionary *dic in contacts){
+        [self.usersWithEmail addObject:[dic valueForKey:@"email"]];
+        NSLog(@"email: %@", [dic valueForKey:@"email"]);
+    }
+    
+    
     NSString *currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmail stringByReplacingOccurrencesOfString:@"@"withString:@""];
     currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
     
@@ -485,19 +539,19 @@ MKPointAnnotation *point;
             NSLog(@"error in writing to the db");
         }
     }];
-
+   // [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)changeTimeInStartTimeTextField:(id)sender{
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"h:mm a"];
-     self.event_start_time.text = [df stringFromDate:datePicker.date];
+     self.event_start_time.text = [df stringFromDate:datePickerStart.date];
 }
 
 - (void)changeTimeInEndTimeTextField:(id)sender{
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"h:mm a"];
-    self.event_end_time.text = [df stringFromDate:datePicker.date];
+    self.event_end_time.text = [df stringFromDate:datePickerEnd.date];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -523,6 +577,8 @@ MKPointAnnotation *point;
 {
     NSLog(@"transit to next view");
 }
+
+#pragma mark - Address Book Delegates
 
 - (void)peoplePickerNavigationControllerDidCancel:
 (ABPeoplePickerNavigationController *)peoplePicker {
@@ -590,6 +646,46 @@ MKPointAnnotation *point;
     
 }
 
+#pragma mark - TokenFeild Methods
+
+
+//- (void)showContactsPicker:(id)sender {
+//	
+//	// Show some kind of contacts picker in here.
+//	// For now, here's how to add and customize tokens.
+//	
+//	NSArray * names = [Names listOfNames];
+//	
+//	TIToken * token = [_tokenFieldView.tokenField addTokenWithTitle:[names objectAtIndex:(arc4random() % names.count)]];
+//	[token setAccessoryType:TITokenAccessoryTypeDisclosureIndicator];
+//	// If the size of the token might change, it's a good idea to layout again.
+//	[_tokenFieldView.tokenField layoutTokensAnimated:YES];
+//	
+//	NSUInteger tokenCount = _tokenFieldView.tokenField.tokens.count;
+//	[token setTintColor:((tokenCount % 3) == 0 ? [TIToken redTintColor] : ((tokenCount % 2) == 0 ? [TIToken greenTintColor] : [TIToken blueTintColor]))];
+//}
+//
+//
+//- (void)tokenFieldFrameDidChange:(TITokenField *)tokenField {
+//	//[self textViewDidChange:_messageView];
+//}
+//
+//- (void)keyboardWillShow:(NSNotification *)notification {
+//	
+//	CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//	_keyboardHeight = keyboardRect.size.height > keyboardRect.size.width ? keyboardRect.size.width : keyboardRect.size.height;
+//}
+//
+//- (void)keyboardWillHide:(NSNotification *)notification {
+//	_keyboardHeight = 0;
+//}
+//
+//- (void)tokenFieldChangedEditing:(TITokenField *)tokenField {
+//	// There's some kind of annoying bug where UITextFieldViewModeWhile/UnlessEditing doesn't do anything.
+//	[tokenField setRightViewMode:(tokenField.editing ? UITextFieldViewModeAlways : UITextFieldViewModeNever)];
+//}
+//
+//
 
 
 

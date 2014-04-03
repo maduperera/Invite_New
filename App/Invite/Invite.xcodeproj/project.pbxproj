@@ -31,6 +31,8 @@
 		87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43D18DC3DF000B4821D /* callButtonImage.png */; };
 		87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */; };
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
+		BE4043A018ED542600DECAD4 /* Names.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439D18ED542600DECAD4 /* Names.m */; };
+		BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439F18ED542600DECAD4 /* TITokenField.m */; };
 		BEB219E018EBE1DA00E8B8E5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */; };
 		BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
@@ -111,6 +113,10 @@
 		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
 		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
 		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
+		BE40439C18ED542600DECAD4 /* Names.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Names.h; sourceTree = "<group>"; };
+		BE40439D18ED542600DECAD4 /* Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Names.m; sourceTree = "<group>"; };
+		BE40439E18ED542600DECAD4 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
+		BE40439F18ED542600DECAD4 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
 		BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BEB219E118EBE92F00E8B8E5 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListViewController.h; path = ../ContactListViewController.h; sourceTree = "<group>"; };
 		BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListViewController.m; path = ../ContactListViewController.m; sourceTree = "<group>"; };
@@ -222,6 +228,26 @@
 			name = InviteImages;
 			sourceTree = "<group>";
 		};
+		BE40439B18ED53F800DECAD4 /* Token Utility Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE40439C18ED542600DECAD4 /* Names.h */,
+				BE40439D18ED542600DECAD4 /* Names.m */,
+				BE40439E18ED542600DECAD4 /* TITokenField.h */,
+				BE40439F18ED542600DECAD4 /* TITokenField.m */,
+			);
+			name = "Token Utility Classes";
+			sourceTree = "<group>";
+		};
+		BE4043A618ED70E200DECAD4 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				87249EF618E15964008363BE /* ScannerViewController.h */,
+				87249EF718E15964008363BE /* ScannerViewController.m */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
 		BEB219E418EBE93A00E8B8E5 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +309,9 @@
 		BED0935518DADA49002F2954 /* Invite */ = {
 			isa = PBXGroup;
 			children = (
+				BE4043A618ED70E200DECAD4 /* Scanner */,
+				BEB219E418EBE93A00E8B8E5 /* Compose */,
+				BE40439B18ED53F800DECAD4 /* Token Utility Classes */,
 				87C5F44718DC3DF500B4821D /* InviteImages */,
 				E3EED58F18E49C510003D133 /* LoginViews */,
 				BED0938618DADAC6002F2954 /* InviteCommon */,
@@ -329,9 +358,6 @@
 		BED0938518DADA9B002F2954 /* Invitebox */ = {
 			isa = PBXGroup;
 			children = (
-				BEB219E418EBE93A00E8B8E5 /* Compose */,
-				87249EF618E15964008363BE /* ScannerViewController.h */,
-				87249EF718E15964008363BE /* ScannerViewController.m */,
 				87249EF318E153F7008363BE /* UIViewController+Utilities.h */,
 				87249EF418E153F7008363BE /* UIViewController+Utilities.m */,
 				875CB18218DC1876008FE5CA /* InviteTabBar.h */,
@@ -508,7 +534,9 @@
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
+				BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */,
 				E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */,
+				BE4043A018ED542600DECAD4 /* Names.m in Sources */,
 				E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +667,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
 				INFOPLIST_FILE = "Invite/Invite-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -660,6 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
 				INFOPLIST_FILE = "Invite/Invite-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
