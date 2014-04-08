@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF418E153F7008363BE /* UIViewController+Utilities.m */; };
 		87249EF818E15964008363BE /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87249EF718E15964008363BE /* ScannerViewController.m */; };
+		8743FAC918F3CDEA00447EBF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8743FAC818F3CDEA00447EBF /* Parse.framework */; };
+		8743FADC18F3D94200447EBF /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FACC18F3D94200447EBF /* bitstream.c */; };
+		8743FADD18F3D94200447EBF /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FACE18F3D94200447EBF /* mask.c */; };
+		8743FADE18F3D94200447EBF /* qrenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD018F3D94200447EBF /* qrenc.c */; };
+		8743FADF18F3D94200447EBF /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD218F3D94200447EBF /* qrencode.c */; };
+		8743FAE018F3D94200447EBF /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD418F3D94200447EBF /* qrinput.c */; };
+		8743FAE118F3D94200447EBF /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD618F3D94200447EBF /* qrspec.c */; };
+		8743FAE218F3D94200447EBF /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD818F3D94200447EBF /* rscode.c */; };
+		8743FAE318F3D94200447EBF /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FADA18F3D94200447EBF /* split.c */; };
 		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
 		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
 		875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16A18DC15AE008FE5CA /* CFNetwork.framework */; };
@@ -33,7 +42,6 @@
 		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
 		BE4043A018ED542600DECAD4 /* Names.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439D18ED542600DECAD4 /* Names.m */; };
 		BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439F18ED542600DECAD4 /* TITokenField.m */; };
-		BEB219E018EBE1DA00E8B8E5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */; };
 		BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
@@ -65,7 +73,6 @@
 		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
 		E3E3E5A818E806E100A2BB76 /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E5A718E806E100A2BB76 /* log.png */; };
 		E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */; };
-		E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EED58D18E499AB0003D133 /* Parse.framework */; };
 		E3EED59218E49D790003D133 /* TemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59118E49D790003D133 /* TemplateCell.m */; };
 		E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EED59418E49E860003D133 /* TemplateViewController.m */; };
 		E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F778B318E5560F00CBB401 /* ComposeNewInviteViewController.m */; };
@@ -86,6 +93,24 @@
 		87249EF418E153F7008363BE /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Utilities.m"; path = "../UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		87249EF618E15964008363BE /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScannerViewController.h; path = ../ScannerViewController.h; sourceTree = "<group>"; };
 		87249EF718E15964008363BE /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScannerViewController.m; path = ../ScannerViewController.m; sourceTree = "<group>"; };
+		8743FAC818F3CDEA00447EBF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8743FACB18F3D94200447EBF /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		8743FACC18F3D94200447EBF /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
+		8743FACD18F3D94200447EBF /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
+		8743FACE18F3D94200447EBF /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
+		8743FACF18F3D94200447EBF /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
+		8743FAD018F3D94200447EBF /* qrenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrenc.c; sourceTree = "<group>"; };
+		8743FAD118F3D94200447EBF /* qrencode_inner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode_inner.h; sourceTree = "<group>"; };
+		8743FAD218F3D94200447EBF /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
+		8743FAD318F3D94200447EBF /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
+		8743FAD418F3D94200447EBF /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
+		8743FAD518F3D94200447EBF /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
+		8743FAD618F3D94200447EBF /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
+		8743FAD718F3D94200447EBF /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
+		8743FAD818F3D94200447EBF /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
+		8743FAD918F3D94200447EBF /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
+		8743FADA18F3D94200447EBF /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
+		8743FADB18F3D94200447EBF /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
 		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		875CB16A18DC15AE008FE5CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -117,7 +142,6 @@
 		BE40439D18ED542600DECAD4 /* Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Names.m; sourceTree = "<group>"; };
 		BE40439E18ED542600DECAD4 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
 		BE40439F18ED542600DECAD4 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
-		BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BEB219E118EBE92F00E8B8E5 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListViewController.h; path = ../ContactListViewController.h; sourceTree = "<group>"; };
 		BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListViewController.m; path = ../ContactListViewController.m; sourceTree = "<group>"; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +185,6 @@
 		E3E3E5A718E806E100A2BB76 /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
 		E3E3E5A918E8087D00A2BB76 /* OutBoxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutBoxCustomCell.h; sourceTree = "<group>"; };
 		E3E3E5AA18E8087D00A2BB76 /* OutBoxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutBoxCustomCell.m; sourceTree = "<group>"; };
-		E3EED58D18E499AB0003D133 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E3EED59018E49D790003D133 /* TemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCell.h; sourceTree = "<group>"; };
 		E3EED59118E49D790003D133 /* TemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCell.m; sourceTree = "<group>"; };
 		E3EED59318E49E860003D133 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
@@ -186,10 +209,9 @@
 				875CB17318DC15E5008FE5CA /* Security.framework in Frameworks */,
 				875CB17118DC15DD008FE5CA /* MobileCoreServices.framework in Frameworks */,
 				875CB16F18DC15D6008FE5CA /* libz.1.2.5.dylib in Frameworks */,
-				E3EED58E18E499AB0003D133 /* Parse.framework in Frameworks */,
 				875CB16D18DC15C0008FE5CA /* CoreLocation.framework in Frameworks */,
 				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
-				BEB219E018EBE1DA00E8B8E5 /* Parse.framework in Frameworks */,
+				8743FAC918F3CDEA00447EBF /* Parse.framework in Frameworks */,
 				875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */,
 				875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */,
 				875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */,
@@ -212,6 +234,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8743FACA18F3D8E800447EBF /* QREncoder */ = {
+			isa = PBXGroup;
+			children = (
+				8743FACB18F3D94200447EBF /* config.h */,
+				8743FACC18F3D94200447EBF /* bitstream.c */,
+				8743FACD18F3D94200447EBF /* bitstream.h */,
+				8743FACE18F3D94200447EBF /* mask.c */,
+				8743FACF18F3D94200447EBF /* mask.h */,
+				8743FAD018F3D94200447EBF /* qrenc.c */,
+				8743FAD118F3D94200447EBF /* qrencode_inner.h */,
+				8743FAD218F3D94200447EBF /* qrencode.c */,
+				8743FAD318F3D94200447EBF /* qrencode.h */,
+				8743FAD418F3D94200447EBF /* qrinput.c */,
+				8743FAD518F3D94200447EBF /* qrinput.h */,
+				8743FAD618F3D94200447EBF /* qrspec.c */,
+				8743FAD718F3D94200447EBF /* qrspec.h */,
+				8743FAD818F3D94200447EBF /* rscode.c */,
+				8743FAD918F3D94200447EBF /* rscode.h */,
+				8743FADA18F3D94200447EBF /* split.c */,
+				8743FADB18F3D94200447EBF /* split.h */,
+			);
+			name = QREncoder;
+			sourceTree = "<group>";
+		};
 		87C5F44718DC3DF500B4821D /* InviteImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,9 +327,9 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BEB219DF18EBE1DA00E8B8E5 /* Parse.framework */,
+				8743FACA18F3D8E800447EBF /* QREncoder */,
+				8743FAC818F3CDEA00447EBF /* Parse.framework */,
 				E363E8D518E59E6E00B07D6C /* MapKit.framework */,
-				E3EED58D18E499AB0003D133 /* Parse.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,
 				875CB17C18DC164B008FE5CA /* libsqlite3.dylib */,
 				875CB17A18DC1624008FE5CA /* AdSupport.framework */,
@@ -515,25 +561,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8743FAE118F3D94200447EBF /* qrspec.c in Sources */,
 				8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */,
+				8743FAE018F3D94200447EBF /* qrinput.c in Sources */,
 				BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */,
 				BED0936018DADA49002F2954 /* AppDelegate.m in Sources */,
 				BED0935C18DADA49002F2954 /* main.m in Sources */,
 				877C764C18DC2E86004124CB /* InviteComposer.m in Sources */,
 				BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */,
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
+				8743FADC18F3D94200447EBF /* bitstream.c in Sources */,
 				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
+				8743FADF18F3D94200447EBF /* qrencode.c in Sources */,
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
+				8743FAE218F3D94200447EBF /* rscode.c in Sources */,
+				8743FADD18F3D94200447EBF /* mask.c in Sources */,
 				E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
 				E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */,
+				8743FAE318F3D94200447EBF /* split.c in Sources */,
 				E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */,
 				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
+				8743FADE18F3D94200447EBF /* qrenc.c in Sources */,
 				BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */,
 				E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */,
 				BE4043A018ED542600DECAD4 /* Names.m in Sources */,
@@ -663,6 +717,7 @@
 					/Users/dfernando/Invite/App/Invite,
 					/Users/madushaperera/Desktop/Invite_New/App/Invite,
 					/Users/dfernando/Invite_New/App/Invite,
+					/Users/maduperera/Desktop/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";
@@ -685,6 +740,7 @@
 					/Users/dfernando/Invite/App/Invite,
 					/Users/madushaperera/Desktop/Invite_New/App/Invite,
 					/Users/dfernando/Invite_New/App/Invite,
+					/Users/maduperera/Desktop/Invite_New/App/Invite,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Invite/Invite-Prefix.pch";

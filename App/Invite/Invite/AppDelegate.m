@@ -17,9 +17,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    [Parse setApplicationId:@"IdFsA0nKPebysSeM04wZWNjz9egivEnDwO9yKJsQ"
-                  clientKey:@"oTzmobG2MqJRLGegC472PGjpxBcSzF35f5N3sqVe"];
-    
+//    [Parse setApplicationId:@"IdFsA0nKPebysSeM04wZWNjz9egivEnDwO9yKJsQ"
+//                  clientKey:@"oTzmobG2MqJRLGegC472PGjpxBcSzF35f5N3sqVe"];
+    [Parse setApplicationId:@"piygEBwB6dJzmZbCsdBm8KDfcYa2ZdOYrz8zUykk"
+                  clientKey:@"aBPJ9tzbL1FZJhXLWjvlQnu918cGXPxVyzqbVOXU"];
+   
     return YES;
 }
 
