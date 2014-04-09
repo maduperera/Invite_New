@@ -163,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cx9-eK-Rjl">
-                                <rect key="frame" x="11" y="355" width="298" height="154"/>
+                                <rect key="frame" x="11" y="286" width="298" height="154"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syn-bS-McK">
@@ -178,6 +178,10 @@
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-Gm-RTM">
+                                <rect key="frame" x="131" y="447" width="66" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -190,6 +194,7 @@
                         <outlet property="invitationMap" destination="cx9-eK-Rjl" id="WaL-kH-pD2"/>
                         <outlet property="invitationTitle" destination="FzS-EY-G8p" id="yWG-B3-WfJ"/>
                         <outlet property="invitationTo" destination="MIn-RZ-51e" id="J45-7V-9S3"/>
+                        <outlet property="qrCodeImageView" destination="Qou-Gm-RTM" id="ura-8T-wTD"/>
                         <segue destination="ogx-P7-d8i" kind="push" identifier="toStaticMap" id="XBv-I0-Z5T"/>
                     </connections>
                 </viewController>

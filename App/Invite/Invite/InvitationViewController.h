@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "qrencode.h"
 
 @interface InvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
 
@@ -23,5 +24,6 @@
 @property (readwrite) CLLocationDegrees latitude;
 @property (readwrite) CLLocationDegrees longitude;
 
+@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 
 @end
