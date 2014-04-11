@@ -18,6 +18,7 @@
 		8743FAE118F3D94200447EBF /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD618F3D94200447EBF /* qrspec.c */; };
 		8743FAE218F3D94200447EBF /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FAD818F3D94200447EBF /* rscode.c */; };
 		8743FAE318F3D94200447EBF /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 8743FADA18F3D94200447EBF /* split.c */; };
+		87554C9618F81A5A00A6D544 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87554C9518F81A5A00A6D544 /* QRViewController.m */; };
 		875CB16718DC159E008FE5CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16618DC159E008FE5CA /* QuartzCore.framework */; };
 		875CB16918DC15A6008FE5CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16818DC15A6008FE5CA /* AudioToolbox.framework */; };
 		875CB16B18DC15AE008FE5CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875CB16A18DC15AE008FE5CA /* CFNetwork.framework */; };
@@ -111,6 +112,8 @@
 		8743FAD918F3D94200447EBF /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
 		8743FADA18F3D94200447EBF /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
 		8743FADB18F3D94200447EBF /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
+		87554C9418F81A5A00A6D544 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		87554C9518F81A5A00A6D544 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
 		875CB16618DC159E008FE5CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		875CB16818DC15A6008FE5CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		875CB16A18DC15AE008FE5CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -425,6 +428,8 @@
 				E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */,
 				8785B06C18EAD47900013FA1 /* StaticMapViewViewController.h */,
 				8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */,
+				87554C9418F81A5A00A6D544 /* QRViewController.h */,
+				87554C9518F81A5A00A6D544 /* QRViewController.m */,
 			);
 			name = Invitebox;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
 				8743FAE218F3D94200447EBF /* rscode.c in Sources */,
 				8743FADD18F3D94200447EBF /* mask.c in Sources */,
+				87554C9618F81A5A00A6D544 /* QRViewController.m in Sources */,
 				E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,

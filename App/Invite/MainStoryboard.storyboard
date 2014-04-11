@@ -185,7 +185,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eUx-ni-WWw"/>
+                    <navigationItem key="navigationItem" id="eUx-ni-WWw">
+                        <barButtonItem key="rightBarButtonItem" title="QR" id="f5n-bI-wKS">
+                            <connections>
+                                <segue destination="KfI-M0-saG" kind="push" identifier="viewQR" id="ax1-JB-vL1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="invitationAddress" destination="7hN-Pn-bnt" id="qCZ-E6-G1F"/>
                         <outlet property="invitationContactNo" destination="hLE-Zn-rvA" id="Ic2-mN-Xj2"/>
@@ -201,6 +207,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzd-av-7Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1609" y="-746"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HoQ-E0-VF4">
+            <objects>
+                <viewController id="KfI-M0-saG" customClass="QRViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ipc-XX-kZ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="eZv-H7-sSd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KqM-H3-kuX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zER-4w-TiF">
+                                <rect key="frame" x="108" y="231" width="104" height="106"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fca-Dz-Rmz"/>
+                    <connections>
+                        <outlet property="qrView" destination="zER-4w-TiF" id="gMu-MI-6fg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="juZ-dr-AqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2115" y="-1188"/>
         </scene>
         <!--Static Map View View Controller-->
         <scene sceneID="sgS-j3-KFB">
@@ -228,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmH-wY-3nm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149" y="-1044"/>
+            <point key="canvasLocation" x="2115" y="-458"/>
         </scene>
         <!--Invite Tab Bar-->
         <scene sceneID="Nyf-pl-QE8">
@@ -493,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8e-7v-cVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079" y="-185"/>
+            <point key="canvasLocation" x="2115" y="308"/>
         </scene>
         <!--Compose New Invite View Controller - Compose Invitation-->
         <scene sceneID="6QR-d3-Ehj">
@@ -645,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uo9-Lr-nxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="487"/>
+            <point key="canvasLocation" x="1536" y="987"/>
         </scene>
         <!--Navigation Controller - Scan-->
         <scene sceneID="xdz-4k-yWf">
