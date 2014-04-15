@@ -12,8 +12,14 @@
 #import "InvitationViewController.h"
 #import "InboxCustomCell.h"
 #import "StaticMapViewViewController.h"
+#import "RNGridMenu.h"
+#import "SpringTransitioningDelegate.h"
+#import "MapPreviewController.h"
+
 
 @interface InboxViewController ()
+
+@property (nonatomic, strong) SpringTransitioningDelegate *transitioningDelegate;
 
 @end
 
@@ -42,6 +48,23 @@ NSString *event_ID;
     //get inbox events from backend MBAAS
     [self getEvents];
    // [self.tableView reloadData];
+
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+        // code for 4-inch screen
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"5S-background_1136*640_4.png"]]];
+       
+    } else {
+        // code for 3.5-inch screen
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2){
+            //Retina Display
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_960*640_4.png"]]];
+        } else {
+            //Non - Retina Display
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_480*320_4.png"]]];
+        }
+    }
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -127,7 +150,20 @@ NSString *event_ID;
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
 	   
-    cell.eventLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
+    
+    
+    
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+        // code for 4-inch screen
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_640.png"]];
+        
+    } else {
+        // code for 3.5-inch screen
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
+    }
+    
     return cell;
 }
 
@@ -201,9 +237,122 @@ NSString *event_ID;
 - (IBAction)showQR:(id)sender {
 }
 - (IBAction)showMap:(id)sender {
-    StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
+  //  StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
+    
+    StaticMapViewViewController *mapController = [StaticMapViewViewController new];
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
     mapController.event = [self.events objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:mapController animated:YES];
+   // mapController.view.frame =CGRectMake(50, 50, 100, 100);
+    
+    self.transitioningDelegate = [[SpringTransitioningDelegate alloc] initWithDelegate:self];
+    self.transitioningDelegate.transitioningDirection = TransitioningDirectionUp;
+    [self.transitioningDelegate presentViewController:mapController];
+    
+   
+   // [self presentPopupViewController:mapController animationType:MJPopupViewAnimationFade];
+  //   [self.view addSubview:mapController.view];
+    //[self.navigationController pushViewController:mapController animated:YES];
+    
+   
 }
+
+
+
+#pragma - mark Contact Invitation Sender
+
+- (IBAction)contactInvitationSender:(id)sender {
+    [self showGrid];
+}
+
+#pragma mark - RNGridMenuDelegate
+
+- (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
+    NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
+}
+
+#pragma mark - Private
+
+- (void)showImagesOnly {
+    NSInteger numberOfOptions = 3;
+    NSArray *images = @[
+                        [UIImage imageNamed:@"icon_call_white"],
+                        [UIImage imageNamed:@"icon_message_white"],
+                        [UIImage imageNamed:@"icon_email_white"]
+                        ];
+    RNGridMenu *av = [[RNGridMenu alloc] initWithImages:[images subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showList {
+    NSInteger numberOfOptions = 3;
+    NSArray *options = @[
+                         @"Call",
+                         @"Message",
+                         @"Email"
+                         ];
+    RNGridMenu *av = [[RNGridMenu alloc] initWithTitles:[options subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    //    av.itemTextAlignment = NSTextAlignmentLeft;
+    av.itemFont = [UIFont boldSystemFontOfSize:18];
+    av.itemSize = CGSizeMake(150, 55);
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showGrid {
+    NSInteger numberOfOptions = 3;
+    NSArray *items = @[
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_call_white"] title:@"Call"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_message_white"] title:@"Message"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_email_white"] title:@"Email"]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    //    av.bounces = NO;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
+- (void)showGridWithHeaderFromPoint:(CGPoint)point {
+    NSInteger numberOfOptions = 3;
+    NSArray *items = @[
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_call_white"] title:@"Call"],
+                       [RNGridMenuItem emptyItem],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_message_white"] title:@"Message"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_email_white"] title:@"Email"]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    av.bounces = NO;
+    av.animationDuration = 4.0;
+    //av.blurExclusionPath = [UIBezierPath bezierPathWithOvalInRect:self.imageView.frame];
+    av.backgroundPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.f, 0.f, av.itemSize.width*3, av.itemSize.height*3)];
+    
+    UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    header.text = @"Example Header";
+    header.font = [UIFont boldSystemFontOfSize:18];
+    header.backgroundColor = [UIColor clearColor];
+    header.textColor = [UIColor whiteColor];
+    header.textAlignment = NSTextAlignmentCenter;
+    // av.headerView = header;
+    
+    [av showInViewController:self center:point];
+}
+
+- (void)showGridWithPath {
+    NSInteger numberOfOptions = 3;
+    NSArray *items = @[
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_call_white"] title:@"Call"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_massege_white"] title:@"Message"],
+                       [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_email_white"] title:@"Email"]
+                       ];
+    
+    RNGridMenu *av = [[RNGridMenu alloc] initWithItems:[items subarrayWithRange:NSMakeRange(0, numberOfOptions)]];
+    av.delegate = self;
+    //    av.bounces = NO;
+    [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
+}
+
 @end

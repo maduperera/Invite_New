@@ -31,12 +31,17 @@ MKPointAnnotation *point;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+        
+    self.eventStatus.onTintColor = [UIColor blueColor];
+    
 	// Do any additional setup after loading the view.
-    self.invitationTitle.text = [self.event objectForKey:@"title"];
-    self.invitationAddress.text = [self.event objectForKey:@"address"];
-    self.invitationFrom.text = [self.event objectForKey:@"startTime"];
+    //self.invitationTitle.text = [self.event objectForKey:@"title"];
+    [[self navigationItem] setTitle:[self.event objectForKey:@"title"]];
+   // self.invitationAddress.text = [self.event objectForKey:@"address"];
+    self.invitationFrom.text = [NSString stringWithFormat:@"%@ %@", [self.event objectForKey:@"startTime"], @"GMT+5:30"];
     self.invitationTo.text = [self.event objectForKey:@"endTime"];
-    self.invitationContactNo.text = [self.event objectForKey:@"contactNo"];
+    self.invitationContactNo.text =[NSString stringWithFormat:@"%@: %@", @"Contact", [self.event objectForKey:@"contactNo"]];
     self.invitationDate.text = [self.event objectForKey:@"eventDate"];
   
     self.latitude = [[self.event objectForKey:@"geoPoint"] latitude];
@@ -45,8 +50,57 @@ MKPointAnnotation *point;
     
     //add gesture recognizer to the map view to be able to select and push a new view controller
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnMap:)];
+    //[tap setNumberOfTapsRequired:1];
+    //[self.invitationMap addGestureRecognizer: tap];
+    
+    self.eventLocationAddress.text =[NSString stringWithFormat:@"%@: %@", @"Location", [self.event objectForKey:@"address"]];
+    
+    
+    
+    //Create an animation with pulsating effect
+    CABasicAnimation *theAnimation;
+    theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    theAnimation.duration=1.0;
+    theAnimation.repeatCount= 1;
+    theAnimation.autoreverses=YES;
+    theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
+    theAnimation.toValue=[NSNumber numberWithFloat:0.1];
+   // theAnimation.beginTime = CACurrentMediaTime();
+    
+    
+    
+    CABasicAnimation *animationEventOrganizer;
+    animationEventOrganizer=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    animationEventOrganizer.duration=1.0;
+    animationEventOrganizer.repeatCount= 1;
+    animationEventOrganizer.autoreverses=YES;
+    animationEventOrganizer.fromValue=[NSNumber numberWithFloat:1.0];
+    animationEventOrganizer.toValue=[NSNumber numberWithFloat:0.1];
+    animationEventOrganizer.beginTime = CACurrentMediaTime()+2.0;
+    
+    CABasicAnimation *animationEventLocation;
+    animationEventLocation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    animationEventLocation.duration=1.0;
+    animationEventLocation.repeatCount= 1;
+    animationEventLocation.autoreverses=YES;
+    animationEventLocation.fromValue=[NSNumber numberWithFloat:1.0];
+    animationEventLocation.toValue=[NSNumber numberWithFloat:0.1];
+    animationEventLocation.beginTime = CACurrentMediaTime()+3.0;
+
+    
+    
+    [self.phoneCalender.layer addAnimation:theAnimation forKey:@"animateOpacity"];
+    [self.eventOrganizer.layer addAnimation:animationEventOrganizer forKey:@"animateOpacity"];
+    [self.eventLocation.layer addAnimation:animationEventLocation forKey:@"animateOpacity"];
+    
+    
+    
     [tap setNumberOfTapsRequired:1];
-    [self.invitationMap addGestureRecognizer: tap];
+    [tap setNumberOfTouchesRequired:1];
+    
+    [self.eventLocation addGestureRecognizer: tap];
+    [self.eventLocation setUserInteractionEnabled:YES];
+
     
     
     // ---- QR Code test --------------------------------
@@ -100,6 +154,25 @@ MKPointAnnotation *point;
 //    
 //    // ---- QR COde Test Ends ------------------------------------
 //    
+    
+    
+   // ----------------- setting background image -------------------
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+        // code for 4-inch screen
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"5S-background_1136*640_4.png"]]];
+        
+    } else {
+        // code for 3.5-inch screen
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2){
+            //Retina Display
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_960*640_4.png"]]];
+        } else {
+            //Non - Retina Display
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_480*320_4.png"]]];
+        }
+    }
+
     
 
 }

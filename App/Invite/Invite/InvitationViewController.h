@@ -26,4 +26,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *eventLocation;
+@property (weak, nonatomic) IBOutlet UITextView *eventLocationAddress;
+@property (weak, nonatomic) IBOutlet UIImageView *eventOrganizer;
+@property (weak, nonatomic) IBOutlet UIImageView *phoneCalender;
+@property (weak, nonatomic) IBOutlet UISwitch *eventStatus;
+
 @end

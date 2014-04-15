@@ -13,6 +13,7 @@
 @end
 
 @implementation StaticMapViewViewController
+
 MKPointAnnotation *point;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

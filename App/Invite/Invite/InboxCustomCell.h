@@ -10,6 +10,7 @@
 
 @interface InboxCustomCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *eventLabel;
+@property (weak, nonatomic) IBOutlet UITextView *eventTitleText;
 
 
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "InviteLoginViewController.h"
 #import "InviteSignupViewController.h"
+#import "Testclass.h"
+
 
 @interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -22,5 +24,6 @@
 - (IBAction)shop:(id)sender;
 - (IBAction)showQR:(id)sender;
 - (IBAction)showMap:(id)sender;
+- (IBAction)contactInvitationSender:(id)sender;
 
 @end
