@@ -35,7 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
     NSArray *temp = [[NSArray alloc] init];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
@@ -82,6 +82,10 @@
     NSLog(@"deode json : %@", json);
     NSLog(@"latitude : %@",[json objectForKey:@"latitude"]);
 
+}
+    
+    
+-(void)viewDidAppear:(BOOL)animated{
 }
 
 
