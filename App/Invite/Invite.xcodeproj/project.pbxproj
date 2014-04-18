@@ -37,9 +37,6 @@
 		877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C765518DC375C004124CB /* InviteSignupViewController.m */; };
 		8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */; };
 		878A997E18E010B300DACA62 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 878A997D18E010B300DACA62 /* invite.png */; };
-		87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43D18DC3DF000B4821D /* callButtonImage.png */; };
-		87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */; };
-		87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */; };
 		BE4043A018ED542600DECAD4 /* Names.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439D18ED542600DECAD4 /* Names.m */; };
 		BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439F18ED542600DECAD4 /* TITokenField.m */; };
 		BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB219E218EBE92F00E8B8E5 /* ContactListViewController.m */; };
@@ -105,10 +102,6 @@
 		DBD4247518F9AED800F668FB /* icon_call.png in Resources */ = {isa = PBXBuildFile; fileRef = DBD4247418F9AED800F668FB /* icon_call.png */; };
 		E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E363E8D518E59E6E00B07D6C /* MapKit.framework */; };
 		E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F9BD718E7381700400FD1 /* InvitationViewController.m */; };
-		E36F9BDC18E745B500400FD1 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDB18E745B400400FD1 /* mail.png */; };
-		E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */; };
-		E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */; };
-		E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E36F9BE318E754D500400FD1 /* bdybackground.png */; };
 		E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */; };
 		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
 		E3E3E5A818E806E100A2BB76 /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E5A718E806E100A2BB76 /* log.png */; };
@@ -176,9 +169,6 @@
 		8785B06C18EAD47900013FA1 /* StaticMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticMapViewViewController.h; sourceTree = "<group>"; };
 		8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticMapViewViewController.m; sourceTree = "<group>"; };
 		878A997D18E010B300DACA62 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
-		87C5F43D18DC3DF000B4821D /* callButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callButtonImage.png; path = ../callButtonImage.png; sourceTree = "<group>"; };
-		87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = messageButtonImage.jpeg; path = ../messageButtonImage.jpeg; sourceTree = "<group>"; };
-		87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scanButtonImage.jpeg; path = ../scanButtonImage.jpeg; sourceTree = "<group>"; };
 		BE40439C18ED542600DECAD4 /* Names.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Names.h; sourceTree = "<group>"; };
 		BE40439D18ED542600DECAD4 /* Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Names.m; sourceTree = "<group>"; };
 		BE40439E18ED542600DECAD4 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
@@ -264,10 +254,6 @@
 		E363E8D518E59E6E00B07D6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E36F9BD618E7381700400FD1 /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
 		E36F9BD718E7381700400FD1 /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
-		E36F9BDB18E745B400400FD1 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
-		E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationButtonImage.png; sourceTree = "<group>"; };
-		E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingButtonImage.png; sourceTree = "<group>"; };
-		E36F9BE318E754D500400FD1 /* bdybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bdybackground.png; sourceTree = "<group>"; };
 		E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableMapViewViewController.h; sourceTree = "<group>"; };
 		E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableMapViewViewController.m; sourceTree = "<group>"; };
 		E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposerDelegate.h; sourceTree = "<group>"; };
@@ -355,14 +341,6 @@
 				DBD4246118F995A900F668FB /* new images */,
 				878A997D18E010B300DACA62 /* invite.png */,
 				DBD4245918F984C400F668FB /* partybackground.png */,
-				E36F9BDB18E745B400400FD1 /* mail.png */,
-				E36F9BDD18E747B100400FD1 /* navigationButtonImage.png */,
-				87C5F43D18DC3DF000B4821D /* callButtonImage.png */,
-				E3E3E5A718E806E100A2BB76 /* log.png */,
-				E36F9BE318E754D500400FD1 /* bdybackground.png */,
-				E36F9BDF18E7485900400FD1 /* shoppingButtonImage.png */,
-				87C5F43E18DC3DF000B4821D /* messageButtonImage.jpeg */,
-				87C5F44018DC3DF000B4821D /* scanButtonImage.jpeg */,
 			);
 			name = InviteImages;
 			sourceTree = "<group>";
@@ -564,6 +542,14 @@
 		DBA92C5518FA81C900BC1E15 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				DBA92C4F18FA7DDE00BC1E15 /* icon_qr_white.png */,
+				DBA92C4918FA6C6B00BC1E15 /* icon_contact_white.png */,
+				DBA92C4B18FA6CC900BC1E15 /* icon_location_white.png */,
+				DBD4247418F9AED800F668FB /* icon_call.png */,
+				DBD4246418F9A08400F668FB /* icon_location.png */,
+				DBA92C4718FA6BE300BC1E15 /* icon_calender_white.png */,
+				E3E3E5A718E806E100A2BB76 /* log.png */,
+				DBD4247218F9AC8700F668FB /* icon_calender.png */,
 				DBA92C6618FAA22200BC1E15 /* icon_notification_blue.png */,
 				DBA92C6018FA9BD600BC1E15 /* icon_contact_blue.png */,
 				DBA92C6818FAA4DF00BC1E15 /* icon_qr_black_blue.png */,
@@ -630,13 +616,6 @@
 			children = (
 				DBA92C7E18FAECC400BC1E15 /* popup_menu */,
 				DBA92C5518FA81C900BC1E15 /* cell */,
-				DBA92C4F18FA7DDE00BC1E15 /* icon_qr_white.png */,
-				DBA92C4918FA6C6B00BC1E15 /* icon_contact_white.png */,
-				DBA92C4B18FA6CC900BC1E15 /* icon_location_white.png */,
-				DBD4247418F9AED800F668FB /* icon_call.png */,
-				DBD4246418F9A08400F668FB /* icon_location.png */,
-				DBA92C4718FA6BE300BC1E15 /* icon_calender_white.png */,
-				DBD4247218F9AC8700F668FB /* icon_calender.png */,
 			);
 			name = "identifiers ";
 			sourceTree = "<group>";
@@ -732,25 +711,19 @@
 				DBD4246F18F9A9E200F668FB /* 4-background_480*320_4.png in Resources */,
 				DBA92C8218FAECD500BC1E15 /* icon_call_white.png in Resources */,
 				DBD4245F18F995A200F668FB /* 4-background_960*640_2.png in Resources */,
-				87C5F44218DC3DF000B4821D /* callButtonImage.png in Resources */,
 				DBA92C4C18FA6CC900BC1E15 /* icon_location_white.png in Resources */,
-				87C5F44518DC3DF000B4821D /* scanButtonImage.jpeg in Resources */,
 				DBD4246018F995A200F668FB /* 5S-background_1136*640_2.png in Resources */,
 				DBA92C6718FAA22200BC1E15 /* icon_notification_blue.png in Resources */,
 				DBD4247118F9A9E200F668FB /* 5S-background_1136*640_4.png in Resources */,
-				87C5F44318DC3DF000B4821D /* messageButtonImage.jpeg in Resources */,
 				DBA92C6518FAA06D00BC1E15 /* icon_notification_red.png in Resources */,
 				BED0935A18DADA49002F2954 /* InfoPlist.strings in Resources */,
-				E36F9BE018E7485900400FD1 /* shoppingButtonImage.png in Resources */,
 				878A997E18E010B300DACA62 /* invite.png in Resources */,
 				DBD4246918F9A8D000F668FB /* 4-background_480*320_1.png in Resources */,
 				DBA92C6418FAA06D00BC1E15 /* icon_notification_green.png in Resources */,
 				DBA92C5018FA7DDE00BC1E15 /* icon_qr_white.png in Resources */,
-				E36F9BDC18E745B500400FD1 /* mail.png in Resources */,
 				DBD4246B18F9A8D000F668FB /* 5S-background_1136*640_1.png in Resources */,
 				DBA92C6918FAA4DF00BC1E15 /* icon_qr_black_blue.png in Resources */,
 				DBA92C5918FA82DA00BC1E15 /* cell-background_640.png in Resources */,
-				E36F9BE418E754D500400FD1 /* bdybackground.png in Resources */,
 				DBA92C5E18FA9B7200BC1E15 /* icon_location_blue.png in Resources */,
 				DBA92C8318FAECD500BC1E15 /* icon_email_white.png in Resources */,
 				DBD4246A18F9A8D000F668FB /* 4-background_960*640_1.png in Resources */,
@@ -764,7 +737,6 @@
 				DBA92C5F18FA9B7200BC1E15 /* icon_qr_blue.png in Resources */,
 				DBD4247318F9AC8700F668FB /* icon_calender.png in Resources */,
 				DBD4246518F9A08400F668FB /* icon_location.png in Resources */,
-				E36F9BDE18E747B100400FD1 /* navigationButtonImage.png in Resources */,
 				DBA92C4A18FA6C6B00BC1E15 /* icon_contact_white.png in Resources */,
 				BED0936518DADA49002F2954 /* Images.xcassets in Resources */,
 				DBD4247018F9A9E200F668FB /* 4-background_960*640_4.png in Resources */,
