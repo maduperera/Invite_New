@@ -440,6 +440,8 @@ MKPointAnnotation *point;
     [event setObject:self.event_title.text forKey:@"title"];
     [event setObject:currentUserEmail forKey:@"senderEmail"];
     [event setObject:self.geoPoint forKey:@"geoPoint"];
+    [event setObject:[NSNumber numberWithBool:FALSE] forKey:@"isCancelled"];
+    
     
     //save to event table
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

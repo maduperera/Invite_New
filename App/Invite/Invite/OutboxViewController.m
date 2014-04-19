@@ -8,7 +8,7 @@
 
 #import "OutboxViewController.h"
 #import "OutBoxCustomCell.h"
-#import "InvitationViewController.h"
+#import "OutBoxInvitationViewController.h"
 
 
 @interface OutboxViewController ()
@@ -36,14 +36,15 @@ PFQuery *queryEvent;
 {
     [super viewDidLoad];
     NSLog(@"view did load");
-    //[self getEvents];
-//    [self.tableView reloadData];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"view did appear");
+
+
+-(void)viewWillAppear:(BOOL)animated{
     [self getEvents];
-    //[self getEvents];
+//    [self.events removeAllObjects];
+//    [self.eventIDs removeAllObjects];
+//    [self.tableData removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,7 +96,7 @@ PFQuery *queryEvent;
                 }];
                 
             }
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
             
         }
     }];
@@ -122,8 +123,15 @@ PFQuery *queryEvent;
     OutBoxCustomCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"outBoxCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
-
-    cell.outBoxEventLabel.text = [self.tableData objectAtIndex:indexPath.row];
+    
+    PFObject *event = [self.events objectAtIndex:indexPath.row];
+    if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
+    
+        cell.outBoxEventLabel.text = [self.tableData objectAtIndex:indexPath.row];
+ 
+    }else{
+      cell.outBoxEventLabel.attributedText = [[NSAttributedString alloc] initWithString:[self.tableData objectAtIndex:indexPath.row] attributes:@{ NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
+    }
     return cell;
 }
 
@@ -173,7 +181,8 @@ PFQuery *queryEvent;
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
     if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
-        InvitationViewController *invitation = segue.destinationViewController;
+        OutBoxInvitationViewController *invitation = segue.destinationViewController;
+        invitation.event = [self.events objectAtIndex:indexPath.row];
         invitation.event = [self.events objectAtIndex:indexPath.row];
         [invitation viewDidLoad];
     }

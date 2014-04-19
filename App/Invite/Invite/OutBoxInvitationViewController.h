@@ -1,8 +1,8 @@
 //
-//  InvitationViewController.h
+//  OutBoxInvitationViewController.h
 //  Invite
 //
-//  Created by Madusha Perera on 3/29/14.
+//  Created by Madusha Perera on 4/19/14.
 //  Copyright (c) 2014 Dhammini Fernando. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "qrencode.h"
 
-@interface InvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
+@interface OutBoxInvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
 
 @property(nonatomic,weak) PFObject *event;
 @property (weak, nonatomic) IBOutlet UILabel *invitationTitle;
@@ -24,7 +24,8 @@
 @property (readwrite) CLLocationDegrees latitude;
 @property (readwrite) CLLocationDegrees longitude;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
-
+- (IBAction)cancelEvent:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *eventCancelSwitch;
 
 //@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 
@@ -33,5 +34,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *eventOrganizer;
 @property (weak, nonatomic) IBOutlet UIImageView *phoneCalender;
 @property (weak, nonatomic) IBOutlet UISwitch *eventStatus;
-
 @end

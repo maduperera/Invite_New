@@ -45,10 +45,6 @@ NSString *event_ID;
 {
     [super viewDidLoad];
 
-    //get inbox events from backend MBAAS
-    [self getEvents];
-   // [self.tableView reloadData];
-
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     if (screenBounds.size.height == 568) {
         // code for 4-inch screen
@@ -67,11 +63,14 @@ NSString *event_ID;
 
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    //[self.tableView reloadData];
-    [self getEvents];
-}
 
+-(void)viewWillAppear:(BOOL)animated{
+//    [self.events removeAllObjects];
+//    [self.eventIDs removeAllObjects];
+//    [self.tableData removeAllObjects];
+    [self getEvents];
+    NSLog(@"view will appear");
+}
 
 -(void)getEvents{
     
@@ -101,22 +100,20 @@ NSString *event_ID;
 
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
-                NSLog(@"eventID: %@", [obj objectForKey:@"eventID"]);
-                
                 queryEvent = [PFQuery queryWithClassName:@"Event"];
                 [queryEvent whereKey:@"objectId" equalTo:[obj objectForKey:@"eventID"]];
                 
                 // Run the query
                 [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
-                        NSLog(@"TITLE: %@", [[objects objectAtIndex:0] objectForKey:@"title"]);
                         [self.events addObject:[objects objectAtIndex:0]];
                         [tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
                         [self.tableView reloadData];
                     }
                 }];
             }
-            [self.tableView reloadData];
+            NSLog(@"size events arr : %i", [self.events count]);
+            //[self.tableView reloadData];
         }
     }];
 }
@@ -150,9 +147,6 @@ NSString *event_ID;
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
 	   
-    cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
-    
-    
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     if (screenBounds.size.height == 568) {
@@ -162,6 +156,19 @@ NSString *event_ID;
     } else {
         // code for 3.5-inch screen
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
+    }
+    
+    PFObject *event = [self.events objectAtIndex:indexPath.row];
+    NSLog(@"title: %@",[tableData objectAtIndex:indexPath.row]);
+    NSLog(@"bool: %@",[event objectForKey:@"isCancelled"]);
+    
+    if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
+        cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
+        NSLog(@"is not cancelled");
+        
+        
+    }else{
+        cell.eventTitleText.attributedText = [[NSMutableAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
     }
     
     return cell;
