@@ -9,6 +9,7 @@
 #import "OutboxViewController.h"
 #import "OutBoxCustomCell.h"
 #import "OutBoxInvitationViewController.h"
+#import "FeedBackViewController.h"
 
 
 @interface OutboxViewController ()
@@ -218,6 +219,9 @@ PFQuery *queryEvent;
         invitation.event = [self.events objectAtIndex:indexPath.row];
         invitation.event = [self.events objectAtIndex:indexPath.row];
         [invitation viewDidLoad];
+    }else if([segue.identifier isEqualToString:@"feedBack"]) {
+        FeedBackViewController *feedBack = segue.destinationViewController;
+        feedBack.eventID = [self.eventIDs objectAtIndex:indexPath.row];
     }
     
 }

@@ -18,6 +18,7 @@
 @property(nonatomic, strong) NSMutableArray *events;
 @property (weak, nonatomic) IBOutlet UILabel *eventLabel;
 @property(nonatomic, strong) NSMutableArray *eventIDs;
+@property(nonatomic, strong) NSMutableArray *eventStatus;
 
 - (IBAction)mailToInvitor:(id)sender;
 - (IBAction)callInvitor:(id)sender;

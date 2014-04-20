@@ -106,6 +106,7 @@ UIFont * labelFont;
             //self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.events = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.tableData = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+            self.eventStatus = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
@@ -118,6 +119,7 @@ UIFont * labelFont;
                         [self.events addObject:[objects objectAtIndex:0]];
                         NSLog(@"size events arr : %i", [self.events count]);
                         [tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
+                        [self.eventStatus addObject:[obj objectForKey:@"isPending"]];
                         [self.tableView reloadData];
 
                     }
@@ -161,9 +163,6 @@ UIFont * labelFont;
     if (cell == nil) {
         cell = [[InboxCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-//    InboxCustomCell *cell = [tableView
-//                             dequeueReusableCellWithIdentifier:@"buttonCell"];
-    //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
 	   
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -176,6 +175,21 @@ UIFont * labelFont;
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
     }
     
+    
+    //display the event status : pending/accepted
+    //events that are pending
+    if([self.eventStatus objectAtIndex:indexPath.row] == [NSNumber numberWithBool:TRUE]){
+        cell.eventStatusColor.image = [UIImage imageNamed:@"icon_notification_red.png"];
+        cell.eventStatus.text = @"your decision is pending";
+    }else{
+        // events that are accepted
+        cell.eventStatusColor.image = [UIImage imageNamed:@"icon_notification_blue.png"];
+        cell.eventStatus.text = @"your are going";
+    }
+
+    
+    
+    //strike the event name with red color line if the event is canceled
     PFObject *event = [self.events objectAtIndex:indexPath.row];
     cell.eventTitleText.text = nil;
     cell.eventTitleText.attributedText = nil;
@@ -237,8 +251,9 @@ UIFont * labelFont;
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
     if ([segue.identifier isEqualToString:@"invitation"]) {
-        InvitationViewController *invitation = segue.destinationViewController;
+        InBoxInvitationViewController *invitation = segue.destinationViewController;
         invitation.event = [self.events objectAtIndex:indexPath.row];
+        invitation.inBoxTableName = currentUserInBoxTableName;
         [invitation viewDidLoad];
     }
     

@@ -511,7 +511,7 @@ MKPointAnnotation *point;
                         [inMsg setObject:[event objectId] forKey:@"eventID"];
                         [inMsg setObject:dateString forKey:@"dateSent"];
                         [inMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
-                        
+                        [inMsg setObject:[NSNumber numberWithBool:TRUE] forKey:@"isPending"];
                         
                         //save to receiver_in_box table
                         [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

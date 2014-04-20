@@ -11,11 +11,11 @@
 #import "QRViewController.h"
 
 
-@interface InvitationViewController ()
+@interface InBoxInvitationViewController ()
 
 @end
 
-@implementation InvitationViewController
+@implementation InBoxInvitationViewController
 MKPointAnnotation *point;
 
 
@@ -33,7 +33,7 @@ MKPointAnnotation *point;
     [super viewDidLoad];
     
         
-    self.eventStatus.onTintColor = [UIColor blueColor];
+    //self.eventStatus.onTintColor = [UIColor blueColor];
     
 	// Do any additional setup after loading the view.
     //self.invitationTitle.text = [self.event objectForKey:@"title"];
@@ -179,12 +179,12 @@ MKPointAnnotation *point;
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    if([self.event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
-        self.eventCancelSwitch.on = NO;
-        self.lblStatus.text = @"Hold the event";
+    if([self.event objectForKey:@"isPending"]==[NSNumber numberWithBool:FALSE]){
+        self.eventAcceptSwitch.on = YES;
+        self.acceptStatus.text = @"Ignore the Invitation";
     }else{
-        self.eventCancelSwitch.on = YES;
-        self.lblStatus.text = @"Unhold the event";
+        self.eventAcceptSwitch.on = NO;
+        self.acceptStatus.text = @"Accept the Invitation";
     }
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location, 800, 800);
@@ -325,28 +325,89 @@ MKPointAnnotation *point;
 
 }
 
-- (IBAction)cancel:(id)sender {
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    
-    if (self.eventCancelSwitch.on) {
-        
-        //update the isCancelled field to TRUE of the specific event in Event table
-        [query getObjectInBackgroundWithId:[self.event objectId] block:^(PFObject *event, NSError *error) {
-            event[@"isCancelled"] = [NSNumber numberWithBool:TRUE];
-            [event saveInBackground];
-        }];
-        
-        self.lblStatus.text = @"Unhold the event";
-        
-    } else {
-        //update the isCancelled field to FALSE of the specific event in Event table
-        [query getObjectInBackgroundWithId:[self.event objectId] block:^(PFObject *event, NSError *error) {
-            event[@"isCancelled"] = [NSNumber numberWithBool:FALSE];
-            [event saveInBackground];
-        }];
-        self.lblStatus.text = @"Hold the event";
-    }
 
+- (IBAction)accept:(id)sender {
+    
+    
+    //construct the sender feedback table name -> senderemailwithout'@'and'.'_in_box
+    
+    //get sender email address
+    NSString * senderEmailWithOnlyAlhpaCharaters = [[self.event objectForKey:@"senderEmail"] stringByReplacingOccurrencesOfString:@"@"withString:@""];
+    senderEmailWithOnlyAlhpaCharaters = [senderEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+    
+    NSString *senderFeedBackTableName = [NSString stringWithFormat:@"%@_%@", senderEmailWithOnlyAlhpaCharaters, @"feed_back"];
+    NSLog(@"sender feedback table name: %@" , senderFeedBackTableName);
+    
+
+    // query for current user inbox table
+    PFQuery *queryForObjId = [PFQuery queryWithClassName:self.inBoxTableName];
+    [queryForObjId whereKey:@"eventID" equalTo:[self.event objectId]];
+    
+    
+    // query for senders feedback table
+    PFQuery *queryForFeedBack = [PFQuery queryWithClassName:senderFeedBackTableName];
+    [queryForFeedBack whereKey:@"eventID" equalTo:[self.event objectId]];
+    [queryForFeedBack whereKey:@"receiverEmail" equalTo:[[PFUser currentUser] objectForKey:@"email"]];
+    NSLog(@"sender feedback table name : %@", senderFeedBackTableName);
+    NSLog(@"current user email : %@", [[PFUser currentUser] objectForKey:@"email"]);
+    
+    
+     //if accepted change status to accepted in the current user inbox table
+     if (self.eventAcceptSwitch.on) {
+         //update the inbox table status to accepted
+         // Run the query
+         [queryForObjId findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+             if (!error) {
+                 NSLog(@"...");
+                 PFObject *event = [objects objectAtIndex:0];
+                     event[@"isPending"] = [NSNumber numberWithBool:FALSE];
+                     [event saveInBackground];
+                 
+                 //if accepted write to feedback table of the sender
+                 // Run the query
+                 [queryForFeedBack findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                     if (!error) {
+                         NSLog(@"...");
+                         PFObject *feedBack = [objects objectAtIndex:0];
+                         feedBack[@"feedBack"] = @"accepted";
+                         [feedBack saveInBackground];
+                     }
+                 }];
+
+                 
+             }
+         }];
+         
+         
+         //update the status to accpeted in feedback table of the sender
+         self.acceptStatus.text = @"Ignore the Invitation";
+
+     // if ignored, write to feedback table of the sender and delete the event from inbox table of the current user
+     }else{
+         //delete the entry from inbox
+         // Run the query
+         [queryForObjId findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+             if (!error) {
+                 NSLog(@"...");
+                 PFObject *event = [objects objectAtIndex:0];
+                 event[@"isDeleted"] = [NSNumber numberWithBool:TRUE];
+                 [event saveInBackground];
+                 
+                 //if ignored write to feedback table of the sender
+                 // Run the query
+                 [queryForFeedBack findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                     if (!error) {
+                         NSLog(@"...");
+                         PFObject *feedBack = [objects objectAtIndex:0];
+                         feedBack[@"feedBack"] = @"ignored";
+                         [feedBack saveInBackground];
+                     }
+                 }];
+                 
+             }
+         }];
+         
+         self.acceptStatus.text = @"Accept the Invitation";
+     }
 }
 @end

@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "qrencode.h"
 
-@interface InvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
+@interface InBoxInvitationViewController : UIViewController<MKMapViewDelegate, MKReverseGeocoderDelegate>
 
 @property(nonatomic,weak) PFObject *event;
 @property (weak, nonatomic) IBOutlet UILabel *invitationTitle;
@@ -24,16 +24,15 @@
 @property (readwrite) CLLocationDegrees latitude;
 @property (readwrite) CLLocationDegrees longitude;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
-@property (weak, nonatomic) IBOutlet UISwitch *eventCancelSwitch;
-
-- (IBAction)cancel:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UILabel *acceptStatus;
 //@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *eventLocation;
 @property (weak, nonatomic) IBOutlet UITextView *eventLocationAddress;
 @property (weak, nonatomic) IBOutlet UIImageView *eventOrganizer;
 @property (weak, nonatomic) IBOutlet UIImageView *phoneCalender;
-@property (weak, nonatomic) IBOutlet UISwitch *eventStatus;
+@property (weak, nonatomic) IBOutlet UISwitch *eventAcceptSwitch;
+@property(weak,nonatomic) NSString *inBoxTableName;
+
+- (IBAction)accept:(id)sender;
 
 @end
