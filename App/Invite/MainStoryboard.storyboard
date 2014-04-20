@@ -41,12 +41,12 @@
                                                 <action selector="showMap:" destination="W06-e8-hpa" eventType="touchUpInside" id="vhR-DA-QST"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys2-ne-ore">
-                                            <rect key="frame" x="8" y="2" width="196" height="46"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="eventName" translatesAutoresizingMaskIntoConstraints="NO" id="ys2-ne-ore">
+                                            <rect key="frame" x="8" y="0.0" width="196" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="11"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday, 24th May '14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbr-Zm-dll">

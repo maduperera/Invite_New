@@ -32,6 +32,7 @@ NSString *currentUserEmailWithOnlyAlhpaCharaters;
 PFQuery *queryEvent;
 NSString *event_ID;
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -60,9 +61,12 @@ NSString *event_ID;
             [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_480*320_4.png"]]];
         }
     }
-
+    NSLog(@"view did load");
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"view did appear");
+}
 
 -(void)viewWillAppear:(BOOL)animated{
 //    [self.events removeAllObjects];
@@ -97,7 +101,7 @@ NSString *event_ID;
             //self.eventIDs = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.events = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.tableData = [[NSMutableArray alloc] initWithCapacity:[objects count]];
-
+            
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
                 queryEvent = [PFQuery queryWithClassName:@"Event"];
@@ -107,13 +111,16 @@ NSString *event_ID;
                 [queryEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         [self.events addObject:[objects objectAtIndex:0]];
+                        NSLog(@"size events arr : %i", [self.events count]);
                         [tableData addObject:[[objects objectAtIndex:0] objectForKey:@"title"]];
                         [self.tableView reloadData];
+
                     }
                 }];
+                
             }
             NSLog(@"size events arr : %i", [self.events count]);
-            //[self.tableView reloadData];
+//            [self.tableView reloadData];
         }
     }];
 }
@@ -143,8 +150,14 @@ NSString *event_ID;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    NSString *identifier = @"buttonCell";
     InboxCustomCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"buttonCell"];
+    if (cell == nil) {
+        cell = [[InboxCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+//    InboxCustomCell *cell = [tableView
+//                             dequeueReusableCellWithIdentifier:@"buttonCell"];
     //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
 	   
     
@@ -159,16 +172,24 @@ NSString *event_ID;
     }
     
     PFObject *event = [self.events objectAtIndex:indexPath.row];
+    cell.eventTitleText.text = nil;
+    cell.eventTitleText.attributedText = nil;
     NSLog(@"title: %@",[tableData objectAtIndex:indexPath.row]);
     NSLog(@"bool: %@",[event objectForKey:@"isCancelled"]);
+    UIFont * labelFont = [UIFont fontWithName:@"Helvetica-Light" size:14];
+    UIColor * labelColor = [UIColor colorWithWhite:1 alpha:1];
     
     if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
-        cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
+//        cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
+        
+        
+        cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row]attributes:@{NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor}];
+        
         NSLog(@"is not cancelled");
         
         
     }else{
-        cell.eventTitleText.attributedText = [[NSMutableAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
+        cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor, NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
     }
     
     return cell;
