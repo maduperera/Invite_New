@@ -120,11 +120,20 @@ PFQuery *queryEvent;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OutBoxCustomCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:@"outBoxCell"];
-    //change the label of the cell to be restrict to 130 pixels. so that label content will not surpass the buttons inside the cell
+   
     
+    NSString *identifier = @"outBoxCell";
+    OutBoxCustomCell *cell = [tableView
+                              dequeueReusableCellWithIdentifier:@"outBoxCell"];
+    
+    if (cell == nil) {
+        cell = [[OutBoxCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    
+    
+ 
     PFObject *event = [self.events objectAtIndex:indexPath.row];
+
     if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
     
         cell.outBoxEventLabel.text = [self.tableData objectAtIndex:indexPath.row];
@@ -132,6 +141,30 @@ PFQuery *queryEvent;
     }else{
       cell.outBoxEventLabel.attributedText = [[NSAttributedString alloc] initWithString:[self.tableData objectAtIndex:indexPath.row] attributes:@{ NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
     }
+    
+    
+    /* uncomment this when text view is used with attributed text
+    
+    UIFont * labelFont = [UIFont fontWithName:@"Helvetica-Light" size:14];
+    UIColor * labelColor = [UIColor colorWithWhite:1 alpha:1];
+    
+    if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
+        //        cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
+        
+        
+        cell.outBoxEventLabel.attributedText = [[NSAttributedString alloc] initWithString:[self.tableData objectAtIndex:indexPath.row] attributes:@{NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor}];
+        
+        NSLog(@"is not cancelled");
+        
+        
+    }else{
+         cell.outBoxEventLabel.attributedText = [[NSAttributedString alloc] initWithString:[self.tableData objectAtIndex:indexPath.row] attributes:@{ NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor, NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
+    }
+
+    */
+    
+    
+    
     return cell;
 }
 

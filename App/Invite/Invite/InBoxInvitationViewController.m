@@ -1,21 +1,21 @@
 //
-//  OutBoxInvitationViewController.m
+//  InvitationViewController.m
 //  Invite
 //
-//  Created by Madusha Perera on 4/19/14.
+//  Created by Madusha Perera on 3/29/14.
 //  Copyright (c) 2014 Dhammini Fernando. All rights reserved.
 //
 
-#import "OutBoxInvitationViewController.h"
+#import "InBoxInvitationViewController.h"
 #import "StaticMapViewViewController.h"
 #import "QRViewController.h"
 
 
-@interface OutBoxInvitationViewController ()
+@interface InvitationViewController ()
 
 @end
 
-@implementation OutBoxInvitationViewController
+@implementation InvitationViewController
 MKPointAnnotation *point;
 
 
@@ -32,20 +32,18 @@ MKPointAnnotation *point;
 {
     [super viewDidLoad];
     
-    
+        
     self.eventStatus.onTintColor = [UIColor blueColor];
     
+	// Do any additional setup after loading the view.
+    //self.invitationTitle.text = [self.event objectForKey:@"title"];
     [[self navigationItem] setTitle:[self.event objectForKey:@"title"]];
-    
-    self.lblStatus.text = @"Cancel the event";
-
-    
     //self.invitationAddress.text = [self.event objectForKey:@"address"];
     self.invitationFrom.text = [NSString stringWithFormat:@"%@ %@", [self.event objectForKey:@"startTime"], @"GMT+5:30"];
     self.invitationTo.text = [self.event objectForKey:@"endTime"];
     self.invitationContactNo.text =[NSString stringWithFormat:@"%@: %@", @"Contact", [self.event objectForKey:@"contactNo"]];
     self.invitationDate.text = [self.event objectForKey:@"eventDate"];
-    
+  
     self.latitude = [[self.event objectForKey:@"geoPoint"] latitude];
     self.longitude = [[self.event objectForKey:@"geoPoint"] longitude];
     self.location = CLLocationCoordinate2DMake(self.latitude, self.longitude);
@@ -67,7 +65,7 @@ MKPointAnnotation *point;
     theAnimation.autoreverses=YES;
     theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
     theAnimation.toValue=[NSNumber numberWithFloat:0.1];
-    // theAnimation.beginTime = CACurrentMediaTime();
+   // theAnimation.beginTime = CACurrentMediaTime();
     
     
     
@@ -88,7 +86,7 @@ MKPointAnnotation *point;
     animationEventLocation.fromValue=[NSNumber numberWithFloat:1.0];
     animationEventLocation.toValue=[NSNumber numberWithFloat:0.1];
     animationEventLocation.beginTime = CACurrentMediaTime()+3.0;
-    
+
     
     
     [self.phoneCalender.layer addAnimation:theAnimation forKey:@"animateOpacity"];
@@ -102,63 +100,63 @@ MKPointAnnotation *point;
     
     [self.eventLocation addGestureRecognizer: tap];
     [self.eventLocation setUserInteractionEnabled:YES];
-    
+
     
     
     // ---- QR Code test --------------------------------
-    //
-    //    NSArray *temp = [[NSArray alloc] init];
-    //    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    //
-    //
-    //    [dict setValue:[self.event objectForKey:@"title"] forKey:@"title"];
-    //    [dict setValue:[self.event objectForKey:@"address"] forKey:@"address"];
-    //    [dict setValue:[self.event objectForKey:@"startTime"] forKey:@"startTime"];
-    //    [dict setValue:[self.event objectForKey:@"endTime"] forKey:@"endTime"];
-    //    [dict setValue:[self.event objectForKey:@"contactNo"] forKey:@"contactNo"];
-    //    [dict setValue:[self.event objectForKey:@"eventDate"] forKey:@"eventDate"];
-    //    [dict setValue:[self.event objectForKey:@"contactNo"] forKey:@"contactNo"];
-    //    NSNumber *lat = [NSNumber numberWithDouble:[[self.event objectForKey:@"geoPoint"] latitude]];
-    //    NSNumber *lon = [NSNumber numberWithDouble:[[self.event objectForKey:@"geoPoint"] longitude]];
-    //    [dict setValue:[lat stringValue]  forKey:@"latitude"];
-    //    [dict setValue:[lon stringValue]  forKey:@"longitude"];
-    //
-    //    //Check the results
-    //    NSLog(@"PFObject Info: %@", self.event);
-    //    NSLog(@"dict Info: %@", dict);
-    //
-    //        NSError *error;
-    //        NSString *qrCodeString = @"";
-    //        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
-    //                                                           options:NSJSONWritingPrettyPrinted
-    //                                                            error:&error];
-    //
-    //        if (! jsonData) {
-    //            NSLog(@"Got an error: %@", error);
-    //        } else {
-    //            qrCodeString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //        }
-    //    UIImage *image = [self quickResponseImageForString:qrCodeString withDimension:182];
-    //
-    //    //set the image
-    //    [self.qrCodeImageView setImage: image];
-    //
-    //
-    //    // ---------------------------------
-    //
-    //
-    //    NSString *jsonString = qrCodeString;
-    //    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    //    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    //    NSLog(@"deode json : %@", json);
-    //    NSLog(@"latitude : %@",[json objectForKey:@"latitude"]);
-    //
-    //
-    //    // ---- QR COde Test Ends ------------------------------------
-    //
+//    
+//    NSArray *temp = [[NSArray alloc] init];
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//
+//    
+//    [dict setValue:[self.event objectForKey:@"title"] forKey:@"title"];
+//    [dict setValue:[self.event objectForKey:@"address"] forKey:@"address"];
+//    [dict setValue:[self.event objectForKey:@"startTime"] forKey:@"startTime"];
+//    [dict setValue:[self.event objectForKey:@"endTime"] forKey:@"endTime"];
+//    [dict setValue:[self.event objectForKey:@"contactNo"] forKey:@"contactNo"];
+//    [dict setValue:[self.event objectForKey:@"eventDate"] forKey:@"eventDate"];
+//    [dict setValue:[self.event objectForKey:@"contactNo"] forKey:@"contactNo"];
+//    NSNumber *lat = [NSNumber numberWithDouble:[[self.event objectForKey:@"geoPoint"] latitude]];
+//    NSNumber *lon = [NSNumber numberWithDouble:[[self.event objectForKey:@"geoPoint"] longitude]];
+//    [dict setValue:[lat stringValue]  forKey:@"latitude"];
+//    [dict setValue:[lon stringValue]  forKey:@"longitude"];
+//    
+//    //Check the results
+//    NSLog(@"PFObject Info: %@", self.event);
+//    NSLog(@"dict Info: %@", dict);
+//    
+//        NSError *error;
+//        NSString *qrCodeString = @"";
+//        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+//                                                           options:NSJSONWritingPrettyPrinted
+//                                                            error:&error];
+//    
+//        if (! jsonData) {
+//            NSLog(@"Got an error: %@", error);
+//        } else {
+//            qrCodeString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        }
+//    UIImage *image = [self quickResponseImageForString:qrCodeString withDimension:182];
+//    
+//    //set the image
+//    [self.qrCodeImageView setImage: image];
+//    
+//    
+//    // ---------------------------------
+//    
+//    
+//    NSString *jsonString = qrCodeString;
+//    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+//    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//    NSLog(@"deode json : %@", json);
+//    NSLog(@"latitude : %@",[json objectForKey:@"latitude"]);
+//    
+//    
+//    // ---- QR COde Test Ends ------------------------------------
+//    
     
     
-    // ----------------- setting background image -------------------
+   // ----------------- setting background image -------------------
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     if (screenBounds.size.height == 568) {
         // code for 4-inch screen
@@ -174,106 +172,19 @@ MKPointAnnotation *point;
             [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"4-background_480*320_4.png"]]];
         }
     }
+
     
-    
-}
 
-
-
-//
-//void freeRawData(void *info, const void *data, size_t size) {
-//    free((unsigned char *)data);
-//}
-//
-//- (UIImage *)quickResponseImageForString:(NSString *)dataString withDimension:(int)imageWidth {
-//
-//    QRcode *resultCode = QRcode_encodeString([dataString UTF8String], 0, QR_ECLEVEL_L, QR_MODE_8, 1);
-//
-//    unsigned char *pixels = (*resultCode).data;
-//    int width = (*resultCode).width;
-//    int len = width * width;
-//
-//    if (imageWidth < width)
-//        imageWidth = width;
-//
-//    // Set bit-fiddling variables
-//    int bytesPerPixel = 4;
-//    int bitsPerPixel = 8 * bytesPerPixel;
-//    int bytesPerLine = bytesPerPixel * imageWidth;
-//    int rawDataSize = bytesPerLine * imageWidth;
-//
-//    int pixelPerDot = imageWidth / width;
-//    int offset = (int)((imageWidth - pixelPerDot * width) / 2);
-//
-//    // Allocate raw image buffer
-//    unsigned char *rawData = (unsigned char*)malloc(rawDataSize);
-//    memset(rawData, 0xFF, rawDataSize);
-//
-//    // Fill raw image buffer with image data from QR code matrix
-//    int i;
-//    for (i = 0; i < len; i++) {
-//        char intensity = (pixels[i] & 1) ? 0 : 0xFF;
-//
-//        int y = i / width;
-//        int x = i - (y * width);
-//
-//        int startX = pixelPerDot * x * bytesPerPixel + (bytesPerPixel * offset);
-//        int startY = pixelPerDot * y + offset;
-//        int endX = startX + pixelPerDot * bytesPerPixel;
-//        int endY = startY + pixelPerDot;
-//
-//        int my;
-//        for (my = startY; my < endY; my++) {
-//            int mx;
-//            for (mx = startX; mx < endX; mx += bytesPerPixel) {
-//                rawData[bytesPerLine * my + mx    ] = intensity;    //red
-//                rawData[bytesPerLine * my + mx + 1] = intensity;    //green
-//                rawData[bytesPerLine * my + mx + 2] = intensity;    //blue
-//                rawData[bytesPerLine * my + mx + 3] = 255;          //alpha
-//            }
-//        }
-//    }
-//
-//    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, rawData, rawDataSize, (CGDataProviderReleaseDataCallback)&freeRawData);
-//    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-//    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
-//    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
-//    CGImageRef imageRef = CGImageCreate(imageWidth, imageWidth, 8, bitsPerPixel, bytesPerLine, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
-//
-//    UIImage *quickResponseImage = [UIImage imageWithCGImage:imageRef];
-//
-//    CGImageRelease(imageRef);
-//    CGColorSpaceRelease(colorSpaceRef);
-//    CGDataProviderRelease(provider);
-//    QRcode_free(resultCode);
-//
-//    return quickResponseImage;
-//}
-
-
-
-// handle tap even on map view
--(void) handleTapOnMap:(UITapGestureRecognizer *)recognizer {
-    if (recognizer.state == UIGestureRecognizerStateEnded) {
-        StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
-        mapController.event = self.event;
-        [self.navigationController pushViewController:mapController animated:YES];
-    }
-}
-
-
--(void)viewDidAppear:(BOOL)animated{
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
+    
     if([self.event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
         self.eventCancelSwitch.on = NO;
         self.lblStatus.text = @"Hold the event";
     }else{
         self.eventCancelSwitch.on = YES;
-         self.lblStatus.text = @"Unhold the event";
+        self.lblStatus.text = @"Unhold the event";
     }
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.location, 800, 800);
@@ -296,8 +207,95 @@ MKPointAnnotation *point;
     
     // add an annotation in the middle of the map
     [self.invitationMap addAnnotation:point];
+    
 }
 
+//
+//void freeRawData(void *info, const void *data, size_t size) {
+//    free((unsigned char *)data);
+//}
+//
+//- (UIImage *)quickResponseImageForString:(NSString *)dataString withDimension:(int)imageWidth {
+//    
+//    QRcode *resultCode = QRcode_encodeString([dataString UTF8String], 0, QR_ECLEVEL_L, QR_MODE_8, 1);
+//    
+//    unsigned char *pixels = (*resultCode).data;
+//    int width = (*resultCode).width;
+//    int len = width * width;
+//    
+//    if (imageWidth < width)
+//        imageWidth = width;
+//    
+//    // Set bit-fiddling variables
+//    int bytesPerPixel = 4;
+//    int bitsPerPixel = 8 * bytesPerPixel;
+//    int bytesPerLine = bytesPerPixel * imageWidth;
+//    int rawDataSize = bytesPerLine * imageWidth;
+//    
+//    int pixelPerDot = imageWidth / width;
+//    int offset = (int)((imageWidth - pixelPerDot * width) / 2);
+//    
+//    // Allocate raw image buffer
+//    unsigned char *rawData = (unsigned char*)malloc(rawDataSize);
+//    memset(rawData, 0xFF, rawDataSize);
+//    
+//    // Fill raw image buffer with image data from QR code matrix
+//    int i;
+//    for (i = 0; i < len; i++) {
+//        char intensity = (pixels[i] & 1) ? 0 : 0xFF;
+//        
+//        int y = i / width;
+//        int x = i - (y * width);
+//        
+//        int startX = pixelPerDot * x * bytesPerPixel + (bytesPerPixel * offset);
+//        int startY = pixelPerDot * y + offset;
+//        int endX = startX + pixelPerDot * bytesPerPixel;
+//        int endY = startY + pixelPerDot;
+//        
+//        int my;
+//        for (my = startY; my < endY; my++) {
+//            int mx;
+//            for (mx = startX; mx < endX; mx += bytesPerPixel) {
+//                rawData[bytesPerLine * my + mx    ] = intensity;    //red
+//                rawData[bytesPerLine * my + mx + 1] = intensity;    //green
+//                rawData[bytesPerLine * my + mx + 2] = intensity;    //blue
+//                rawData[bytesPerLine * my + mx + 3] = 255;          //alpha
+//            }
+//        }
+//    }
+//    
+//    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, rawData, rawDataSize, (CGDataProviderReleaseDataCallback)&freeRawData);
+//    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+//    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+//    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+//    CGImageRef imageRef = CGImageCreate(imageWidth, imageWidth, 8, bitsPerPixel, bytesPerLine, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+//    
+//    UIImage *quickResponseImage = [UIImage imageWithCGImage:imageRef];
+//    
+//    CGImageRelease(imageRef);
+//    CGColorSpaceRelease(colorSpaceRef);
+//    CGDataProviderRelease(provider);
+//    QRcode_free(resultCode);
+//    
+//    return quickResponseImage;
+//}
+
+
+
+// handle tap even on map view
+-(void) handleTapOnMap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
+        mapController.event = self.event;
+        [self.navigationController pushViewController:mapController animated:YES];
+    }
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+ 
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -313,20 +311,21 @@ MKPointAnnotation *point;
 //        staticMap.event = self.event;
 //        [staticMap viewDidLoad];
 //    }
-//
+//    
 //}
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
-    if ([segue.identifier isEqualToString:@"viewQR"]) {
-        QRViewController *qrViewController = segue.destinationViewController;
-        qrViewController.invitation = self.event;
-    }
-    
+       if ([segue.identifier isEqualToString:@"viewQR"]) {
+           QRViewController *qrViewController = segue.destinationViewController;
+           qrViewController.invitation = self.event;
+       }
+
 }
-- (IBAction)cancelEvent:(id)sender {
+
+- (IBAction)cancel:(id)sender {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     
@@ -348,6 +347,6 @@ MKPointAnnotation *point;
         }];
         self.lblStatus.text = @"Hold the event";
     }
-    
+
 }
 @end

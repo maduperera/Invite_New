@@ -9,7 +9,7 @@
 #import "InboxViewController.h"
 #import "TableCell.h"
 #import "UIViewController+Utilities.h"
-#import "InvitationViewController.h"
+#import "InBoxInvitationViewController.h"
 #import "InboxCustomCell.h"
 #import "StaticMapViewViewController.h"
 #import "RNGridMenu.h"
@@ -31,7 +31,8 @@ NSString *currentUserInBoxTableName;
 NSString *currentUserEmailWithOnlyAlhpaCharaters;
 PFQuery *queryEvent;
 NSString *event_ID;
-
+UIColor * labelColor;
+UIFont * labelFont;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -62,6 +63,10 @@ NSString *event_ID;
         }
     }
     NSLog(@"view did load");
+    //set font fortext view in the cell
+    labelFont = [UIFont fontWithName:@"Helvetica-Light" size:14];
+    labelColor = [UIColor colorWithWhite:1 alpha:1];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -174,19 +179,11 @@ NSString *event_ID;
     PFObject *event = [self.events objectAtIndex:indexPath.row];
     cell.eventTitleText.text = nil;
     cell.eventTitleText.attributedText = nil;
-    NSLog(@"title: %@",[tableData objectAtIndex:indexPath.row]);
-    NSLog(@"bool: %@",[event objectForKey:@"isCancelled"]);
-    UIFont * labelFont = [UIFont fontWithName:@"Helvetica-Light" size:14];
-    UIColor * labelColor = [UIColor colorWithWhite:1 alpha:1];
+   
     
     if([event objectForKey:@"isCancelled"]==[NSNumber numberWithBool:FALSE]){
-//        cell.eventTitleText.text = [tableData objectAtIndex:indexPath.row];
-        
         
         cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row]attributes:@{NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor}];
-        
-        NSLog(@"is not cancelled");
-        
         
     }else{
         cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor, NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];

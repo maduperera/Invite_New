@@ -102,7 +102,7 @@
 		DBD4247518F9AED800F668FB /* icon_call.png in Resources */ = {isa = PBXBuildFile; fileRef = DBD4247418F9AED800F668FB /* icon_call.png */; };
 		E33695081902929700D904D8 /* OutBoxInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33695071902929700D904D8 /* OutBoxInvitationViewController.m */; };
 		E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E363E8D518E59E6E00B07D6C /* MapKit.framework */; };
-		E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F9BD718E7381700400FD1 /* InvitationViewController.m */; };
+		E36F9BD818E7381700400FD1 /* InBoxInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F9BD718E7381700400FD1 /* InBoxInvitationViewController.m */; };
 		E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */; };
 		E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E3E5A518E7FA6100A2BB76 /* InboxCustomCell.m */; };
 		E3E3E5A818E806E100A2BB76 /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E3E5A718E806E100A2BB76 /* log.png */; };
@@ -255,8 +255,8 @@
 		E33695061902929700D904D8 /* OutBoxInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutBoxInvitationViewController.h; sourceTree = "<group>"; };
 		E33695071902929700D904D8 /* OutBoxInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutBoxInvitationViewController.m; sourceTree = "<group>"; };
 		E363E8D518E59E6E00B07D6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		E36F9BD618E7381700400FD1 /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
-		E36F9BD718E7381700400FD1 /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
+		E36F9BD618E7381700400FD1 /* InBoxInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InBoxInvitationViewController.h; sourceTree = "<group>"; };
+		E36F9BD718E7381700400FD1 /* InBoxInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InBoxInvitationViewController.m; sourceTree = "<group>"; };
 		E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableMapViewViewController.h; sourceTree = "<group>"; };
 		E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableMapViewViewController.m; sourceTree = "<group>"; };
 		E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposerDelegate.h; sourceTree = "<group>"; };
@@ -496,8 +496,8 @@
 				E3EED59118E49D790003D133 /* TemplateCell.m */,
 				E3EED59318E49E860003D133 /* TemplateViewController.h */,
 				E3EED59418E49E860003D133 /* TemplateViewController.m */,
-				E36F9BD618E7381700400FD1 /* InvitationViewController.h */,
-				E36F9BD718E7381700400FD1 /* InvitationViewController.m */,
+				E36F9BD618E7381700400FD1 /* InBoxInvitationViewController.h */,
+				E36F9BD718E7381700400FD1 /* InBoxInvitationViewController.m */,
 				E3B5D10518E9A20D00496C3A /* EditableMapViewViewController.h */,
 				E3B5D10618E9A20D00496C3A /* EditableMapViewViewController.m */,
 				E3B5D10818E9D27C00496C3A /* ComposerDelegate.h */,
@@ -788,7 +788,7 @@
 				E3E3E5A618E7FA6100A2BB76 /* InboxCustomCell.m in Sources */,
 				BED0938418DADA8B002F2954 /* TableCell.m in Sources */,
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
-				E36F9BD818E7381700400FD1 /* InvitationViewController.m in Sources */,
+				E36F9BD818E7381700400FD1 /* InBoxInvitationViewController.m in Sources */,
 				8743FAE318F3D94200447EBF /* split.c in Sources */,
 				DB7C8BC118FD9BC200B060DC /* MapPreviewController.m in Sources */,
 				E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */,
