@@ -122,14 +122,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbsUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-mM-eZ6">
-                                                    <rect key="frame" x="261" y="4" width="39" height="35"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-mM-eZ6">
+                                                    <rect key="frame" x="262" y="2" width="42" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="receiver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WT-EL-FI5">
+                                                    <rect key="frame" x="20" y="11" width="208" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="feebackStatusImageView" destination="ZqH-mM-eZ6" id="bj7-qX-MeV"/>
+                                            <outlet property="receiver" destination="3WT-EL-FI5" id="TG0-Nw-kAT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -138,7 +146,7 @@
                                     <outlet property="delegate" destination="1n3-Td-Pmp" id="99K-r8-K96"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-bn-WBc">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-bn-WBc" customClass="FeedBackTableView">
                                 <rect key="frame" x="0.0" y="385" width="320" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -198,6 +206,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ySa-i2-fck"/>
+                    <connections>
+                        <outlet property="accepted" destination="5v7-Q1-wBy" id="zJ6-Kk-dw9"/>
+                        <outlet property="feedbacks" destination="1QU-XO-7zc" id="fdT-Gx-QwU"/>
+                        <outlet property="ignored" destination="E0h-nc-Ig5" id="WMv-aK-Hdb"/>
+                        <outlet property="pending" destination="ArP-II-5Xa" id="61e-LN-G3J"/>
+                        <outlet property="totalCount" destination="G8L-1J-fD4" id="o0f-vZ-SyF"/>
+                        <outlet property="view" destination="1QU-XO-7zc" id="PPl-X3-uek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKy-zw-i8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -959,7 +975,6 @@
         <image name="icon_qr_blue.png" width="300" height="300"/>
         <image name="log.png" width="40" height="40"/>
         <image name="partybackground.png" width="400" height="300"/>
-        <image name="thumbsUp.png" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

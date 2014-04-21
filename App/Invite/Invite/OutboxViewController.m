@@ -221,7 +221,8 @@ PFQuery *queryEvent;
         [invitation viewDidLoad];
     }else if([segue.identifier isEqualToString:@"feedBack"]) {
         FeedBackViewController *feedBack = segue.destinationViewController;
-        feedBack.eventID = [self.eventIDs objectAtIndex:indexPath.row];
+        feedBack.event = [self.events objectAtIndex:indexPath.row];
+//        [feedBack viewDidLoad];
     }
     
 }

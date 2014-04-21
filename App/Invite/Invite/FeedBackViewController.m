@@ -17,6 +17,9 @@
 @implementation FeedBackViewController
 
 NSArray *tableData;
+int accpeted = 0;
+int ignored = 0;
+int pending = 0;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,6 +46,10 @@ NSArray *tableData;
 
 -(void)viewDidAppear:(BOOL)animated{
 
+    //reset counters
+    accpeted = 0;
+    ignored = 0;
+    pending = 0;
     
     //construct the currentuser feedback table name -> currentuseremailwithout'@'and'.'_in_box
     
@@ -54,10 +61,10 @@ NSArray *tableData;
     NSLog(@"currentUser FeedBack TableName: %@" , currentUserFeedBackTableName);
     
     
-    
+    NSLog(@"event id : %@",[self.event objectId]);
     
     PFQuery *query = [PFQuery queryWithClassName:currentUserFeedBackTableName];
-    [query whereKey:@"eventID" equalTo:self.eventID];
+    [query whereKey:@"eventID" equalTo:[self.event objectId]];
     
     // Run the query
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -65,13 +72,15 @@ NSArray *tableData;
             
             self.receiverName = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.receiverResponce = [[NSMutableArray alloc] initWithCapacity:[objects count]];
-          
             
             for(PFObject *obj in objects){
                 [self.receiverName addObject:[obj objectForKey:@"receiverEmail"]];
                 [self.receiverResponce addObject:[obj objectForKey:@"feedBack"]];
                 
             }
+            NSLog(@"receiver emails : %@",self.receiverName);
+            NSLog(@"receiver status : %@",self.receiverResponce);
+            self.feedbacks.reloadData;
         }
     }];
 }
@@ -89,32 +98,33 @@ NSArray *tableData;
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [tableData count];
+    return [self.receiverName count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"feedBackCell";
-    FeedBackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[FeedBackTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = [self.receiverName objectAtIndex:indexPath.row];
-    
+    FeedBackTableViewCell *feedCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    feedCell.receiver.text = [self.receiverName objectAtIndex:indexPath.row];
+    UIImage *imageIcon;
     if([[self.receiverResponce objectAtIndex:indexPath.row] isEqualToString: @"pending"]){
-        cell.feebackStatusImageView.image = [UIImage imageNamed:@"notSure.png"];
+        imageIcon = [UIImage imageNamed:@"notSure.png"];
+        pending++;
     }else if ([[self.receiverResponce objectAtIndex:indexPath.row] isEqualToString:@"accepted"]){
-        cell.feebackStatusImageView.image = [UIImage imageNamed:@"thumbsUp.png"];
+        imageIcon = [UIImage imageNamed:@"thumbsUp.png"];
+        accpeted++;
     }else{
-        cell.feebackStatusImageView.image = [UIImage imageNamed:@"thumbsDown.png"];
+        imageIcon = [UIImage imageNamed:@"thumbsDown.png"];
+        ignored++;
     }
     
-    //cell.feebackStatusImageView.image = [UIImage imageNamed:@"notSure.png"];
-    
-    
-    return cell;
+    [feedCell.feebackStatusImageView setImage:imageIcon];
+    self.accepted.text = [NSString stringWithFormat:@"%d",accpeted];
+    self.pending.text = [NSString stringWithFormat:@"%d",pending];
+    self.ignored.text = [NSString stringWithFormat:@"%d",ignored];
+    self.totalCount.text = [NSString stringWithFormat:@"%d",[self.receiverName count]];
+    return feedCell;
 }
 
 @end
