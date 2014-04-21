@@ -351,7 +351,7 @@
                     <navigationItem key="navigationItem" id="eUx-ni-WWw">
                         <barButtonItem key="rightBarButtonItem" title="QR" id="6aW-RG-bgI">
                             <connections>
-                                <segue destination="KfI-M0-saG" kind="push" id="cvz-7I-i4k"/>
+                                <segue destination="KfI-M0-saG" kind="push" identifier="viewQRFromInBox" id="cvz-7I-i4k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -530,7 +530,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="KfI-M0-saG" kind="push" id="R0D-T3-bud"/>
+                                                <segue destination="KfI-M0-saG" kind="push" identifier="viewQRFromOutBox" id="R0D-T3-bud"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -982,6 +982,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="R0D-T3-bud"/>
+        <segue reference="cvz-7I-i4k"/>
     </inferredMetricsTieBreakers>
 </document>

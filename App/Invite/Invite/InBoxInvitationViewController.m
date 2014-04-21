@@ -318,11 +318,11 @@ MKPointAnnotation *point;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
-       if ([segue.identifier isEqualToString:@"viewQR"]) {
+       if ([segue.identifier isEqualToString:@"viewQRFromInBox"]) {
            QRViewController *qrViewController = segue.destinationViewController;
            qrViewController.invitation = self.event;
        }
-
+    
 }
 
 

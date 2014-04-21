@@ -10,7 +10,7 @@
 #import "OutBoxCustomCell.h"
 #import "OutBoxInvitationViewController.h"
 #import "FeedBackViewController.h"
-
+#import "QRViewController.h"
 
 @interface OutboxViewController ()
 
@@ -217,12 +217,13 @@ PFQuery *queryEvent;
     if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
         OutBoxInvitationViewController *invitation = segue.destinationViewController;
         invitation.event = [self.events objectAtIndex:indexPath.row];
-        invitation.event = [self.events objectAtIndex:indexPath.row];
         [invitation viewDidLoad];
     }else if([segue.identifier isEqualToString:@"feedBack"]) {
         FeedBackViewController *feedBack = segue.destinationViewController;
         feedBack.event = [self.events objectAtIndex:indexPath.row];
-//        [feedBack viewDidLoad];
+    }else if([segue.identifier isEqualToString:@"viewQRFromOutBox"]){
+        QRViewController *qrViewController = segue.destinationViewController;
+        qrViewController.invitation = [self.events objectAtIndex:indexPath.row];
     }
     
 }
