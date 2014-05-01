@@ -43,9 +43,14 @@ PFQuery *queryEvent;
 
 -(void)viewWillAppear:(BOOL)animated{
     [self getEvents];
+    NSLog(@"view will appear : outboxviewcontroller");
 //    [self.events removeAllObjects];
 //    [self.eventIDs removeAllObjects];
 //    [self.tableData removeAllObjects];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"view did appear : outboxviewcontroller");
 }
 
 - (void)didReceiveMemoryWarning

@@ -122,6 +122,8 @@ UIFont * labelFont;
                         [self.eventStatus addObject:[obj objectForKey:@"isPending"]];
                         [self.tableView reloadData];
 
+                    }else{
+                        //NSLog(@"error : %@" , error);
                     }
                 }];
                 
