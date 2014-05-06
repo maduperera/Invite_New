@@ -10,4 +10,6 @@
 
 @interface MJPopupBackgroundView : UIView
 
+@property (strong, nonatomic) UIImage *viewImage;
+
 @end

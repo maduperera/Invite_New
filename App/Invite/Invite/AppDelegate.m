@@ -148,4 +148,18 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(UIImage *) getCurrentScreen{
+    if (self.screenshot) {
+        return self.screenshot;
+    }else {
+        return nil;
+    }
+}
+
+-(void) setCurrentScreen: (UIImage *)image {
+    self.screenshot = image;
+}
+
+
+
 @end

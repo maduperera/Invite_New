@@ -19,4 +19,9 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (strong, nonatomic) UIImage *screenshot;
+
+- (UIImage *) getCurrentScreen;
+- (void) setCurrentScreen: (UIImage *)image;
+
 @end

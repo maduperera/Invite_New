@@ -829,18 +829,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-r5-hCZ">
-                                <rect key="frame" x="31" y="88" width="270" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="addReciever:" destination="9Qh-oS-zfh" eventType="touchDown" id="aO0-kD-Bjq"/>
-                                    <outlet property="delegate" destination="9Qh-oS-zfh" id="KPr-hS-EVi"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZnX-as-Z5s">
-                                <rect key="frame" x="31" y="132" width="272" height="30"/>
+                                <rect key="frame" x="28" y="72" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -849,7 +839,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gn4-EV-75r">
-                                <rect key="frame" x="32" y="178" width="129" height="30"/>
+                                <rect key="frame" x="29" y="118" width="129" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -859,7 +849,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdh-rq-vPT">
-                                <rect key="frame" x="169" y="178" width="134" height="30"/>
+                                <rect key="frame" x="166" y="118" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -869,7 +859,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBF-Kv-DJr">
-                                <rect key="frame" x="31" y="216" width="130" height="30"/>
+                                <rect key="frame" x="28" y="156" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -879,7 +869,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4P-F5-r3S">
-                                <rect key="frame" x="31" y="259" width="272" height="30"/>
+                                <rect key="frame" x="28" y="199" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -888,11 +878,11 @@
                                 </connections>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xu-OC-P0j">
-                                <rect key="frame" x="32" y="303" width="268" height="202"/>
+                                <rect key="frame" x="29" y="243" width="268" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dUU-hj-wa7">
-                                <rect key="frame" x="169" y="216" width="134" height="30"/>
+                                <rect key="frame" x="166" y="156" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
@@ -917,7 +907,6 @@
                         <outlet property="event_end_time" destination="Bdh-rq-vPT" id="X4v-XV-dRk"/>
                         <outlet property="event_start_time" destination="Gn4-EV-75r" id="wO3-YG-ezT"/>
                         <outlet property="event_title" destination="ZnX-as-Z5s" id="zuM-2v-RTK"/>
-                        <outlet property="event_to" destination="Zo0-r5-hCZ" id="cys-2j-HMM"/>
                         <outlet property="map" destination="4xu-OC-P0j" id="xa5-ff-QLL"/>
                         <segue destination="FF5-Nj-pYm" kind="push" identifier="toTheEditableMap" id="cBg-aH-VPQ"/>
                     </connections>
