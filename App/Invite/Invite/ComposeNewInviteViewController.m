@@ -293,6 +293,7 @@ MKPointAnnotation *point;
     [event setObject:self.event_title.text forKey:@"title"];
     [event setObject:currentUserEmail forKey:@"senderEmail"];
     [event setObject:self.geoPoint forKey:@"geoPoint"];
+    [event setObject:[NSNumber numberWithBool:FALSE] forKey:@"isCancelled"];
     
     //save to event table
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -361,7 +362,7 @@ MKPointAnnotation *point;
                         [inMsg setObject:[event objectId] forKey:@"eventID"];
                         [inMsg setObject:dateString forKey:@"dateSent"];
                         [inMsg setObject:[NSNumber numberWithBool:FALSE] forKey:@"isDeleted"];
-                        
+                        [inMsg setObject:[NSNumber numberWithBool:TRUE] forKey:@"isPending"];
                         
                         //save to receiver_in_box table
                         [inMsg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
