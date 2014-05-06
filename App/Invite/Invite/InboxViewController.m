@@ -13,13 +13,14 @@
 #import "InboxCustomCell.h"
 #import "StaticMapViewViewController.h"
 #import "RNGridMenu.h"
-#import "SpringTransitioningDelegate.h"
-#import "MapPreviewController.h"
+#import "mapPopupViewController.h"
+#import "UIViewController+MJPopupViewController.h"
+#import "AppDelegate.h"
 
 
 @interface InboxViewController ()
 
-@property (nonatomic, strong) SpringTransitioningDelegate *transitioningDelegate;
+@property (nonatomic) NSInteger objectCount;
 
 @end
 
@@ -107,6 +108,8 @@ UIFont * labelFont;
             self.events = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.tableData = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             self.eventStatus = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+            
+            self.objectCount = [objects count];
             
             for(PFObject *obj in objects){
                 [obj objectForKey:@"eventID"];
@@ -205,6 +208,35 @@ UIFont * labelFont;
         cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor, NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
     }
     
+    
+    NSInteger rowcount = [indexPath row];
+    
+    if (self.objectCount - 1 == rowcount) {
+        
+        UIGraphicsBeginImageContext(self.view.bounds.size);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // helps w/ our colors when blurring
+        // feel free to adjust jpeg quality (lower = higher perf)
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.75);
+        image = [UIImage imageWithData:imageData];
+        
+        
+        
+        //Get a screen capture from the current view.
+        UIGraphicsBeginImageContext(self.view.bounds.size);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *viewImg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        AppDelegate *sharedObject = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [sharedObject setCurrentScreen:image];
+    }
+    
+
+    
     return cell;
 }
 
@@ -279,22 +311,12 @@ UIFont * labelFont;
 - (IBAction)showQR:(id)sender {
 }
 - (IBAction)showMap:(id)sender {
-  //  StaticMapViewViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"StaticMap"];
-    
-    StaticMapViewViewController *mapController = [StaticMapViewViewController new];
+    mapPopupViewController *mapController = [[mapPopupViewController alloc]initWithNibName:@"mapPopupViewController" bundle:nil];
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
     mapController.event = [self.events objectAtIndex:indexPath.row];
-   // mapController.view.frame =CGRectMake(50, 50, 100, 100);
+    // mapController.view.frame =CGRectMake(50, 50, 100, 100);
     
-    self.transitioningDelegate = [[SpringTransitioningDelegate alloc] initWithDelegate:self];
-    self.transitioningDelegate.transitioningDirection = TransitioningDirectionUp;
-    [self.transitioningDelegate presentViewController:mapController];
-    
-   
-   // [self presentPopupViewController:mapController animationType:MJPopupViewAnimationFade];
-  //   [self.view addSubview:mapController.view];
-    //[self.navigationController pushViewController:mapController animated:YES];
-    
+    [self presentPopupViewController:mapController animationType:MJPopupViewAnimationSlideTopBottom];
    
 }
 

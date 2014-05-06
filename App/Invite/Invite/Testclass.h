@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "BlurViewController.h"
 
 
-@interface Testclass : BlurViewController
+@interface Testclass : UIViewController
 
 @end

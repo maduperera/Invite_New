@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "ComposerDelegate.h"
-#import "BlurViewController.h"
 
 
-@interface StaticMapViewViewController : BlurViewController
+@interface StaticMapViewViewController : UIViewController
 
 @property(weak,nonatomic)MKPointAnnotation *centerAnnotation;
 @property(weak,nonatomic) id<ComposerDelegate> delegate;

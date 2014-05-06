@@ -1,18 +1,18 @@
 //
-//  MapPreviewController.m
+//  mapPopupViewController.m
 //  Invite
 //
-//  Created by Dhammini on 4/15/14.
+//  Created by Dhammini on 4/27/14.
 //  Copyright (c) 2014 Dhammini Fernando. All rights reserved.
 //
 
-#import "MapPreviewController.h"
+#import "mapPopupViewController.h"
 
-@interface MapPreviewController ()
+@interface mapPopupViewController ()
 
 @end
 
-@implementation MapPreviewController
+@implementation mapPopupViewController
 
 MKPointAnnotation *point;
 

@@ -60,16 +60,13 @@
 		BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938A18DADBE7002F2954 /* InboxViewController.m */; };
 		BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */; };
 		BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED0938F18DAE738002F2954 /* OutboxViewController.m */; };
+		BEE64EDA1918E55B00AC9A19 /* mapPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE64ED61918E55B00AC9A19 /* mapPopupViewController.m */; };
+		BEE64EDB1918E55B00AC9A19 /* mapPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE64ED71918E55B00AC9A19 /* mapPopupViewController.xib */; };
+		BEE64EDC1918E55B00AC9A19 /* MapPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE64ED91918E55B00AC9A19 /* MapPreviewController.m */; };
 		DB0730E418F96FE9002E2830 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0730E318F96FE9002E2830 /* Parse.framework */; };
 		DB7C8BA818FD37D400B060DC /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BA718FD37D400B060DC /* MJPopupBackgroundView.m */; };
 		DB7C8BAB18FD3EF300B060DC /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BAA18FD3EF300B060DC /* UIViewController+MJPopupViewController.m */; };
-		DB7C8BB418FD5BBE00B060DC /* DynamicDismissalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BAD18FD5BBE00B060DC /* DynamicDismissalAnimator.m */; };
-		DB7C8BB518FD5BBE00B060DC /* LinearDismissalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BAF18FD5BBE00B060DC /* LinearDismissalAnimator.m */; };
-		DB7C8BB618FD5BBE00B060DC /* PresentingSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BB118FD5BBE00B060DC /* PresentingSpringAnimator.m */; };
-		DB7C8BB718FD5BBE00B060DC /* SpringTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BB318FD5BBE00B060DC /* SpringTransitioningDelegate.m */; };
-		DB7C8BBA18FD5BDB00B060DC /* BlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BB918FD5BDB00B060DC /* BlurViewController.m */; };
 		DB7C8BBD18FD614600B060DC /* Testclass.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BBC18FD614600B060DC /* Testclass.m */; };
-		DB7C8BC118FD9BC200B060DC /* MapPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7C8BC018FD9BC200B060DC /* MapPreviewController.m */; };
 		DBA92C4818FA6BE300BC1E15 /* icon_calender_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA92C4718FA6BE300BC1E15 /* icon_calender_white.png */; };
 		DBA92C4A18FA6C6B00BC1E15 /* icon_contact_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA92C4918FA6C6B00BC1E15 /* icon_contact_white.png */; };
 		DBA92C4C18FA6CC900BC1E15 /* icon_location_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA92C4B18FA6CC900BC1E15 /* icon_location_white.png */; };
@@ -207,25 +204,18 @@
 		BED0938C18DADC02002F2954 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BED0938E18DAE738002F2954 /* OutboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutboxViewController.h; sourceTree = "<group>"; };
 		BED0938F18DAE738002F2954 /* OutboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutboxViewController.m; sourceTree = "<group>"; };
+		BEE64ED51918E55B00AC9A19 /* mapPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapPopupViewController.h; sourceTree = "<group>"; };
+		BEE64ED61918E55B00AC9A19 /* mapPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapPopupViewController.m; sourceTree = "<group>"; };
+		BEE64ED71918E55B00AC9A19 /* mapPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mapPopupViewController.xib; sourceTree = "<group>"; };
+		BEE64ED81918E55B00AC9A19 /* MapPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPreviewController.h; sourceTree = "<group>"; };
+		BEE64ED91918E55B00AC9A19 /* MapPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPreviewController.m; sourceTree = "<group>"; };
 		DB0730E318F96FE9002E2830 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DB7C8BA618FD37D400B060DC /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
 		DB7C8BA718FD37D400B060DC /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
 		DB7C8BA918FD3EF300B060DC /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
 		DB7C8BAA18FD3EF300B060DC /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
-		DB7C8BAC18FD5BBE00B060DC /* DynamicDismissalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicDismissalAnimator.h; sourceTree = "<group>"; };
-		DB7C8BAD18FD5BBE00B060DC /* DynamicDismissalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicDismissalAnimator.m; sourceTree = "<group>"; };
-		DB7C8BAE18FD5BBE00B060DC /* LinearDismissalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearDismissalAnimator.h; sourceTree = "<group>"; };
-		DB7C8BAF18FD5BBE00B060DC /* LinearDismissalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearDismissalAnimator.m; sourceTree = "<group>"; };
-		DB7C8BB018FD5BBE00B060DC /* PresentingSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingSpringAnimator.h; sourceTree = "<group>"; };
-		DB7C8BB118FD5BBE00B060DC /* PresentingSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingSpringAnimator.m; sourceTree = "<group>"; };
-		DB7C8BB218FD5BBE00B060DC /* SpringTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringTransitioningDelegate.h; sourceTree = "<group>"; };
-		DB7C8BB318FD5BBE00B060DC /* SpringTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringTransitioningDelegate.m; sourceTree = "<group>"; };
-		DB7C8BB818FD5BDB00B060DC /* BlurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurViewController.h; sourceTree = "<group>"; };
-		DB7C8BB918FD5BDB00B060DC /* BlurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurViewController.m; sourceTree = "<group>"; };
 		DB7C8BBB18FD614600B060DC /* Testclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Testclass.h; sourceTree = "<group>"; };
 		DB7C8BBC18FD614600B060DC /* Testclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Testclass.m; sourceTree = "<group>"; };
-		DB7C8BBF18FD9BC200B060DC /* MapPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPreviewController.h; sourceTree = "<group>"; };
-		DB7C8BC018FD9BC200B060DC /* MapPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPreviewController.m; sourceTree = "<group>"; };
 		DBA92C4718FA6BE300BC1E15 /* icon_calender_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calender_white.png; sourceTree = "<group>"; };
 		DBA92C4918FA6C6B00BC1E15 /* icon_contact_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_contact_white.png; sourceTree = "<group>"; };
 		DBA92C4B18FA6CC900BC1E15 /* icon_location_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_location_white.png; sourceTree = "<group>"; };
@@ -547,18 +537,11 @@
 		DB7C8BA518FD204A00B060DC /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				DB7C8BB818FD5BDB00B060DC /* BlurViewController.h */,
-				DB7C8BB918FD5BDB00B060DC /* BlurViewController.m */,
-				DB7C8BAC18FD5BBE00B060DC /* DynamicDismissalAnimator.h */,
-				DB7C8BAD18FD5BBE00B060DC /* DynamicDismissalAnimator.m */,
-				DB7C8BAE18FD5BBE00B060DC /* LinearDismissalAnimator.h */,
-				DB7C8BAF18FD5BBE00B060DC /* LinearDismissalAnimator.m */,
-				DB7C8BB018FD5BBE00B060DC /* PresentingSpringAnimator.h */,
-				DB7C8BB118FD5BBE00B060DC /* PresentingSpringAnimator.m */,
-				DB7C8BB218FD5BBE00B060DC /* SpringTransitioningDelegate.h */,
-				DB7C8BB318FD5BBE00B060DC /* SpringTransitioningDelegate.m */,
-				DB7C8BBF18FD9BC200B060DC /* MapPreviewController.h */,
-				DB7C8BC018FD9BC200B060DC /* MapPreviewController.m */,
+				BEE64ED51918E55B00AC9A19 /* mapPopupViewController.h */,
+				BEE64ED61918E55B00AC9A19 /* mapPopupViewController.m */,
+				BEE64ED71918E55B00AC9A19 /* mapPopupViewController.xib */,
+				BEE64ED81918E55B00AC9A19 /* MapPreviewController.h */,
+				BEE64ED91918E55B00AC9A19 /* MapPreviewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -754,6 +737,7 @@
 				DBA92C8318FAECD500BC1E15 /* icon_email_white.png in Resources */,
 				DBD4246A18F9A8D000F668FB /* 4-background_960*640_1.png in Resources */,
 				DBD4245E18F995A200F668FB /* 4-background_480*320_2.png in Resources */,
+				BEE64EDB1918E55B00AC9A19 /* mapPopupViewController.xib in Resources */,
 				BED0938818DADB31002F2954 /* TableCell.xib in Resources */,
 				DBA92C6118FA9BD600BC1E15 /* icon_contact_blue.png in Resources */,
 				BED0938D18DADC02002F2954 /* MainStoryboard.storyboard in Resources */,
@@ -790,7 +774,6 @@
 				8743FAE118F3D94200447EBF /* qrspec.c in Sources */,
 				8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */,
 				8743FAE018F3D94200447EBF /* qrinput.c in Sources */,
-				DB7C8BBA18FD5BDB00B060DC /* BlurViewController.m in Sources */,
 				BEB219E318EBE92F00E8B8E5 /* ContactListViewController.m in Sources */,
 				BED0936018DADA49002F2954 /* AppDelegate.m in Sources */,
 				E3A766231904525E00212DE3 /* FeedBackTableViewCell.m in Sources */,
@@ -799,11 +782,8 @@
 				BED0938B18DADBE7002F2954 /* InboxViewController.m in Sources */,
 				BED0939018DAE738002F2954 /* OutboxViewController.m in Sources */,
 				8743FADC18F3D94200447EBF /* bitstream.c in Sources */,
-				DB7C8BB618FD5BBE00B060DC /* PresentingSpringAnimator.m in Sources */,
 				877C764F18DC343E004124CB /* InviteLoginViewController.m in Sources */,
-				DB7C8BB718FD5BBE00B060DC /* SpringTransitioningDelegate.m in Sources */,
 				8743FADF18F3D94200447EBF /* qrencode.c in Sources */,
-				DB7C8BB518FD5BBE00B060DC /* LinearDismissalAnimator.m in Sources */,
 				E3EED59518E49E860003D133 /* TemplateViewController.m in Sources */,
 				8743FAE218F3D94200447EBF /* rscode.c in Sources */,
 				8743FADD18F3D94200447EBF /* mask.c in Sources */,
@@ -813,13 +793,14 @@
 				87249EF818E15964008363BE /* ScannerViewController.m in Sources */,
 				E36F9BD818E7381700400FD1 /* InBoxInvitationViewController.m in Sources */,
 				8743FAE318F3D94200447EBF /* split.c in Sources */,
-				DB7C8BC118FD9BC200B060DC /* MapPreviewController.m in Sources */,
 				E3F778B418E5560F00CBB401 /* ComposeNewInviteViewController.m in Sources */,
+				BEE64EDC1918E55B00AC9A19 /* MapPreviewController.m in Sources */,
 				87249EF518E153F7008363BE /* UIViewController+Utilities.m in Sources */,
 				BED0936318DADA49002F2954 /* Invite.xcdatamodeld in Sources */,
 				875CB18418DC1876008FE5CA /* InviteTabBar.m in Sources */,
 				E3EED59218E49D790003D133 /* TemplateCell.m in Sources */,
 				877C765618DC375C004124CB /* InviteSignupViewController.m in Sources */,
+				BEE64EDA1918E55B00AC9A19 /* mapPopupViewController.m in Sources */,
 				8743FADE18F3D94200447EBF /* qrenc.c in Sources */,
 				DB7C8BA818FD37D400B060DC /* MJPopupBackgroundView.m in Sources */,
 				DBA92C7D18FAEC8300BC1E15 /* RNGridMenu.m in Sources */,
@@ -828,7 +809,6 @@
 				DB7C8BAB18FD3EF300B060DC /* UIViewController+MJPopupViewController.m in Sources */,
 				E3B5D10718E9A20D00496C3A /* EditableMapViewViewController.m in Sources */,
 				BE4043A018ED542600DECAD4 /* Names.m in Sources */,
-				DB7C8BB418FD5BBE00B060DC /* DynamicDismissalAnimator.m in Sources */,
 				DB7C8BBD18FD614600B060DC /* Testclass.m in Sources */,
 				E3E3E5AB18E8087D00A2BB76 /* OutBoxCustomCell.m in Sources */,
 				E3A766221904525E00212DE3 /* FeedBackViewController.m in Sources */,
