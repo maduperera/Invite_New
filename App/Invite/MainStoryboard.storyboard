@@ -71,6 +71,7 @@
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="btnContact" destination="qDE-Tg-mfM" id="0YE-JC-X8W"/>
                                     <outlet property="eventStatus" destination="Kfb-yi-GmG" id="lKu-Qr-075"/>
                                     <outlet property="eventStatusColor" destination="fon-bg-hv4" id="pZs-md-2ZG"/>
                                     <outlet property="eventTitleText" destination="ys2-ne-ore" id="g02-on-Y1O"/>

@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "InviteLoginViewController.h"
 #import "InviteSignupViewController.h"
+#import <MessageUI/MessageUI.h>
 
 
-@interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate,  MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 @property(nonatomic, strong) NSMutableArray *tableData;
 @property(nonatomic, strong) NSMutableArray *events;

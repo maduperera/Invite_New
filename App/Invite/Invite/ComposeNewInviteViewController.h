@@ -11,10 +11,10 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <MapKit/MapKit.h>
 #import "ComposerDelegate.h"
+#import <MessageUI/MessageUI.h>
 
 
-
-@interface ComposeNewInviteViewController : UIViewController<UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MKMapViewDelegate, ComposerDelegate, MKReverseGeocoderDelegate>
+@interface ComposeNewInviteViewController : UIViewController<UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MKMapViewDelegate, ComposerDelegate, MKReverseGeocoderDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *event_title;
 @property (weak, nonatomic) IBOutlet UITextField *event_start_time;

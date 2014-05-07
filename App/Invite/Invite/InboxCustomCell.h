@@ -13,6 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *eventTitleText;
 @property (weak, nonatomic) IBOutlet UILabel *eventStatus;
 @property (weak, nonatomic) IBOutlet UIImageView *eventStatusColor;
-
+@property (weak, nonatomic) IBOutlet UIButton *btnContact;
 
 @end

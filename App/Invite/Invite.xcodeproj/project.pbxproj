@@ -37,6 +37,7 @@
 		8785B06E18EAD47900013FA1 /* StaticMapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785B06D18EAD47900013FA1 /* StaticMapViewViewController.m */; };
 		878A997E18E010B300DACA62 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 878A997D18E010B300DACA62 /* invite.png */; };
 		BE4043A118ED542600DECAD4 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40439F18ED542600DECAD4 /* TITokenField.m */; };
+		BEC50477191A2BE300166DF5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC50476191A2BE300166DF5 /* MessageUI.framework */; };
 		BED0934E18DADA49002F2954 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934D18DADA49002F2954 /* Foundation.framework */; };
 		BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0934F18DADA49002F2954 /* CoreGraphics.framework */; };
 		BED0935218DADA49002F2954 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0935118DADA49002F2954 /* UIKit.framework */; };
@@ -165,6 +166,7 @@
 		878A997D18E010B300DACA62 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		BE40439E18ED542600DECAD4 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
 		BE40439F18ED542600DECAD4 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
+		BEC50476191A2BE300166DF5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BED0934A18DADA49002F2954 /* Invite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED0934D18DADA49002F2954 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BED0934F18DADA49002F2954 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -260,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC50477191A2BE300166DF5 /* MessageUI.framework in Frameworks */,
 				BED0935018DADA49002F2954 /* CoreGraphics.framework in Frameworks */,
 				E363E8D618E59E6E00B07D6C /* MapKit.framework in Frameworks */,
 				875CB17F18DC1655008FE5CA /* Social.framework in Frameworks */,
@@ -386,6 +389,7 @@
 		BED0934C18DADA49002F2954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEC50476191A2BE300166DF5 /* MessageUI.framework */,
 				8743FACA18F3D8E800447EBF /* QREncoder */,
 				E363E8D518E59E6E00B07D6C /* MapKit.framework */,
 				875CB17E18DC1655008FE5CA /* Social.framework */,

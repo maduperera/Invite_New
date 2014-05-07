@@ -20,6 +20,7 @@
 @interface InboxViewController ()
 
 @property (nonatomic) NSInteger objectCount;
+@property (nonatomic) NSInteger rowID;
 
 @end
 
@@ -207,11 +208,16 @@ UIFont * labelFont;
         cell.eventTitleText.attributedText = [[NSAttributedString alloc] initWithString:[tableData objectAtIndex:indexPath.row] attributes:@{ NSFontAttributeName : labelFont,NSForegroundColorAttributeName : labelColor, NSStrikethroughStyleAttributeName : @1, NSStrikethroughColorAttributeName : [UIColor redColor]}];
     }
     
+    cell.btnContact.tag = [indexPath indexAtPosition:[indexPath length] - 1];
     
-    NSInteger rowcount = [indexPath row];
+    [cell.btnContact addTarget:self action:@selector(setSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
     
-    if (self.objectCount - 1 == rowcount) {
-        
+    return cell;
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row >= self.objectCount -1){
         UIGraphicsBeginImageContext(self.view.bounds.size);
         [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -233,11 +239,8 @@ UIFont * labelFont;
         AppDelegate *sharedObject = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [sharedObject setCurrentScreen:image];
     }
-    
-
-    
-    return cell;
 }
+
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
@@ -323,6 +326,11 @@ UIFont * labelFont;
 
 #pragma - mark Contact Invitation Sender
 
+-(void) setSelectedRow: (id) sender{
+    UIButton *clicked = (UIButton *) sender;
+    self.rowID = clicked.tag;
+}
+
 - (IBAction)contactInvitationSender:(id)sender {
     [self showGrid];
 }
@@ -330,10 +338,82 @@ UIFont * labelFont;
 #pragma mark - RNGridMenuDelegate
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
-    NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
+    PFObject *currentObject = [self.events objectAtIndex:self.rowID];
+    if ([item.title  isEqualToString: @"Call"]) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:[NSString stringWithFormat:@"%@: %@", @"Contact", [currentObject objectForKey:@"contactNo"]]];
+       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    } else if([item.title isEqualToString:@"Email"]){
+        [self sendEmail:currentObject];
+    } else if ([item.title isEqualToString:@"Message"]){
+        [self sendMessage: currentObject];
+    }
 }
 
-#pragma mark - Private
+#pragma mark - Message UI Delegates and Methods
+
+-(void) sendEmail: (PFObject *) currentEvent {
+    
+    //Get info - event object
+    
+    NSString *sender = [currentEvent objectForKey:@"senderEmail"];
+    
+    NSString *emailTitle = [NSString stringWithFormat:@"RE: %@", [currentEvent objectForKey:@"title"]];
+    NSString *messageBody = nil;
+
+    NSArray *toRecipents = [NSArray arrayWithObject:sender];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    mc.view.frame = CGRectMake(0, 0, 310, 530);
+    [self presentPopupViewController:mc animationType:MJPopupViewAnimationSlideTopBottom];
+}
+
+-(void) sendMessage: (PFObject *) currentEvent {
+
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
+    if([MFMessageComposeViewController canSendText])
+    {
+        controller.body = @"SMS message here";
+        controller.recipients = [NSArray arrayWithObjects:[currentEvent objectForKey:@"contactNo"], nil];
+        controller.messageComposeDelegate = self;
+        [self presentPopupViewController:controller animationType:MJPopupViewAnimationSlideTopBottom];
+    }
+
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Private RNGridMenuDelegate
 
 - (void)showImagesOnly {
     NSInteger numberOfOptions = 3;
