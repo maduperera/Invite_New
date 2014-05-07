@@ -7,7 +7,6 @@
 //
 
 #import "InboxViewController.h"
-#import "TableCell.h"
 #import "UIViewController+Utilities.h"
 #import "InBoxInvitationViewController.h"
 #import "InboxCustomCell.h"

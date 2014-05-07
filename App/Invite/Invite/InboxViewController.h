@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "InviteLoginViewController.h"
 #import "InviteSignupViewController.h"
-#import "Testclass.h"
 
 
 @interface InboxViewController : UITableViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>

@@ -8,8 +8,6 @@
 
 #import "ComposeNewInviteViewController.h"
 #import "EditableMapViewViewController.h"
-#import "ContactListViewController.h"
-#import "Names.h"
 #import "TITokenField.h"
 
 
@@ -85,7 +83,6 @@ MKPointAnnotation *point;
     CGRect frame =CGRectMake(20, 10, 272, 50);
 
     _tokenFieldView = [[TITokenFieldView alloc] initWithFrame:frame];
-	[_tokenFieldView setSourceArray:[Names listOfNames]];
 	[self.view addSubview:_tokenFieldView];
 	
 	[_tokenFieldView.tokenField setDelegate:self];
