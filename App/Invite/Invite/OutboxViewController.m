@@ -37,21 +37,10 @@ PFQuery *queryEvent;
 {
     [super viewDidLoad];
     NSLog(@"view did load");
-}
-
-
-
--(void)viewWillAppear:(BOOL)animated{
+    // populate the table
     [self getEvents];
-    NSLog(@"view will appear : outboxviewcontroller");
-//    [self.events removeAllObjects];
-//    [self.eventIDs removeAllObjects];
-//    [self.tableData removeAllObjects];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"view did appear : outboxviewcontroller");
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -233,4 +222,8 @@ PFQuery *queryEvent;
     
 }
 
+- (IBAction)reload:(id)sender {
+    // populate the table
+    [self getEvents];
+}
 @end

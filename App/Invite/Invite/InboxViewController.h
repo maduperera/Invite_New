@@ -20,11 +20,13 @@
 @property(nonatomic, strong) NSMutableArray *eventIDs;
 @property(nonatomic, strong) NSMutableArray *eventStatus;
 
+
 - (IBAction)mailToInvitor:(id)sender;
 - (IBAction)callInvitor:(id)sender;
 - (IBAction)shop:(id)sender;
 - (IBAction)showQR:(id)sender;
 - (IBAction)showMap:(id)sender;
 - (IBAction)contactInvitationSender:(id)sender;
+- (IBAction)reload:(id)sender;
 
 @end

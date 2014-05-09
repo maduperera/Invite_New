@@ -292,6 +292,10 @@ MKPointAnnotation *point;
     [event setObject:self.geoPoint forKey:@"geoPoint"];
     [event setObject:[NSNumber numberWithBool:FALSE] forKey:@"isCancelled"];
     
+    // send emails to each receipient
+    [self sendEmail:event];
+    
+    
     //save to event table
     [event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -555,7 +559,8 @@ MKPointAnnotation *point;
     NSString *messageBody = [NSString stringWithFormat:@"%@ 's %@ will be %@ to %@ at %@ on %@. You can contact %@ via %@ .", sender,title, startTime, endTime, address, date
                              , sender, contactNumber];
     
-    NSArray *toRecipents = [NSArray arrayWithObject:@"dhamminic@gmail.com"];
+    NSArray *toRecipents = self.usersWithEmail;
+    
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;

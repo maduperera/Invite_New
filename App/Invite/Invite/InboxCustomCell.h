@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventStatus;
 @property (weak, nonatomic) IBOutlet UIImageView *eventStatusColor;
 @property (weak, nonatomic) IBOutlet UIButton *btnContact;
+@property (weak, nonatomic) IBOutlet UIButton *btnMap;
 
 @end

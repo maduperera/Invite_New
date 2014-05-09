@@ -68,18 +68,9 @@ UIFont * labelFont;
     labelFont = [UIFont fontWithName:@"Helvetica-Light" size:14];
     labelColor = [UIColor colorWithWhite:1 alpha:1];
     
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"view did appear");
-}
-
--(void)viewWillAppear:(BOOL)animated{
-//    [self.events removeAllObjects];
-//    [self.eventIDs removeAllObjects];
-//    [self.tableData removeAllObjects];
+    // populate the table
     [self getEvents];
-    NSLog(@"view will appear");
+    
 }
 
 -(void)getEvents{
@@ -212,6 +203,9 @@ UIFont * labelFont;
     
     [cell.btnContact addTarget:self action:@selector(setSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
     
+    cell.btnMap.tag = [indexPath indexAtPosition:[indexPath length]-1];
+    [cell.btnMap addTarget:self action:@selector(setSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
@@ -314,8 +308,11 @@ UIFont * labelFont;
 }
 - (IBAction)showMap:(id)sender {
     mapPopupViewController *mapController = [[mapPopupViewController alloc]initWithNibName:@"mapPopupViewController" bundle:nil];
-    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    mapController.event = [self.events objectAtIndex:indexPath.row];
+    
+//    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
+//    mapController.event = [self.events objectAtIndex:indexPath.row];
+    mapController.event = [self.events objectAtIndex:self.rowID];
+    NSLog(@"event name when map popped : %@", [mapController.event objectForKey:@"title"]);
     // mapController.view.frame =CGRectMake(50, 50, 100, 100);
     
     [self presentPopupViewController:mapController animationType:MJPopupViewAnimationSlideTopBottom];
@@ -329,10 +326,16 @@ UIFont * labelFont;
 -(void) setSelectedRow: (id) sender{
     UIButton *clicked = (UIButton *) sender;
     self.rowID = clicked.tag;
+    NSLog(@"rowid : %d", self.rowID);
 }
 
 - (IBAction)contactInvitationSender:(id)sender {
     [self showGrid];
+}
+
+- (IBAction)reload:(id)sender {
+    // populate the table
+    [self getEvents];
 }
 
 #pragma mark - RNGridMenuDelegate

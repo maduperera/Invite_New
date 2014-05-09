@@ -34,18 +34,6 @@ int pending = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    tableData = [NSArray arrayWithObjects:@"John", @"Matt", nil];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewDidAppear:(BOOL)animated{
-
     //reset counters
     accpeted = 0;
     ignored = 0;
@@ -83,7 +71,55 @@ int pending = 0;
             self.feedbacks.reloadData;
         }
     }];
+
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+//-(void)viewDidAppear:(BOOL)animated{
+
+//    //reset counters
+//    accpeted = 0;
+//    ignored = 0;
+//    pending = 0;
+//    
+//    //construct the currentuser feedback table name -> currentuseremailwithout'@'and'.'_in_box
+//    
+//    //current user email address
+//    NSString * currentUserEmailWithOnlyAlhpaCharaters = [[[PFUser currentUser] objectForKey:@"email"] stringByReplacingOccurrencesOfString:@"@"withString:@""];
+//    currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+//    
+//    NSString *currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
+//    NSLog(@"currentUser FeedBack TableName: %@" , currentUserFeedBackTableName);
+//    
+//    
+//    NSLog(@"event id : %@",[self.event objectId]);
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:currentUserFeedBackTableName];
+//    [query whereKey:@"eventID" equalTo:[self.event objectId]];
+//    
+//    // Run the query
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            
+//            self.receiverName = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+//            self.receiverResponce = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+//            
+//            for(PFObject *obj in objects){
+//                [self.receiverName addObject:[obj objectForKey:@"receiverEmail"]];
+//                [self.receiverResponce addObject:[obj objectForKey:@"feedBack"]];
+//                
+//            }
+//            NSLog(@"receiver emails : %@",self.receiverName);
+//            NSLog(@"receiver status : %@",self.receiverResponce);
+//            self.feedbacks.reloadData;
+//        }
+//    }];
+//}
 
 #pragma mark - Table view data source
 

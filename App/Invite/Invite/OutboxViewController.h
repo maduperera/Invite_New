@@ -17,5 +17,6 @@
 
 @property(nonatomic, strong) NSMutableArray *eventIDs;
 
+- (IBAction)reload:(id)sender;
 
 @end
