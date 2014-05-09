@@ -330,7 +330,8 @@ MKPointAnnotation *point;
                     
                     //loop through array of recivers to popultae user_Feed_back table and the receiver_in_box tables
                     //populate usersWithEmail for testing
-                    self.usersWithEmail = [NSArray arrayWithObjects:@"madupiz@gmail.com",@"dhammini.dev@gmail.com",nil];
+                    //                    self.usersWithEmail = [NSArray arrayWithObjects:@"madupiz@gmail.com",@"dhammini.dev@gmail.com",nil];
+                    
                     for(NSString *email in (self.usersWithEmail)) {
                         
                         NSLog(@"receiver : %@",email);
