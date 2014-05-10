@@ -14,7 +14,7 @@
 #import <MessageUI/MessageUI.h>
 
 
-@interface ComposeNewInviteViewController : UIViewController<UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MKMapViewDelegate, ComposerDelegate, MKReverseGeocoderDelegate, MFMailComposeViewControllerDelegate>
+@interface ComposeNewInviteViewController : UIViewController<UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MKMapViewDelegate, ComposerDelegate, MKReverseGeocoderDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *event_title;
 @property (weak, nonatomic) IBOutlet UITextField *event_start_time;

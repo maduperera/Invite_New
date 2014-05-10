@@ -86,7 +86,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inbox" id="Dfi-uE-JZl">
-                        <barButtonItem key="leftBarButtonItem" title="reload" id="9U2-7T-sph">
+                        <barButtonItem key="leftBarButtonItem" image="icon-reload.png" id="9U2-7T-sph">
                             <connections>
                                 <action selector="reload:" destination="W06-e8-hpa" id="1OJ-w2-KH8"/>
                             </connections>
@@ -554,7 +554,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Outbox" id="bA4-uT-bv2">
-                        <barButtonItem key="leftBarButtonItem" title="reload" id="NG3-En-KQp">
+                        <barButtonItem key="leftBarButtonItem" image="icon-reload.png" id="NG3-En-KQp">
                             <connections>
                                 <action selector="reload:" destination="nmX-d9-LfV" id="fu4-5O-jhe"/>
                             </connections>
@@ -967,6 +967,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-reload.png" width="40" height="40"/>
         <image name="icon_calender_white.png" width="256" height="256"/>
         <image name="icon_contact_blue.png" width="300" height="300"/>
         <image name="icon_contact_white.png" width="256" height="256"/>

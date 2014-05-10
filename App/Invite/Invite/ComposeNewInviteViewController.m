@@ -292,8 +292,16 @@ MKPointAnnotation *point;
     [event setObject:self.geoPoint forKey:@"geoPoint"];
     [event setObject:[NSNumber numberWithBool:FALSE] forKey:@"isCancelled"];
     
+    
+    // if no receiver is selected do nothing and exit the method
+    if([self.usersWithEmail count] == 0){
+        return;
+    }
+    
+    
+    
     // send emails to each receipient
-    [self sendEmail:event];
+    //[self sendEmail:event];
     
     
     //save to event table
@@ -319,6 +327,8 @@ MKPointAnnotation *point;
                                                             cancelButtonTitle:@"Cancel"
                                                             otherButtonTitles:nil];
                     [message show];
+                    
+                    
                     // clear all text fields
                     [self clearAllTextFields];
                     //enable the send button
@@ -597,6 +607,15 @@ MKPointAnnotation *point;
     
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == alertView.cancelButtonIndex)
+    {
+        UINavigationController *navigationController = self.navigationController;
+        [navigationController popViewControllerAnimated:YES];
+        NSLog(@"cancel");
+    }
 }
 
 @end
