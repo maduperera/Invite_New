@@ -967,7 +967,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-reload.png" width="40" height="40"/>
+        <image name="icon-reload.png" width="35" height="35"/>
         <image name="icon_calender_white.png" width="256" height="256"/>
         <image name="icon_contact_blue.png" width="300" height="300"/>
         <image name="icon_contact_white.png" width="256" height="256"/>
@@ -984,6 +984,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="R0D-T3-bud"/>
+        <segue reference="cvz-7I-i4k"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,8 +10,14 @@
 #import <MapKit/MapKit.h>
 #import "ComposerDelegate.h"
 
+typedef enum UICGTravelModes {
+	UICGTravelModeDriving, // G_TRAVEL_MODE_DRIVING
+	UICGTravelModeWalking  // G_TRAVEL_MODE_WALKING
+} UICGTravelModes;
 
-@interface StaticMapViewViewController : UIViewController
+
+
+@interface StaticMapViewViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate ,MKAnnotation ,MKOverlay>
 
 @property(weak,nonatomic)MKPointAnnotation *centerAnnotation;
 @property(weak,nonatomic) id<ComposerDelegate> delegate;
@@ -20,5 +26,11 @@
 @property (readwrite) CLLocationDegrees latitude;
 @property (readwrite) CLLocationDegrees longitude;
 @property (weak, nonatomic) IBOutlet MKMapView *staticMapView;
+-(MKPolyline *)polylineWithEncodedString:(NSString *)encodedString ;
+-(void)addAnnotationSrcAndDestination :(CLLocationCoordinate2D )srcCord :(CLLocationCoordinate2D)destCord;
 
+@property (nonatomic, retain) NSString *startPoint;
+@property (nonatomic, retain) NSString *endPoint;
+@property (nonatomic, retain) NSArray *wayPoints;
+@property (nonatomic) UICGTravelModes travelMode;
 @end
