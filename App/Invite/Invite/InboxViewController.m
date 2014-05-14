@@ -200,11 +200,12 @@ UIFont * labelFont;
     }
     
     cell.btnContact.tag = [indexPath indexAtPosition:[indexPath length] - 1];
-    
+    NSLog(@"contact tag : %d", cell.btnContact.tag);
     [cell.btnContact addTarget:self action:@selector(setSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
     
     cell.btnMap.tag = [indexPath indexAtPosition:[indexPath length]-1];
-    [cell.btnMap addTarget:self action:@selector(setSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
+    NSLog(@"map tag : %d", cell.btnMap.tag);
+    [cell.btnMap addTarget:self action:@selector(showMap:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -311,7 +312,9 @@ UIFont * labelFont;
     
 //    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
 //    mapController.event = [self.events objectAtIndex:indexPath.row];
-    mapController.event = [self.events objectAtIndex:self.rowID];
+    UIButton *clicked = (UIButton *) sender;
+    mapController.event = [self.events objectAtIndex:clicked.tag];
+    NSLog(@"selected row id: %d", clicked.tag);
     NSLog(@"event name when map popped : %@", [mapController.event objectForKey:@"title"]);
     // mapController.view.frame =CGRectMake(50, 50, 100, 100);
     
@@ -342,6 +345,7 @@ UIFont * labelFont;
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
     PFObject *currentObject = [self.events objectAtIndex:self.rowID];
+    NSLog(@"rowid : %d", self.rowID);
     if ([item.title  isEqualToString: @"Call"]) {
         NSString *phoneNumber = [@"tel://" stringByAppendingString:[NSString stringWithFormat:@"%@: %@", @"Contact", [currentObject objectForKey:@"contactNo"]]];
        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
