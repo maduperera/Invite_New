@@ -139,7 +139,7 @@
         <!--In Box Invitation View Controller-->
         <scene sceneID="hmd-1t-JyI">
             <objects>
-                <viewController id="99V-Io-FWd" customClass="InBoxInvitationViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="inboxInvitation" storyboardIdentifier="inboxInvitation" id="99V-Io-FWd" customClass="InBoxInvitationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uYb-9f-W3V"/>
                         <viewControllerLayoutGuide type="bottom" id="mUb-yj-6wm"/>
@@ -397,7 +397,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="abc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-ko-7te">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-ko-7te">
                                                     <rect key="frame" x="27" y="11" width="206" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -691,8 +691,16 @@
                     <view key="view" contentMode="scaleToFill" id="KO6-j9-dtX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fvf-yW-GF7">
+                                <rect key="frame" x="0.0" y="65" width="320" height="459"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="VIt-Zv-Xfo">
                         <barButtonItem key="rightBarButtonItem" title="Sign out" id="6cd-Ch-0VG">
                             <connections>
@@ -700,6 +708,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="viewPreview" destination="Fvf-yW-GF7" id="Dhq-Fv-1TS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLE-wh-bg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -928,7 +940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uo9-Lr-nxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536" y="987"/>
+            <point key="canvasLocation" x="1535" y="987"/>
         </scene>
         <!--Navigation Controller - Scan-->
         <scene sceneID="xdz-4k-yWf">

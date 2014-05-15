@@ -382,13 +382,7 @@ MKPointAnnotation *point;
                                 NSLog(@"data written to the inbox successfully");
                                 
                             }else{
-                                //                                NSLog(@"error in writing to the db");
-                                //                                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry!"
-                                //                                                                                  message:@"Invitation was not sent.\n Please check your internet connection"
-                                //                                                                                 delegate:self
-                                //                                                                        cancelButtonTitle:@"Cancel"
-                                //                                                                        otherButtonTitles:nil];
-                                //                                [message show];
+                              
                             }
                         }];
                         
