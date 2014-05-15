@@ -10,7 +10,6 @@
 
 @interface FeedBackTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *feebackStatusImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *receiver;
 
 @end

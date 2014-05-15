@@ -307,11 +307,14 @@ UIFont * labelFont;
 
 - (IBAction)showQR:(id)sender {
 }
-- (IBAction)showMap:(id)sender {
+
+
+
+-(void)showMap: (id)sender{
     mapPopupViewController *mapController = [[mapPopupViewController alloc]initWithNibName:@"mapPopupViewController" bundle:nil];
     
-//    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-//    mapController.event = [self.events objectAtIndex:indexPath.row];
+    //    NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
+    //    mapController.event = [self.events objectAtIndex:indexPath.row];
     UIButton *clicked = (UIButton *) sender;
     mapController.event = [self.events objectAtIndex:clicked.tag];
     NSLog(@"selected row id: %d", clicked.tag);
@@ -319,9 +322,9 @@ UIFont * labelFont;
     // mapController.view.frame =CGRectMake(50, 50, 100, 100);
     
     [self presentPopupViewController:mapController animationType:MJPopupViewAnimationSlideTopBottom];
-   
-}
+    
 
+}
 
 
 #pragma - mark Contact Invitation Sender

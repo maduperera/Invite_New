@@ -125,7 +125,17 @@ PFQuery *queryEvent;
         cell = [[OutBoxCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+        // code for 4-inch screen
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_640.png"]];
+        
+    } else {
+        // code for 3.5-inch screen
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
+    }
     
+//    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow.png"]];
  
     PFObject *event = [self.events objectAtIndex:indexPath.row];
 
@@ -158,6 +168,15 @@ PFQuery *queryEvent;
 
     */
     
+    
+    
+    cell.showFeedBack.tag = [indexPath indexAtPosition:[indexPath length]-1];
+    NSLog(@"feeback tag : %d", cell.showFeedBack.tag);
+    [cell.showFeedBack addTarget:self action:@selector(showFeedBack:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.showQR.tag = [indexPath indexAtPosition:[indexPath length]-1];
+    NSLog(@"feeback tag : %d", cell.showQR.tag);
+    [cell.showQR addTarget:self action:@selector(showQRCode:) forControlEvents:UIControlEventTouchUpInside];
     
     
     return cell;
@@ -208,19 +227,54 @@ PFQuery *queryEvent;
 {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     NSIndexPath *indexPath = [[self.tableView indexPathsForSelectedRows]objectAtIndex:0];
-    if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
-        OutBoxInvitationViewController *invitation = segue.destinationViewController;
-        invitation.event = [self.events objectAtIndex:indexPath.row];
-        [invitation viewDidLoad];
-    }else if([segue.identifier isEqualToString:@"feedBack"]) {
+//    if ([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
+//        OutBoxInvitationViewController *invitation = segue.destinationViewController;
+//        invitation.event = [self.events objectAtIndex:indexPath.row];
+//        [invitation viewDidLoad];
+//    }else if([segue.identifier isEqualToString:@"feedBack"]) {
+//        FeedBackViewController *feedBack = segue.destinationViewController;
+//        feedBack.event = [self.events objectAtIndex:indexPath.row];
+//    }else if([segue.identifier isEqualToString:@"viewQRFromOutBox"]){
+//        QRViewController *qrViewController = segue.destinationViewController;
+//        qrViewController.invitation = [self.events objectAtIndex:indexPath.row];
+//    }
+    if([segue.identifier isEqualToString:@"invitationfromOutBox"]) {
         FeedBackViewController *feedBack = segue.destinationViewController;
         feedBack.event = [self.events objectAtIndex:indexPath.row];
-    }else if([segue.identifier isEqualToString:@"viewQRFromOutBox"]){
-        QRViewController *qrViewController = segue.destinationViewController;
-        qrViewController.invitation = [self.events objectAtIndex:indexPath.row];
+        NSLog(@"event title : %@", [feedBack.event objectForKey:@"title"] );
     }
+//    if([segue.identifier isEqualToString:@"feedBack"]) {
+//        FeedBackViewController *feedBack = segue.destinationViewController;
+//        feedBack.event = [self.events objectAtIndex:indexPath.row];
+//        NSLog(@"event title : %@", [feedBack.event objectForKey:@"title"] );
+//    }
+}
+
+
+-(void)showFeedBack: (id)sender{
+    
+    FeedBackViewController *feedBackController = [self.storyboard instantiateViewControllerWithIdentifier:@"feedBack"];
+    UIButton *clicked = (UIButton *) sender;
+    feedBackController.event = [self.events objectAtIndex:clicked.tag];
+    NSLog(@"selected row id: %d", clicked.tag);
+    NSLog(@"event name pushed : %@", [feedBackController.event objectForKey:@"title"]);
+    [self.navigationController pushViewController:feedBackController animated:YES];
     
 }
+
+-(void)showQRCode: (id)sender{
+    
+    QRViewController *qrViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"QRScreen"];
+    UIButton *clicked = (UIButton *) sender;
+    qrViewController.invitation = [self.events objectAtIndex:clicked.tag];
+    NSLog(@"selected row id: %d", clicked.tag);
+    NSLog(@"event name pushed : %@", [qrViewController.invitation objectForKey:@"title"]);
+    [self.navigationController pushViewController:qrViewController animated:YES];
+    
+}
+
+
+
 
 - (IBAction)reload:(id)sender {
     // populate the table

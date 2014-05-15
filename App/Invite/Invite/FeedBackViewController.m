@@ -38,16 +38,58 @@ int pending = 0;
     accpeted = 0;
     ignored = 0;
     pending = 0;
+   
+    
+//    self.feedbacks.delegate = self;
+//    self.feedbacks.dataSource = self;
+    
+    
     
     //construct the currentuser feedback table name -> currentuseremailwithout'@'and'.'_in_box
     
     //current user email address
+//    NSString * currentUserEmailWithOnlyAlhpaCharaters = [[[PFUser currentUser] objectForKey:@"email"] stringByReplacingOccurrencesOfString:@"@"withString:@""];
+//    currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
+//    
+//    NSString *currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
+//    NSLog(@"currentUser FeedBack TableName: %@" , currentUserFeedBackTableName);
+//    
+    
+//    NSLog(@"event id : %@",[self.event objectId]);
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:currentUserFeedBackTableName];
+//    [query whereKey:@"eventID" equalTo:[self.event objectId]];
+//    
+//    // Run the query
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            
+//            self.receiverName = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+//            self.receiverResponce = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+//            
+//            for(PFObject *obj in objects){
+//                [self.receiverName addObject:[obj objectForKey:@"receiverEmail"]];
+//                [self.receiverResponce addObject:[obj objectForKey:@"feedBack"]];
+//                
+//            }
+//            NSLog(@"receiver emails : %@",self.receiverName);
+//            NSLog(@"receiver status : %@",self.receiverResponce);
+//            self.feedbacks.reloadData;
+//        }
+//    }];
+
+    [self loadData];
+    
+}
+
+-(void)loadData{
+    
+    
     NSString * currentUserEmailWithOnlyAlhpaCharaters = [[[PFUser currentUser] objectForKey:@"email"] stringByReplacingOccurrencesOfString:@"@"withString:@""];
     currentUserEmailWithOnlyAlhpaCharaters = [currentUserEmailWithOnlyAlhpaCharaters stringByReplacingOccurrencesOfString:@"."withString:@""];
     
     NSString *currentUserFeedBackTableName = [NSString stringWithFormat:@"%@_%@", currentUserEmailWithOnlyAlhpaCharaters, @"feed_back"];
     NSLog(@"currentUser FeedBack TableName: %@" , currentUserFeedBackTableName);
-    
     
     NSLog(@"event id : %@",[self.event objectId]);
     
@@ -123,16 +165,15 @@ int pending = 0;
 
 #pragma mark - Table view data source
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.receiverName count];
 }
@@ -156,10 +197,29 @@ int pending = 0;
     }
     
     [feedCell.feebackStatusImageView setImage:imageIcon];
+ 
+    
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568) {
+        // code for 4-inch screen
+        feedCell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_640.png"]];
+        
+    } else {
+        // code for 3.5-inch screen
+        feedCell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
+    }
+    
+    
+    
+    
     self.accepted.text = [NSString stringWithFormat:@"%d",accpeted];
     self.pending.text = [NSString stringWithFormat:@"%d",pending];
     self.ignored.text = [NSString stringWithFormat:@"%d",ignored];
     self.totalCount.text = [NSString stringWithFormat:@"%d",[self.receiverName count]];
+    
+    //feedCell.selected = YES;
+//    feedCell.textLabel.backgroundColor = [UIColor clearColor];
+//    feedCell.contentView.backgroundColor = [UIColor clearColor];
     return feedCell;
 }
 

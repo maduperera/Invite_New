@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *outBoxEventLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *showFeedBack;
+@property (weak, nonatomic) IBOutlet UIButton *showQR;
 @end

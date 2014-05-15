@@ -25,7 +25,6 @@
 - (IBAction)callInvitor:(id)sender;
 - (IBAction)shop:(id)sender;
 - (IBAction)showQR:(id)sender;
-- (IBAction)showMap:(id)sender;
 - (IBAction)contactInvitationSender:(id)sender;
 - (IBAction)reload:(id)sender;
 
