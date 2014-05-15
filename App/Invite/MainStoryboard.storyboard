@@ -724,7 +724,7 @@
             </objects>
             <point key="canvasLocation" x="536" y="308"/>
         </scene>
-        <!--Template View Controller - Select Template-->
+        <!--Template View Controller - Select a template-->
         <scene sceneID="Uzf-6f-ggv">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="oDe-XY-Nnw" customClass="TemplateViewController" sceneMemberID="viewController">
@@ -770,7 +770,7 @@
                             <outlet property="delegate" destination="oDe-XY-Nnw" id="ZVu-yE-8dd"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Select Template" id="LkQ-pu-3S9">
+                    <navigationItem key="navigationItem" title="Select a template" id="LkQ-pu-3S9">
                         <barButtonItem key="rightBarButtonItem" title="Signout" id="hBW-um-IeX">
                             <connections>
                                 <action selector="signout:" destination="oDe-XY-Nnw" id="KN5-8w-gOv"/>

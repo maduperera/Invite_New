@@ -37,6 +37,9 @@ PFQuery *queryEvent;
 {
     [super viewDidLoad];
     NSLog(@"view did load");
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    
     // populate the table
     [self getEvents];
 }
@@ -135,7 +138,11 @@ PFQuery *queryEvent;
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background_320.png"]];
     }
     
-//    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow.png"]];
+    
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    
+    //if you need to change the arrow image
+    //cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow.png"]];
  
     PFObject *event = [self.events objectAtIndex:indexPath.row];
 
